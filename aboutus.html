@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MachineryPro - Industrial Machinery Solutions</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #003366;
+            --accent: #ff6b00;
+            --industrial-blue: #1e3a5f;
+            --metal-gray: #4a5568;
+            --steel: #718096;
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Industrial Background Pattern */
+        .industrial-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(30, 58, 95, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .loader {
+            width: 70px;
+            height: 70px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loader-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--industrial-blue);
+            letter-spacing: 2px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Industrial Header Strip */
+        .industrial-strip {
+            background: linear-gradient(90deg, var(--industrial-blue), var(--secondary));
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .industrial-strip .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .strip-item i {
+            color: var(--accent);
+        }
+        
+        /* Navbar */
+        .navbar {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand::before {
+            content: "⚙️";
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            color: var(--dark) !important;
+            transition: all 0.3s;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(13, 110, 253, 0.3), rgba(0, 51, 102, 0.3));
+            z-index: 1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* About Intro Section */
+        .about-intro {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            position: relative;
+        }
+
+        .about-text {
+            padding-right: 30px;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(13, 110, 253, 0.1), rgba(255, 107, 0, 0.1));
+            z-index: 1;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .mission-vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230d6efd' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+            border-top: 5px solid transparent;
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid var(--primary);
+        }
+
+        .mission-card {
+            border-left: 4px solid var(--primary);
+        }
+
+        .vision-card {
+            border-right: 4px solid var(--accent);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--primary);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-img img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .team-social a {
+            width: 35px;
+            height: 35px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        .stats-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            text-align: center;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stats-box h1 {
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .stats-box p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* Section Header */
+        .section-header {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-header h2 {
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: white;
+            padding: 70px 0 20px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .footer-logo {
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .footer-heading {
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 8px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 12px;
+            color: white;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 50px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Industrial Floating Buttons */
+        .floating-wp, .floating-call {
+            position: fixed;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 2000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-wp { 
+            bottom: 100px; 
+            background: #25d366; 
+        }
+        
+        .floating-call { 
+            bottom: 25px; 
+            background: var(--primary); 
+        }
+        
+        .floating-wp:hover, .floating-call:hover { 
+            transform: scale(1.1); 
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stats-box h1 {
+                font-size: 2.8rem;
+            }
+
+            .industrial-strip .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .floating-wp, .floating-call {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                right: 15px;
+            }
+            
+            .floating-wp {
+                bottom: 80px;
+            }
+
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
+            .mission-card, .vision-card {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Industrial Background Pattern -->
+    <div class="industrial-bg"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">MACHINERYPRO</div>
+    </div>
+
+    <!-- Industrial Header Strip -->
+    <div class="industrial-strip">
+        <div class="container">
+            <div class="strip-item">
+                <i class="fas fa-phone"></i>
+                <span>+91 98765 43210</span>
+            </div>
+            <div class="strip-item">
+                <i class="fas fa-envelope"></i>
+                <span>info@machinerypro.com</span>
+            </div>
+            <div class="strip-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Industrial Area, Sector 25, Delhi, India</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top animated-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MachineryPro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/industries.html">Industries</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>About MachineryPro</h1>
+            <p>Leading the industrial revolution with precision engineering and innovative solutions since 2005</p>
+        </div>
+    </section>
+
+    <!-- About Intro Section -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h2 class="mb-4" style="color: var(--industrial-blue); font-weight: 700;">Our Story</h2>
+                        <p class="lead mb-4">Founded in 2005, MachineryPro has grown from a small workshop to a global leader in industrial machinery solutions. Our journey began with a simple vision: to revolutionize manufacturing through precision engineering and innovative technology.</p>
+                        <p class="mb-4">Today, we serve clients across 35+ countries, providing cutting-edge machinery that drives efficiency, productivity, and sustainability in manufacturing processes worldwide.</p>
+                        <p>Our commitment to quality, innovation, and customer satisfaction has made us the trusted partner for industries ranging from automotive and aerospace to pharmaceuticals and consumer goods.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="MachineryPro Manufacturing Facility">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Mission & Vision</h2>
+                <p class="section-subtitle">Driving industrial excellence through innovation and commitment</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="mission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="mb-3" style="color: var(--industrial-blue);">Our Mission</h3>
+                        <p class="mb-3">To empower industries worldwide with reliable, efficient, and innovative machinery solutions that enhance productivity, reduce operational costs, and promote sustainable manufacturing practices.</p>
+                        <p>We achieve this through continuous research and development, precision engineering, and unwavering commitment to quality in every product we deliver.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="vision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="mb-3" style="color: var(--industrial-blue);">Our Vision</h3>
+                        <p class="mb-3">To be the global benchmark for industrial machinery excellence, driving the fourth industrial revolution through smart manufacturing, automation, and sustainable innovation.</p>
+                        <p>We envision a future where every manufacturing facility operates at peak efficiency with minimal environmental impact, powered by MachineryPro solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4 class="mb-3">Quality Excellence</h4>
+                        <p>We never compromise on quality. Every machine undergoes rigorous testing to ensure it meets the highest international standards and exceeds customer expectations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="mb-3">Innovation</h4>
+                        <p>We continuously invest in R&D to develop cutting-edge solutions that address evolving industry challenges and set new benchmarks in manufacturing technology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="mb-3">Customer Focus</h4>
+                        <p>Our customers are at the heart of everything we do. We build lasting partnerships by understanding their needs and delivering solutions that drive their success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Reliability</h4>
+                        <p>Our machinery is built to last, delivering consistent performance even in the most demanding industrial environments with minimal downtime.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="mb-3">Sustainability</h4>
+                        <p>We design eco-friendly solutions that minimize environmental impact while maximizing energy efficiency and resource utilization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="mb-3">Integrity</h4>
+                        <p>We conduct business with transparency, honesty, and ethical practices, building trust with customers, partners, and employees alike.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leadership Team</h2>
+                <p class="section-subtitle">Meet the visionaries driving MachineryPro's success</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rajesh Kumar">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="mb-1">Rajesh Kumar</h4>
+                            <p class="text-primary mb-2">Founder & CEO</p>
+                            <p class="small">With 25+ years in industrial engineering, Rajesh founded MachineryPro with a vision to transform manufacturing through innovation.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Priya Sharma">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="mb-1">Priya Sharma</h4>
+                            <p class="text-primary mb-2">Chief Technology Officer</p>
+                            <p class="small">Leading our R&D division, Priya drives innovation in automation and smart manufacturing technologies with 15+ years of expertise.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Amit Patel">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="mb-1">Amit Patel</h4>
+                            <p class="text-primary mb-2">Operations Director</p>
+                            <p class="small">Amit ensures seamless manufacturing operations and supply chain management across our global facilities with 20+ years of experience.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="https://images.unsplash.com/photo-1556157382-97eda5ee70a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Neha Gupta">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="mb-1">Neha Gupta</h4>
+                            <p class="text-primary mb-2">Global Sales Head</p>
+                            <p class="small">Neha leads our international expansion and customer relationship management, driving growth across 35+ countries worldwide.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Impact in Numbers</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Two decades of excellence and counting</p>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-box">
+                        <h1 class="fw-bold counter" data-count="20">0</h1>
+                        <p class="mb-0">Years Experience</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-box">
+                        <h1 class="fw-bold counter" data-count="5000">0</h1>
+                        <p class="mb-0">Machines Installed</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-box">
+                        <h1 class="fw-bold counter" data-count="1500">0</h1>
+                        <p class="mb-0">Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-box">
+                        <h1 class="fw-bold counter" data-count="35">0</h1>
+                        <p class="mb-0">Countries Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-logo">MachineryPro</h4>
+                    <p>Reliable · Innovative · Industrial Solutions</p>
+                    <p>We provide high-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency. With over 20 years of experience, we are your trusted partner for industrial automation.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-heading">Quick Links</h6>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="products.html">Products</a>
+                        <a href="services.html">Services</a>
+                        <a href="industries.html">Industries</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-heading">Support</h6>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Warranty Information</a>
+                        <a href="#">Service & Maintenance</a>
+                        <a href="#">Technical Support</a>
+                        <a href="#">Spare Parts</a>
+                        <a href="#">Training Programs</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-heading">Contact</h6>
+                    <div class="footer-links">
+                        <p><i class="fa-solid fa-phone me-2"></i> +91 98765 43210</p>
+                        <p><i class="fa-solid fa-envelope me-2"></i> info@machinerypro.com</p>
+                        <p><i class="fa-solid fa-location-dot me-2"></i> Industrial Area, Sector 25, Delhi, India</p>
+                        <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="mb-0">© 2025 MachineryPro Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Industrial Floating Buttons -->
+    <a href="https://wa.me/919876543210" class="floating-wp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+919876543210" class="floating-call"><i class="fa-solid fa-phone"></i></a>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 1500);
+        });
+
+        // Sticky Navbar
+        window.addEventListener('scroll', function(){
+            const nav = document.querySelector('.navbar');
+            nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if(window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                
+                const inc = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        updateCount();
+                    }
+                });
+            });
+            
+            observer.observe(counter);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
