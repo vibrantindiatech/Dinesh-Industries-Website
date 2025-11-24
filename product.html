@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MachineryPro | Products - Industrial Machinery Solutions</title>
+    <title>Dinesh Industries | Products - Industrial Machinery Solutions</title>
     
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -1050,7 +1050,7 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
-        <div class="loader-text">MACHINERYPRO</div>
+        <div class="loader-text">Dinesh Industries</div>
     </div>
 
     <!-- Industrial Header Strip -->
@@ -1062,7 +1062,7 @@
             </div>
             <div class="strip-item">
                 <i class="fas fa-envelope"></i>
-                <span>info@machinerypro.com</span>
+                <span>info@Dinesh Industries.com</span>
             </div>
             <div class="strip-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -1074,7 +1074,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top animated-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">MachineryPro</a>
+            <a class="navbar-brand" href="index.html">Dinesh Industries</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1142,8 +1142,8 @@
                         <div class="price-range-container">
                             <input type="range" class="price-range" id="price-range" min="0" max="100000" value="100000">
                             <div class="price-display">
-                                <span>$0</span>
-                                <span id="price-max">$100,000</span>
+                                <span>₹0</span>
+                                <span id="price-max">₹100,000</span>
                             </div>
                         </div>
                     </div>
@@ -1329,7 +1329,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4" data-aos="fade-up">
-                    <h4 class="footer-logo">MachineryPro</h4>
+                    <h4 class="footer-logo">Dinesh Industries</h4>
                     <p>Reliable · Innovative · Industrial Solutions</p>
                     <p>We provide high-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency. With over 20 years of experience, we are your trusted partner for industrial automation.</p>
                     <div class="social-icons mt-4">
@@ -1368,14 +1368,14 @@
                     <h6 class="footer-heading">Contact</h6>
                     <div class="footer-links">
                         <p><i class="fa-solid fa-phone me-2"></i> +91 98765 43210</p>
-                        <p><i class="fa-solid fa-envelope me-2"></i> info@machinerypro.com</p>
+                        <p><i class="fa-solid fa-envelope me-2"></i> info@Dinesh Industries.com</p>
                         <p><i class="fa-solid fa-location-dot me-2"></i> Industrial Area, Sector 25, Delhi, India</p>
                         <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p class="mb-0">© 2025 MachineryPro Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
+                <p class="mb-0">© 2025 Dinesh Industries Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
             </div>
         </div>
     </footer>
@@ -1637,7 +1637,7 @@
             
             priceRange.addEventListener('input', function() {
                 filterState.maxPrice = parseInt(this.value);
-                priceMax.textContent = '$' + filterState.maxPrice.toLocaleString();
+                priceMax.textContent = '₹' + filterState.maxPrice.toLocaleString();
                 applyFilters();
             });
 
@@ -1711,19 +1711,19 @@
                 productCard.innerHTML = `
                     <div class="card product-card">
                         <div class="position-relative">
-                            <img src="${product.image}" class="card-img-top" alt="${product.title}" />
-                            <span class="product-badge">${product.badge}</span>
+                            <img src="₹{product.image}" class="card-img-top" alt="₹{product.title}" />
+                            <span class="product-badge">₹{product.badge}</span>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${product.title}</h5>
                             <p class="card-text">${product.description}</p>
-                            <div class="product-price">$${product.price.toLocaleString()}</div>
+                            <div class="product-price">₹${product.price.toLocaleString()}</div>
                             ${product.originalPrice > product.price ? 
                                 `<div class="price-rate">
-                                    <span class="original-price">$${product.originalPrice.toLocaleString()}</span>
-                                    <span class="discount-badge">Save ${discount}%</span>
+                                    <span class="original-price">${product.originalPrice.toLocaleString()}</span>
+                                    <span class="discount-badge">Save ₹{discount}%</span>
                                 </div>` : ''}
-                            <button class="product-btn" data-product-id="${product.id}">View Details</button>
+                            <button class="product-btn" data-product-id="₹{product.id}">View Details</button>
                         </div>
                     </div>
                 `;
@@ -1758,22 +1758,22 @@
             
             // Update product detail section
             document.getElementById('detail-product-title').textContent = product.title;
-            document.getElementById('detail-product-price').textContent = `$${product.price.toLocaleString()}`;
+            document.getElementById('detail-product-price').textContent = `₹₹{product.price.toLocaleString()}`;
             document.getElementById('detail-product-description').textContent = product.description;
             
             // Update price display
             if (product.originalPrice > product.price) {
-                document.getElementById('detail-original-price').textContent = `$${product.originalPrice.toLocaleString()}`;
-                document.getElementById('detail-discount').textContent = `Save ${discount}%`;
+                document.getElementById('detail-original-price').textContent = `₹₹{product.originalPrice.toLocaleString()}`;
+                document.getElementById('detail-discount').textContent = `Save ₹{discount}%`;
             } else {
                 document.getElementById('detail-original-price').style.display = 'none';
                 document.getElementById('detail-discount').style.display = 'none';
             }
             
             // Update price comparison
-            document.getElementById('comparison-our-price').textContent = `$${product.price.toLocaleString()}`;
-            document.getElementById('comparison-market-price').textContent = `$${marketPrice.toLocaleString()}`;
-            document.getElementById('comparison-savings').textContent = `$${savings.toLocaleString()}`;
+            document.getElementById('comparison-our-price').textContent = `₹₹{product.price.toLocaleString()}`;
+            document.getElementById('comparison-market-price').textContent = `₹₹{marketPrice.toLocaleString()}`;
+            document.getElementById('comparison-savings').textContent = `₹₹{savings.toLocaleString()}`;
             
             // Update product images
             document.getElementById('main-product-img').src = product.images[0];
@@ -1782,9 +1782,9 @@
             
             product.images.forEach((image, index) => {
                 const thumbnail = document.createElement('div');
-                thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                thumbnail.className = `thumbnail ₹{index === 0 ? 'active' : ''}`;
                 thumbnail.setAttribute('data-img', image);
-                thumbnail.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}">`;
+                thumbnail.innerHTML = `<img src="₹{image}" alt="Thumbnail ₹{index + 1}">`;
                 thumbnailsContainer.appendChild(thumbnail);
             });
             
@@ -1796,14 +1796,14 @@
                 const specItem = document.createElement('div');
                 specItem.className = 'spec-item';
                 specItem.innerHTML = `
-                    <span class="spec-name">${spec.name}</span>
-                    <span class="spec-value">${spec.value}</span>
+                    <span class="spec-name">₹{spec.name}</span>
+                    <span class="spec-value">₹{spec.value}</span>
                 `;
                 specsContainer.appendChild(specItem);
             });
             
             // Update tab content
-            document.getElementById('tab-description-title').textContent = `${product.title} - Advanced Technology`;
+            document.getElementById('tab-description-title').textContent = `₹{product.title} - Advanced Technology`;
             document.getElementById('tab-description-content').textContent = product.fullDescription;
             
             // Update specifications tab
@@ -1813,15 +1813,15 @@
             product.specs.forEach(spec => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${spec.name}</td>
-                    <td>${spec.value}</td>
+                    <td>₹{spec.name}</td>
+                    <td>₹{spec.value}</td>
                 `;
                 specsTable.appendChild(row);
             });
             
             // Update applications tab
-            document.getElementById('tab-applications-title').textContent = `${product.title} - Industry Applications`;
-            document.getElementById('tab-applications-content').innerHTML = `<p>${product.applications}</p>`;
+            document.getElementById('tab-applications-title').textContent = `₹{product.title} - Industry Applications`;
+            document.getElementById('tab-applications-content').innerHTML = `<p>₹{product.applications}</p>`;
             
             // Update reviews tab
             const reviewsContainer = document.getElementById('tab-reviews-content');
@@ -1844,13 +1844,13 @@
                 
                 reviewItem.innerHTML = `
                     <div class="d-flex justify-content-between">
-                        <h5>${review.name}</h5>
+                        <h5>₹{review.name}</h5>
                         <div class="text-warning">
-                            ${stars}
+                            ₹{stars}
                         </div>
                     </div>
-                    <p class="text-muted">By ${review.name}, ${review.company} | ${review.date}</p>
-                    <p>${review.text}</p>
+                    <p class="text-muted">By ₹{review.name}, ₹{review.company} | ₹{review.date}</p>
+                    <p>₹{review.text}</p>
                 `;
                 reviewsContainer.appendChild(reviewItem);
             });
@@ -1899,19 +1899,19 @@
                 productCard.innerHTML = `
                     <div class="card product-card">
                         <div class="position-relative">
-                            <img src="${product.image}" class="card-img-top" alt="${product.title}" />
-                            <span class="product-badge">${product.badge}</span>
+                            <img src="₹{product.image}" class="card-img-top" alt="₹{product.title}" />
+                            <span class="product-badge">₹{product.badge}</span>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${product.title}</h5>
                             <p class="card-text">${product.description}</p>
-                            <div class="product-price">$${product.price.toLocaleString()}</div>
+                            <div class="product-price">₹${product.price.toLocaleString()}</div>
                             ${product.originalPrice > product.price ? 
                                 `<div class="price-rate">
-                                    <span class="original-price">$${product.originalPrice.toLocaleString()}</span>
-                                    <span class="discount-badge">Save ${discount}%</span>
+                                    <span class="original-price">${product.originalPrice.toLocaleString()}</span>
+                                    <span class="discount-badge">Save ₹{discount}%</span>
                                 </div>` : ''}
-                            <button class="product-btn" data-product-id="${product.id}">View Details</button>
+                            <button class="product-btn" data-product-id="₹{product.id}">View Details</button>
                         </div>
                     </div>
                 `;
