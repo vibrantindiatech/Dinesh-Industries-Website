@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Dinesh Industries - Industrial Machinery Solutions</title>
+    <title>About Us | Dinesh Industries - Industrial Components & Machinery</title>
     
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -242,7 +245,7 @@
 
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 600px;
             transition: transform 0.5s ease;
         }
 
@@ -362,10 +365,66 @@
             transform: rotate(15deg) scale(1.1);
         }
 
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-specs {
+            margin: 15px 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .product-specs span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
         /* Team Section */
         .team-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: white;
         }
 
         .team-card {
@@ -769,7 +828,7 @@
             </div>
             <div class="strip-item">
                 <i class="fas fa-envelope"></i>
-                <span>info@Dinesh Industries.com</span>
+                <span>info@dineshindustries.com</span>
             </div>
             <div class="strip-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -790,11 +849,11 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/product.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/feturesh.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/features.html">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="/industries.html">Industries</a></li>
                     <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contect.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -804,7 +863,7 @@
     <section class="page-header">
         <div class="page-header-content">
             <h1>About Dinesh Industries</h1>
-            <p>Leading the industrial revolution with precision engineering and innovative solutions since 2005</p>
+            <p>Manufacturers of precision industrial components and machinery since 1995</p>
         </div>
     </section>
 
@@ -812,15 +871,15 @@
     <section class="about-intro">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-text">
                         <h2 class="mb-4" style="color: var(--industrial-blue); font-weight: 700;">Our Story</h2>
-                        <p class="lead mb-4">Founded in 2005, Dinesh Industries has grown from a small workshop to a global leader in industrial machinery solutions. Our journey began with a simple vision: to revolutionize manufacturing through precision engineering and innovative technology.</p>
-                        <p class="mb-4">Today, we serve clients across 35+ countries, providing cutting-edge machinery that drives efficiency, productivity, and sustainability in manufacturing processes worldwide.</p>
-                        <p>Our commitment to quality, innovation, and customer satisfaction has made us the trusted partner for industries ranging from automotive and aerospace to pharmaceuticals and consumer goods.</p>
+                        <p class="lead mb-4">Established in 1995, Dinesh Industries has evolved from a small workshop to a leading manufacturer of industrial components and machinery. Our journey began with a commitment to quality and precision in manufacturing industrial tools and components.</p>
+                        <p class="mb-4">Today, we specialize in producing high-quality industrial components including C.I. Tapper Buffers, Pawali Bhavra, Balti Punching Bhingri, and various specialized rolls and bearings used in utensil manufacturing and metal forming industries.</p>
+                        <p>Our dedication to precision engineering, use of quality materials like WPS Iron and M.S., and focus on customer needs has established us as a trusted partner for industries across India and beyond.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6"  data-aos="fade-left">
                     <div class="about-image">
                         <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dinesh Industries Manufacturing Facility">
                     </div>
@@ -832,62 +891,169 @@
     <!-- Mission & Vision Section -->
     <section class="mission-vision">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up" >
                 <h2>Our Mission & Vision</h2>
-                <p class="section-subtitle">Driving industrial excellence through innovation and commitment</p>
+                <p class="section-subtitle">Driving industrial excellence through precision engineering</p>
             </div>
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-delay="300">
                     <div class="mission-card">
                         <div class="card-icon">
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h3 class="mb-3" style="color: var(--industrial-blue);">Our Mission</h3>
-                        <p class="mb-3">To empower industries worldwide with reliable, efficient, and innovative machinery solutions that enhance productivity, reduce operational costs, and promote sustainable manufacturing practices.</p>
-                        <p>We achieve this through continuous research and development, precision engineering, and unwavering commitment to quality in every product we deliver.</p>
+                        <p class="mb-3">To manufacture high-precision industrial components and machinery that enhance manufacturing efficiency and productivity for our clients in utensil manufacturing and metal forming industries.</p>
+                        <p>We achieve this through skilled craftsmanship, quality materials, and continuous improvement in our manufacturing processes to deliver reliable and durable products.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-delay="300">
                     <div class="vision-card">
                         <div class="card-icon">
                             <i class="fas fa-eye"></i>
                         </div>
                         <h3 class="mb-3" style="color: var(--industrial-blue);">Our Vision</h3>
-                        <p class="mb-3">To be the global benchmark for industrial machinery excellence, driving the fourth industrial revolution through smart manufacturing, automation, and sustainable innovation.</p>
-                        <p>We envision a future where every manufacturing facility operates at peak efficiency with minimal environmental impact, powered by Dinesh Industries solutions.</p>
+                        <p class="mb-3">To become the preferred manufacturer of industrial components and machinery, recognized for our precision engineering, product reliability, and commitment to customer satisfaction.</p>
+                        <p>We envision expanding our product range and geographical reach while maintaining our core values of quality, integrity, and innovation in industrial manufacturing.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Products Section -->
+    <!-- <section class="products-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-down">
+                <h2>Our Core Products</h2>
+                <p class="section-subtitle">Precision-engineered industrial components for various applications</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-cogs fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">C.I. Tapper Buffer</h4>
+                            <div class="product-specs">
+                                <span><strong>Sizes:</strong> 14", 17" Inch</span>
+                                <span><strong>Usage:</strong> Balti mouth stretch</span>
+                            </div>
+                            <p class="small">Precision-cast iron buffers designed for consistent performance in utensil manufacturing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-industry fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Pawali Bhavra</h4>
+                            <div class="product-specs">
+                                <span><strong>Sizes:</strong> 5", 6" Inch</span>
+                                <span><strong>Material:</strong> WPS Iron</span>
+                                <span><strong>Usage:</strong> Pawali mouth bidding</span>
+                            </div>
+                            <p class="small">Durable components designed for precise forming in utensil manufacturing processes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-hammer fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Balti Punching Bhingri</h4>
+                            <div class="product-specs">
+                                <span><strong>Size:</strong> 100/35 MM</span>
+                                <span><strong>Material:</strong> WPS Temper Iron Roll</span>
+                                <span><strong>Usage:</strong> Balti Taliya punching</span>
+                            </div>
+                            <p class="small">Specialized punching components for efficient metal forming in utensil production.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-cog fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Spinning Machine Components</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Studs, Screws, Wheels</span>
+                                <span><strong>Materials:</strong> WPS Iron, M.S., C.I. Casting</span>
+                                <span><strong>Sizes:</strong> Various sizes available</span>
+                            </div>
+                            <p class="small">Complete range of spinning machine components for industrial applications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-compress-alt fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Press Machine Components</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Mendrills, Punches, Bushings</span>
+                                <span><strong>Materials:</strong> M.S., WPS Temper</span>
+                                <span><strong>Sizes:</strong> Various configurations</span>
+                            </div>
+                            <p class="small">Precision components for hydraulic and mechanical press machines.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-tools fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Specialized Tools & Dies</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Cutters, Hathodi, Kharwel</span>
+                                <span><strong>Materials:</strong> WPS Temper, Hard Plastic</span>
+                                <span><strong>Usage:</strong> Various industrial applications</span>
+                            </div>
+                            <p class="small">Custom tools and dies designed for specific manufacturing requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
     <!-- Values Section -->
     <section class="values-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-down">
                 <h2>Our Core Values</h2>
                 <p class="section-subtitle">The principles that guide everything we do</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up-right" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-medal"></i>
                         </div>
                         <h4 class="mb-3">Quality Excellence</h4>
-                        <p>We never compromise on quality. Every machine undergoes rigorous testing to ensure it meets the highest international standards and exceeds customer expectations.</p>
+                        <p>We never compromise on quality. Every component undergoes rigorous inspection to ensure it meets the highest standards and exceeds customer expectations.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h4 class="mb-3">Innovation</h4>
-                        <p>We continuously invest in R&D to develop cutting-edge solutions that address evolving industry challenges and set new benchmarks in manufacturing technology.</p>
+                        <h4 class="mb-3">Precision Engineering</h4>
+                        <p>We specialize in precision manufacturing, ensuring every component meets exact specifications for optimal performance in industrial applications.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up-left" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-users"></i>
@@ -896,25 +1062,25 @@
                         <p>Our customers are at the heart of everything we do. We build lasting partnerships by understanding their needs and delivering solutions that drive their success.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h4 class="mb-3">Reliability</h4>
-                        <p>Our machinery is built to last, delivering consistent performance even in the most demanding industrial environments with minimal downtime.</p>
+                        <p>Our components are built to last, delivering consistent performance even in the most demanding industrial environments with minimal downtime.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
-                            <i class="fas fa-leaf"></i>
+                            <i class="fas fa-cogs"></i>
                         </div>
-                        <h4 class="mb-3">Sustainability</h4>
-                        <p>We design eco-friendly solutions that minimize environmental impact while maximizing energy efficiency and resource utilization.</p>
+                        <h4 class="mb-3">Expert Craftsmanship</h4>
+                        <p>With decades of experience, our skilled craftsmen bring expertise and attention to detail to every product we manufacture.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
                     <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-handshake"></i>
@@ -930,12 +1096,12 @@
     <!-- Team Section -->
     <section class="team-section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
                 <h2>Leadership Team</h2>
                 <p class="section-subtitle">Meet the visionaries driving Dinesh Industries's success</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-right" data-aos-delay="1000" data-aos-duration="1000">
                     <div class="team-card">
                         <div class="team-img">
                             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rajesh Kumar">
@@ -943,7 +1109,7 @@
                         <div class="team-info">
                             <h4 class="mb-1">Rajesh Kumar</h4>
                             <p class="text-primary mb-2">Founder & CEO</p>
-                            <p class="small">With 25+ years in industrial engineering, Rajesh founded Dinesh Industries with a vision to transform manufacturing through innovation.</p>
+                            <p class="small">With 30+ years in industrial manufacturing, Rajesh founded Dinesh Industries with a vision to provide quality industrial components to the manufacturing sector.</p>
                             <div class="team-social">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -952,15 +1118,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1000">
                     <div class="team-card">
                         <div class="team-img">
                             <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Priya Sharma">
                         </div>
                         <div class="team-info">
                             <h4 class="mb-1">Priya Sharma</h4>
-                            <p class="text-primary mb-2">Chief Technology Officer</p>
-                            <p class="small">Leading our R&D division, Priya drives innovation in automation and smart manufacturing technologies with 15+ years of expertise.</p>
+                            <p class="text-primary mb-2">Production Head</p>
+                            <p class="small">Leading our production division, Priya ensures quality control and efficient manufacturing processes with 15+ years of expertise in industrial components.</p>
                             <div class="team-social">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -969,7 +1135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="1000">
                     <div class="team-card">
                         <div class="team-img">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Amit Patel">
@@ -977,7 +1143,7 @@
                         <div class="team-info">
                             <h4 class="mb-1">Amit Patel</h4>
                             <p class="text-primary mb-2">Operations Director</p>
-                            <p class="small">Amit ensures seamless manufacturing operations and supply chain management across our global facilities with 20+ years of experience.</p>
+                            <p class="small">Amit ensures seamless manufacturing operations and supply chain management with 20+ years of experience in industrial component manufacturing.</p>
                             <div class="team-social">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -986,15 +1152,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000">
                     <div class="team-card">
                         <div class="team-img">
                             <img src="https://images.unsplash.com/photo-1556157382-97eda5ee70a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Neha Gupta">
                         </div>
                         <div class="team-info">
                             <h4 class="mb-1">Neha Gupta</h4>
-                            <p class="text-primary mb-2">Global Sales Head</p>
-                            <p class="small">Neha leads our international expansion and customer relationship management, driving growth across 35+ countries worldwide.</p>
+                            <p class="text-primary mb-2">Sales & Marketing Head</p>
+                            <p class="small">Neha leads our customer relationship management and business development, expanding our reach to industrial clients across India.</p>
                             <div class="team-social">
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1011,32 +1177,32 @@
     <section class="stats-section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Impact in Numbers</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Two decades of excellence and counting</p>
+                <h2 data-aos="fade-up" data-aos-duration="1000">Our Impact in Numbers</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-duration="1000" style="color: rgba(255,255,255,0.8);">Three decades of excellence and counting</p>
             </div>
-            <div class="row g-4 text-center">
+            <div class="row g-4 text-center" data-aos="fade-up" data-aos-duration="1000">
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-box">
-                        <h1 class="fw-bold counter" data-count="20">0</h1>
+                        <h1 class="fw-bold counter" data-count="30">0</h1>
                         <p class="mb-0">Years Experience</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-box">
-                        <h1 class="fw-bold counter" data-count="5000">0</h1>
-                        <p class="mb-0">Machines Installed</p>
+                        <h1 class="fw-bold counter" data-count="150">0</h1>
+                        <p class="mb-0">Product Variants</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-box">
-                        <h1 class="fw-bold counter" data-count="1500">0</h1>
+                        <h1 class="fw-bold counter" data-count="500">0</h1>
                         <p class="mb-0">Happy Clients</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-box">
-                        <h1 class="fw-bold counter" data-count="35">0</h1>
-                        <p class="mb-0">Countries Served</p>
+                        <h1 class="fw-bold counter" data-count="15">0</h1>
+                        <p class="mb-0">States Served</p>
                     </div>
                 </div>
             </div>
@@ -1047,10 +1213,10 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
                     <h4 class="footer-logo">Dinesh Industries</h4>
-                    <p>Reliable · Innovative · Industrial Solutions</p>
-                    <p>We provide high-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency. With over 20 years of experience, we are your trusted partner for industrial automation.</p>
+                    <p>Precision · Quality · Industrial Components</p>
+                    <p>We manufacture high-quality industrial components and machinery with exceptional craftsmanship to help businesses maximize productivity and efficiency. With over 30 years of experience, we are your trusted partner for industrial manufacturing needs.</p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1059,7 +1225,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div class="col-lg-2 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <h6 class="footer-heading">Quick Links</h6>
                     <div class="footer-links">
                         <a href="index.html">Home</a>
@@ -1070,30 +1236,30 @@
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="footer-heading">Support</h6>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <h6 class="footer-heading">Our Products</h6>
                     <div class="footer-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Warranty Information</a>
-                        <a href="#">Service & Maintenance</a>
-                        <a href="#">Technical Support</a>
-                        <a href="#">Spare Parts</a>
-                        <a href="#">Training Programs</a>
+                        <a href="#">C.I. Tapper Buffers</a>
+                        <a href="#">Pawali Bhavra</a>
+                        <a href="#">Balti Components</a>
+                        <a href="#">Spinning Machine Parts</a>
+                        <a href="#">Press Machine Components</a>
+                        <a href="#">Industrial Rolls & Bearings</a>
+                        <a href="#">Custom Tools & Dies</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <h6 class="footer-heading">Contact</h6>
                     <div class="footer-links">
                         <p><i class="fa-solid fa-phone me-2"></i> +91 98765 43210</p>
-                        <p><i class="fa-solid fa-envelope me-2"></i> info@Dinesh Industries.com</p>
+                        <p><i class="fa-solid fa-envelope me-2"></i> info@dineshindustries.com</p>
                         <p><i class="fa-solid fa-location-dot me-2"></i> Industrial Area, Sector 25, Delhi, India</p>
                         <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p class="mb-0">© 2025 Dinesh Industries Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
+                <p class="mb-0">© 2025 Dinesh Industries. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1109,8 +1275,14 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
         // Preloader
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');

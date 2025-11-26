@@ -3,1048 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Industries | Products - Industrial Machinery Solutions</title>
-    
-    <!-- Bootstrap 5 -->
+    <title>Dinesh Industries | Products – Industrial Machinery Solutions</title>
+
+    <!-- ==========  CSS  ========== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
     <style>
-        :root {
-            --primary: #0d6efd;
-            --secondary: #003366;
-            --accent: #ff6b00;
-            --industrial-blue: #1e3a5f;
-            --metal-gray: #4a5568;
-            --steel: #718096;
-            --light: #f8f9fa;
-            --dark: #1a1a1a;
-            --gray: #6c757d;
+        :root{
+            --primary:#0d6efd; --secondary:#003366; --accent:#ff6b00; --industrial-blue:#1e3a5f;
+            --metal-gray:#4a5568; --steel:#718096; --light:#f8f9fa; --dark:#1a1a1a; --gray:#6c757d;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            overflow-x: hidden;
-            position: relative;
-        }
+        *{margin:0; padding:0; box-sizing:border-box}
+        body{font-family:'Poppins',sans-serif; background:#fff; color:#333; overflow-x:hidden; position:relative}
+        .industrial-bg{position:fixed; inset:0; background-image:linear-gradient(rgba(30,58,95,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(30,58,95,.03) 1px,transparent 1px); background-size:50px 50px; z-index:-1; pointer-events:none}
+        ::-webkit-scrollbar{width:12px}
+        ::-webkit-scrollbar-track{background:#f1f1f1; border-radius:10px}
+        ::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary),var(--secondary)); border-radius:10px; border:2px solid #f1f1f1}
 
-        /* Industrial Background Pattern */
-        .industrial-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(30, 58, 95, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            pointer-events: none;
-        }
+        /* ----------  PRELOADER  ---------- */
+        #preloader{position:fixed; inset:0; background:#fff; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:opacity .5s, visibility .5s}
+        .loader{width:70px; height:70px; border:5px solid #f3f3f3; border-top:5px solid var(--primary); border-radius:50%; animation:spin 1s linear infinite; margin-bottom:20px}
+        .loader-text{font-family:'Orbitron',sans-serif; font-weight:700; font-size:1.2rem; color:var(--industrial-blue); letter-spacing:2px}
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .loader {
-            width: 70px;
-            height: 70px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
+        /* ----------  HEADER STRIP  ---------- */
+        .industrial-strip{background:linear-gradient(90deg,var(--industrial-blue),var(--secondary)); color:#fff; padding:8px 0; font-size:.9rem; border-bottom:2px solid var(--accent)}
+        .industrial-strip .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px}
+        .strip-item{display:flex; align-items:center; gap:8px}
+        .strip-item i{color:var(--accent)}
 
-        .loader-text {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--industrial-blue);
-            letter-spacing: 2px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* ----------  NAVBAR  ---------- */
+        .navbar{padding:15px 0; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); box-shadow:0 2px 15px rgba(0,0,0,.1); transition:all .4s; border-bottom:1px solid #e9ecef}
+        .navbar-brand{font-weight:800; font-size:1.8rem; background:linear-gradient(45deg,var(--primary),var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:flex; align-items:center; gap:10px}
+        .navbar-brand::before{content:"⚙️"; font-size:1.5rem}
+        .nav-link{font-weight:500; margin:0 10px; position:relative; color:var(--dark)!important; transition:all .3s}
+        .nav-link::after{content:''; position:absolute; width:0; height:3px; bottom:0; left:0; background:var(--primary); transition:width .3s; border-radius:10px}
+        .nav-link:hover{color:var(--primary)!important}
+        .nav-link:hover::after{width:100%}
+        .nav-scrolled{padding:10px 0; background:rgba(255,255,255,.98); box-shadow:0 5px 20px rgba(0,0,0,.1)}
 
-        /* Industrial Header Strip */
-        .industrial-strip {
-            background: linear-gradient(90deg, var(--industrial-blue), var(--secondary));
-            color: white;
-            padding: 8px 0;
-            font-size: 0.9rem;
-            border-bottom: 2px solid var(--accent);
-        }
+        /* ----------  HERO  ---------- */
+        .products-hero{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2070&q=80) center/cover no-repeat; padding:150px 0 80px; color:#fff; position:relative; overflow:hidden}
+        .products-hero-overlay{position:absolute; inset:0; background:linear-gradient(45deg,rgba(13,110,253,.3),rgba(0,51,102,.3)); z-index:1}
+        .products-hero-content{position:relative; z-index:2; text-align:center}
+        .products-hero h1{font-weight:800; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,.3); font-size:3.5rem; font-family:'Orbitron',sans-serif; letter-spacing:1px}
+        .products-hero-subtitle{font-size:1.5rem; color:var(--accent); font-weight:600; margin-bottom:10px}
+        .products-hero p{font-size:1.3rem; margin-bottom:30px; max-width:700px; margin-inline:auto; opacity:.9}
+        .breadcrumb{background:rgba(255,255,255,.1); backdrop-filter:blur(10px); border-radius:50px; padding:10px 25px; display:inline-block; margin-bottom:30px}
+        .breadcrumb-item a{color:#fff; text-decoration:none}
+        .breadcrumb-item.active{color:var(--accent)}
 
-        .industrial-strip .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* ----------  SECTION HEADERS  ---------- */
+        .section-header{position:relative; margin-bottom:60px; text-align:center}
+        .section-header h2{font-weight:800; position:relative; display:inline-block; margin-bottom:15px; font-size:2.5rem; font-family:'Orbitron',sans-serif}
+        .section-header h2::after{content:''; position:absolute; width:80px; height:4px; background:linear-gradient(to right,var(--primary),var(--accent)); bottom:-15px; left:50%; transform:translateX(-50%); border-radius:10px}
+        .section-subtitle{font-size:1.2rem; color:var(--gray); max-width:700px; margin-inline:auto}
 
-        .strip-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        /* ----------  FILTERS  ---------- */
+        .product-filters{background:#f8f9fa; padding:30px 0; border-bottom:1px solid #e9ecef}
+        .filter-group{margin-bottom:20px}
+        .filter-title{font-weight:600; margin-bottom:10px; color:var(--industrial-blue)}
+        .filter-options{display:flex; flex-wrap:wrap; gap:10px}
+        .filter-btn{background:#fff; border:1px solid #ddd; border-radius:30px; padding:8px 20px; font-size:.9rem; transition:all .3s; cursor:pointer}
+        .filter-btn:hover,.filter-btn.active{background:var(--primary); color:#fff; border-color:var(--primary)}
+        .price-range-container{padding:0 10px}
+        .price-range{width:100%}
+        .price-display{display:flex; justify-content:space-between; margin-top:10px; font-size:.9rem}
 
-        .strip-item i {
-            color: var(--accent);
-        }
-        
-        /* Navbar */
-        .navbar {
-            padding: 15px 0;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.8rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        /* ----------  PRODUCT CARDS  ---------- */
+        .product-card{border:none; border-radius:15px; overflow:hidden; transition:all .4s; box-shadow:0 10px 20px rgba(0,0,0,.08); height:100%; background:#fff; position:relative; margin-bottom:30px}
+        .product-card::before{content:''; position:absolute; top:0; left:0; width:100%; height:5px; background:linear-gradient(to right,var(--primary),var(--accent)); z-index:1}
+        .product-card:hover{transform:translateY(-15px); box-shadow:0 20px 40px rgba(0,0,0,.15)}
+        .product-card .card-img-top{height:250px; object-fit:cover; transition:transform .5s}
+        .product-card:hover .card-img-top{transform:scale(1.1)}
+        .product-card .card-body{padding:25px}
+        .product-card .card-title{font-weight:700; margin-bottom:15px; font-size:1.3rem; color:var(--industrial-blue)}
+        .product-card .card-text{color:var(--gray); margin-bottom:20px; line-height:1.6}
+        .product-price{font-weight:800; color:var(--primary); font-size:1.4rem; margin-bottom:15px; display:block; font-family:'Orbitron',sans-serif}
+        .product-badge{position:absolute; top:15px; right:15px; background:var(--accent); color:#fff; padding:6px 15px; border-radius:20px; font-size:.8rem; font-weight:600; z-index:10; animation:pulse 2s infinite}
+        .product-btn{background:var(--primary); color:#fff; border:none; padding:10px 20px; border-radius:30px; font-weight:500; transition:all .3s; width:100%; position:relative; overflow:hidden}
+        .product-btn::before{content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); transition:.5s}
+        .product-btn:hover::before{left:100%}
+        .product-btn:hover{background:var(--secondary); transform:translateY(-2px)}
+        .price-rate{display:flex; align-items:center; gap:15px; margin-bottom:15px}
+        .original-price{text-decoration:line-through; color:var(--gray); font-size:1.2rem}
+        .discount-badge{background:var(--accent); color:#fff; padding:5px 10px; border-radius:5px; font-size:.9rem; font-weight:600}
 
-        .navbar-brand::before {
-            content: "⚙️";
-            font-size: 1.5rem;
-        }
-        
-        .nav-link {
-            font-weight: 500;
-            margin: 0 10px;
-            position: relative;
-            color: var(--dark) !important;
-            transition: all 0.3s;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background: var(--primary);
-            transition: width 0.3s ease;
-            border-radius: 10px;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary) !important;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .nav-scrolled {
-            padding: 10px 0;
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+        /* ----------  OFF-CANVAS PRODUCT DETAIL  ---------- */
+        .product-offcanvas{width:700px; max-width:100vw}
+        .swiper-detail{height:300px; border-radius:10px; overflow:hidden}
+        .swiper-detail .swiper-slide img{width:100%; height:100%; object-fit:cover}
+        .spec-table th{width:40%}
+        .review-stars{color:#ffc107}
 
-        /* Products Hero Section */
-        .products-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-            padding: 150px 0 80px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+        /* ----------  QUOTE MODAL  ---------- */
+        .quote-modal .modal-header{background:linear-gradient(90deg,var(--industrial-blue),var(--secondary)); color:#fff}
+        .quote-modal .modal-title{font-weight:700}
+        .quote-modal .product-info{background:#f8f9fa; border-radius:10px; padding:15px; margin-bottom:20px}
+        .quote-modal .product-name{font-weight:700; color:var(--industrial-blue); margin-bottom:5px}
+        .quote-modal .product-price{font-weight:600; color:var(--primary)}
+        .quote-modal .form-label{font-weight:600; color:var(--industrial-blue)}
+        .quote-modal .form-control, .quote-modal .form-select{border-radius:8px; padding:10px 15px}
+        .quote-modal .form-control:focus, .quote-modal .form-select:focus{border-color:var(--primary); box-shadow:0 0 0 0.25rem rgba(13,110,253,.25)}
+        .quote-modal .submit-btn{background:var(--primary); border:none; padding:12px 30px; font-weight:600; border-radius:30px; transition:all .3s; width:100%}
+        .quote-modal .submit-btn:hover{background:var(--secondary); transform:translateY(-2px)}
 
-        .products-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(13, 110, 253, 0.3), rgba(0, 51, 102, 0.3));
-            z-index: 1;
-        }
-        
-        .products-hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .products-hero h1 {
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            font-size: 3.5rem;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
+        /* ----------  FOOTER / FLOATING / BACK-TOP  ---------- */
+        footer{background:#111; color:#fff; padding:70px 0 20px; position:relative}
+        footer::before{content:''; position:absolute; top:0; left:0; width:100%; height:5px; background:linear-gradient(to right,var(--primary),var(--accent))}
+        .footer-logo{font-weight:800; font-size:2rem; margin-bottom:20px; display:inline-block; background:linear-gradient(45deg,var(--primary),var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-family:'Orbitron',sans-serif}
+        .footer-heading{font-weight:700; margin-bottom:25px; position:relative; padding-bottom:10px; font-size:1.2rem}
+        .footer-heading::after{content:''; position:absolute; width:40px; height:3px; background:var(--primary); bottom:0; left:0; border-radius:10px}
+        .footer-links a{color:#aaa; text-decoration:none; display:block; margin-bottom:12px; transition:all .3s; font-size:1rem}
+        .footer-links a:hover{color:#fff; padding-left:8px}
+        .social-icons a{display:inline-flex; align-items:center; justify-content:center; width:45px; height:45px; background:rgba(255,255,255,.1); border-radius:50%; margin-right:12px; color:#fff; transition:all .3s; font-size:18px}
+        .social-icons a:hover{background:var(--primary); transform:translateY(-5px)}
+        .copyright{border-top:1px solid rgba(255,255,255,.1); padding-top:25px; margin-top:50px; text-align:center; color:#aaa; font-size:.95rem}
 
-        .products-hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .products-hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            padding: 10px 25px;
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-        
-        .breadcrumb-item a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .breadcrumb-item.active {
-            color: var(--accent);
-        }
+        .floating-wp, .floating-call{position:fixed; right:25px; width:60px; height:60px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; z-index:2000; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2); animation:pulse 2s infinite}
+        .floating-wp{bottom:100px; background:#25d366}
+        .floating-call{bottom:25px; background:var(--primary)}
+        .floating-wp:hover, .floating-call:hover{transform:scale(1.1)}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}70%{box-shadow:0 0 0 12px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 
-        /* Section Headers */
-        .section-header {
-            position: relative;
-            margin-bottom: 60px;
-            text-align: center;
-        }
-        
-        .section-header h2 {
-            font-weight: 800;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-size: 2.5rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 10px;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .back-to-top{position:fixed; bottom:30px; right:30px; width:50px; height:50px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; z-index:1000; cursor:pointer; opacity:0; visibility:hidden; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2)}
+        .back-to-top.active{opacity:1; visibility:visible}
+        .back-to-top:hover{background:var(--secondary); transform:translateY(-3px)}
 
-        /* Product Filters */
-        .product-filters {
-            background: #f8f9fa;
-            padding: 30px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .filter-group {
-            margin-bottom: 20px;
-        }
-        
-        .filter-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--industrial-blue);
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-btn {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .price-range-container {
-            padding: 0 10px;
-        }
-        
-        .price-range {
-            width: 100%;
-        }
-        
-        .price-display {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        /* Industrial Product Cards */
-        .product-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-            height: 100%;
-            background: white;
-            position: relative;
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .product-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            z-index: 1;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-card .card-img-top {
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .card-img-top {
-            transform: scale(1.1);
-        }
-        
-        .product-card .card-body {
-            padding: 25px;
-        }
-        
-        .product-card .card-title {
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            color: var(--industrial-blue);
-        }
-        
-        .product-card .card-text {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .product-price {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 10;
-            animation: pulse 2s infinite;
-        }
-        
-        .product-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .product-btn:hover::before {
-            left: 100%;
-        }
-        
-        .product-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Product Details Page */
-        .product-detail-section {
-            padding: 100px 0;
-            display: none;
-        }
-        
-        .product-gallery {
-            margin-bottom: 30px;
-        }
-        
-        .main-product-image {
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .main-product-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-thumbnails {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .thumbnail.active, .thumbnail:hover {
-            opacity: 1;
-            border-color: var(--primary);
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            padding-left: 30px;
-        }
-        
-        .product-title {
-            font-weight: 800;
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: var(--industrial-blue);
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .product-price-large {
-            font-weight: 800;
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .product-description {
-            margin-bottom: 25px;
-            line-height: 1.7;
-            color: var(--gray);
-        }
-        
-        .product-specs {
-            margin-bottom: 30px;
-        }
-        
-        .spec-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .spec-name {
-            font-weight: 600;
-            color: var(--industrial-blue);
-        }
-        
-        .spec-value {
-            color: var(--gray);
-        }
-        
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .quantity-btn {
-            width: 40px;
-            height: 40px;
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-        
-        .quantity-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .quantity-input {
-            width: 60px;
-            height: 40px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-left: none;
-            border-right: none;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .btn-primary-custom {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-            flex: 1;
-        }
-        
-        .btn-primary-custom:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline-custom {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-            flex: 1;
-        }
-        
-        .btn-outline-custom:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-features {
-            margin-top: 40px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .feature-text {
-            color: var(--gray);
-        }
-
-        /* Product Tabs */
-        .product-tabs {
-            margin-top: 60px;
-        }
-        
-        .nav-tabs {
-            border-bottom: 2px solid #e9ecef;
-            justify-content: center;
-        }
-        
-        .nav-tabs .nav-link {
-            border: none;
-            color: var(--gray);
-            font-weight: 600;
-            padding: 15px 30px;
-            position: relative;
-        }
-        
-        .nav-tabs .nav-link.active {
-            color: var(--primary);
-            background: transparent;
-        }
-        
-        .nav-tabs .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 10px;
-        }
-        
-        .tab-content {
-            padding: 40px 0;
-        }
-        
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .specs-table tr {
-            border-bottom: 1px solid #eee;
-        }
-        
-        .specs-table td {
-            padding: 15px 10px;
-        }
-        
-        .specs-table td:first-child {
-            font-weight: 600;
-            color: var(--industrial-blue);
-            width: 30%;
-        }
-
-        /* Price Rate Display */
-        .price-rate {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .original-price {
-            text-decoration: line-through;
-            color: var(--gray);
-            font-size: 1.2rem;
-        }
-        
-        .discount-badge {
-            background: var(--accent);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .price-comparison {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .price-comparison h5 {
-            margin-bottom: 15px;
-            color: var(--industrial-blue);
-        }
-        
-        .comparison-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .comparison-item:last-child {
-            border-bottom: none;
-        }
-
-        /* Related Products */
-        .related-products {
-            padding: 80px 0;
-            background: #f8f9fa;
-            display: none;
-        }
-
-        /* Industrial Footer */
-        footer {
-            background: #111;
-            color: white;
-            padding: 70px 0 20px;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-        }
-        
-        .footer-logo {
-            font-weight: 800;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .footer-heading {
-            font-weight: 700;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: var(--primary);
-            bottom: 0;
-            left: 0;
-            border-radius: 10px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            padding-left: 8px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 12px;
-            color: white;
-            transition: all 0.3s;
-            font-size: 18px;
-        }
-        
-        .social-icons a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 25px;
-            margin-top: 50px;
-            text-align: center;
-            color: #aaa;
-            font-size: 0.95rem;
-        }
-
-        /* Industrial Floating Buttons */
-        .floating-wp, .floating-call {
-            position: fixed;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            z-index: 2000;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
-        }
-        
-        .floating-wp { 
-            bottom: 100px; 
-            background: #25d366; 
-        }
-        
-        .floating-call { 
-            bottom: 25px; 
-            background: var(--primary); 
-        }
-        
-        .floating-wp:hover, .floating-call:hover { 
-            transform: scale(1.1); 
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Pagination */
-        .pagination-custom .page-link {
-            color: var(--primary);
-            border: 1px solid #dee2e6;
-            padding: 10px 18px;
-            margin: 0 5px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-        
-        .pagination-custom .page-item.active .page-link {
-            background: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .pagination-custom .page-link:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .products-hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .product-info {
-                padding-left: 0;
-                margin-top: 40px;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .products-hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .products-hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .product-title {
-                font-size: 1.8rem;
-            }
-            
-            .product-price-large {
-                font-size: 1.6rem;
-            }
-            
-            .floating-wp, .floating-call {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-                right: 15px;
-            }
-            
-            .floating-wp {
-                bottom: 80px;
-            }
-            
-            .nav-tabs .nav-link {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .products-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .product-card .card-img-top {
-                height: 200px;
-            }
-            
-            .main-product-image img {
-                height: 300px;
-            }
-            
-            .thumbnail {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .breadcrumb {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
+        /* ----------  RESPONSIVE  ---------- */
+        @media(max-width:992px){
+            .products-hero h1{font-size:2.8rem}
+            .section-header h2{font-size:2.2rem}
+            .product-offcanvas{width:100%}
+        }
+        @media(max-width:768px){
+            .products-hero h1{font-size:2.3rem}
+            .products-hero p{font-size:1.1rem}
+            .section-header h2{font-size:2rem}
+            .floating-wp, .floating-call{width:50px; height:50px; font-size:20px; right:15px}
+            .floating-wp{bottom:80px}
+        }
+        @media(max-width:576px){
+            .products-hero h1{font-size:2rem}
+            .section-header h2{font-size:1.8rem}
+            .product-card .card-img-top{height:200px}
         }
     </style>
 </head>
 <body>
-    <!-- Industrial Background Pattern -->
+    <!-- Industrial Background -->
     <div class="industrial-bg"></div>
 
     <!-- Preloader -->
@@ -1053,47 +164,35 @@
         <div class="loader-text">Dinesh Industries</div>
     </div>
 
-    <!-- Industrial Header Strip -->
+    <!-- Industrial Strip -->
     <div class="industrial-strip">
         <div class="container">
-            <div class="strip-item">
-                <i class="fas fa-phone"></i>
-                <span>+91 98765 43210</span>
-            </div>
-            <div class="strip-item">
-                <i class="fas fa-envelope"></i>
-                <span>info@Dinesh Industries.com</span>
-            </div>
-            <div class="strip-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Industrial Area, Sector 25, Delhi, India</span>
-            </div>
+            <div class="strip-item"><i class="fas fa-phone"></i><span>+91 98765 43210</span></div>
+            <div class="strip-item"><i class="fas fa-envelope"></i><span>info@dineshindustries.com</span></div>
+            <div class="strip-item"><i class="fas fa-map-marker-alt"></i><span>Industrial Area, Sector 25, Delhi, India</span></div>
         </div>
     </div>
 
-     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top animated-navbar">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">Dinesh Industries</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/product.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/feturesh.html">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/industries.html">Industries</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/aboutus.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contect.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feturesh.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Products Hero Section -->
+    <!-- Hero -->
     <section class="products-hero">
         <div class="products-hero-overlay"></div>
         <div class="container products-hero-content">
@@ -1103,14 +202,14 @@
                     <li class="breadcrumb-item active" aria-current="page">Products</li>
                 </ol>
             </nav>
-            <h1 class="display-4 fw-bold mb-3" data-aos="fade-down" data-aos-duration="1000">OUR MACHINERY PRODUCTS</h1>
-            <div class="products-hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">ENGINEERED FOR EXCELLENCE</div>
-            <p class="lead mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Explore our comprehensive range of industrial machinery engineered for reliability, efficiency, and maximum productivity. Trusted by industries worldwide.</p>
+            <h1 class="display-4 fw-bold mb-3" data-aos="fade-down">OUR MACHINERY PRODUCTS</h1>
+            <div class="products-hero-subtitle" data-aos="fade-up" data-aos-delay="200">ENGINEERED FOR EXCELLENCE</div>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">Explore our comprehensive range of industrial machinery engineered for reliability, efficiency, and maximum productivity.</p>
         </div>
     </section>
 
-    <!-- Product Filters -->
-    <section class="product-filters">
+    <!-- Filters (auto-hidden on detail view) -->
+    <section class="product-filters" id="filter-bar">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -1119,20 +218,20 @@
                         <div class="filter-options" id="category-filters">
                             <div class="filter-btn active" data-category="all">All</div>
                             <div class="filter-btn" data-category="Cutting">Cutting</div>
-                            <div class="filter-btn" data-category="Packaging">Packaging</div>
-                            <div class="filter-btn" data-category="Mixing">Mixing</div>
-                            <div class="filter-btn" data-category="Processing">Processing</div>
+                            <div class="filter-btn" data-category="Punching">Punching</div>
+                            <div class="filter-btn" data-category="Rolling">Rolling</div>
+                            <div class="filter-btn" data-category="Bidding">Bidding</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="filter-group">
-                        <div class="filter-title">Industry</div>
-                        <div class="filter-options" id="industry-filters">
-                            <div class="filter-btn active" data-industry="all">All Industries</div>
-                            <div class="filter-btn" data-industry="Manufacturing">Manufacturing</div>
-                            <div class="filter-btn" data-industry="Food & Beverage">Food & Beverage</div>
-                            <div class="filter-btn" data-industry="Pharmaceutical">Pharmaceutical</div>
+                        <div class="filter-title">Material</div>
+                        <div class="filter-options" id="material-filters">
+                            <div class="filter-btn active" data-material="all">All Materials</div>
+                            <div class="filter-btn" data-material="WPS Temper">WPS Temper</div>
+                            <div class="filter-btn" data-material="Cast Iron">Cast Iron</div>
+                            <div class="filter-btn" data-material="M.S">M.S</div>
                         </div>
                     </div>
                 </div>
@@ -1153,8 +252,8 @@
                         <div class="filter-title">Sort By</div>
                         <div class="filter-options" id="sort-options">
                             <div class="filter-btn active" data-sort="default">Newest</div>
-                            <div class="filter-btn" data-sort="price-low">Price: Low to High</div>
-                            <div class="filter-btn" data-sort="price-high">Price: High to Low</div>
+                            <div class="filter-btn" data-sort="price-low">Price: Low → High</div>
+                            <div class="filter-btn" data-sort="price-high">Price: High → Low</div>
                         </div>
                     </div>
                 </div>
@@ -1162,176 +261,127 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="py-5" style="background: #ffffff;">
+    <!-- Product Grid -->
+    <section class="py-5" id="product-grid">
         <div class="container py-5">
             <div class="section-header" data-aos="fade-up">
                 <h2>INDUSTRIAL MACHINERY</h2>
-                <p class="section-subtitle">Explore our wide range of industrial machinery engineered for excellence and maximum productivity.</p>
+                <p class="section-subtitle">Our industrial machinery is built for precise metal forming and high-volume component production.</p>
             </div>
-
             <div class="row g-4" id="products-container">
-                <!-- Products will be loaded dynamically -->
+                <!-- populated by JS -->
             </div>
-
-            <!-- Pagination -->
-            <nav aria-label="Product pagination" class="mt-5">
-                <ul class="pagination justify-content-center pagination-custom">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </section>
 
-    <!-- Product Detail Section -->
-    <section class="product-detail-section" id="product-detail">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="product-gallery">
-                        <div class="main-product-image">
-                            <img id="main-product-img" src="" alt="Product Image">
-                        </div>
-                        <div class="product-thumbnails" id="product-thumbnails">
-                            <!-- Thumbnails will be loaded dynamically -->
-                        </div>
-                    </div>
+    <!-- Off-Canvas Product Detail -->
+    <div class="offcanvas offcanvas-end product-offcanvas" tabindex="-1" id="productCanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="canvasTitle">Product Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body" id="canvasBody">
+            <!-- dynamic content -->
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div class="modal fade quote-modal" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quoteModalLabel">Request Product Quote</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-lg-6">
+                <div class="modal-body">
                     <div class="product-info">
-                        <h1 class="product-title" id="detail-product-title"></h1>
-                        
-                        <div class="price-rate">
-                            <div class="product-price-large" id="detail-product-price"></div>
-                            <div class="original-price" id="detail-original-price"></div>
-                            <div class="discount-badge" id="detail-discount"></div>
-                        </div>
-                        
-                        <p class="product-description" id="detail-product-description"></p>
-                        
-                        <div class="product-specs" id="detail-product-specs">
-                            <!-- Specifications will be loaded dynamically -->
-                        </div>
-                        
-                        <div class="quantity-selector">
-                            <div class="quantity-btn minus">-</div>
-                            <input type="number" class="quantity-input" value="1" min="1" max="10">
-                            <div class="quantity-btn plus">+</div>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <button class="btn-primary-custom">Add to Inquiry</button>
-                            <button class="btn-outline-custom">Request Quote</button>
-                        </div>
-                        
-                        <div class="price-comparison">
-                            <h5>Price Comparison</h5>
-                            <div class="comparison-item">
-                                <span>Our Price</span>
-                                <span id="comparison-our-price"></span>
-                            </div>
-                            <div class="comparison-item">
-                                <span>Market Average</span>
-                                <span id="comparison-market-price"></span>
-                            </div>
-                            <div class="comparison-item">
-                                <span>You Save</span>
-                                <span id="comparison-savings"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="product-features">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="feature-text">2-Year Comprehensive Warranty</div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-shipping-fast"></i>
-                                </div>
-                                <div class="feature-text">Free Installation & Training</div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-headset"></i>
-                                </div>
-                                <div class="feature-text">24/7 Technical Support</div>
-                            </div>
-                        </div>
+                        <div class="product-name" id="quoteProductName">Product Name</div>
+                        <div class="product-price" id="quoteProductPrice">Price: ₹0</div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Product Tabs -->
-            <div class="product-tabs">
-                <ul class="nav nav-tabs" id="productTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">Specifications</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="applications-tab" data-bs-toggle="tab" data-bs-target="#applications" type="button" role="tab" aria-controls="applications" aria-selected="false">Applications</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="productTabContent">
-                    <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                        <h4 id="tab-description-title">Product Description</h4>
-                        <p id="tab-description-content"></p>
-                    </div>
-                    <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="specifications-tab">
-                        <table class="specs-table" id="tab-specifications">
-                            <!-- Specifications table will be loaded dynamically -->
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="applications" role="tabpanel" aria-labelledby="applications-tab">
-                        <h4 id="tab-applications-title">Industry Applications</h4>
-                        <div id="tab-applications-content"></div>
-                    </div>
-                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                        <h4>Customer Reviews</h4>
-                        <div id="tab-reviews-content"></div>
-                    </div>
+                    <form id="quoteForm">
+                        <input type="hidden" id="quoteProductId" name="productId">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteName" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="quoteName" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteCompany" class="form-label">Company Name</label>
+                                <input type="text" class="form-control" id="quoteCompany" name="company">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteEmail" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="quoteEmail" name="email" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="quotePhone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="quotePhone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteCountry" class="form-label">Country</label>
+                                <select class="form-select" id="quoteCountry" name="country">
+                                    <option value="">Select Country</option>
+                                    <option value="India" selected>India</option>
+                                    <option value="USA">USA</option>
+                                    <option value="UK">UK</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteState" class="form-label">State</label>
+                                <input type="text" class="form-control" id="quoteState" name="state">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteAddress" class="form-label">Address</label>
+                            <textarea class="form-control" id="quoteAddress" name="address" rows="2"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteQuantity" class="form-label">Quantity Required</label>
+                                <input type="number" class="form-control" id="quoteQuantity" name="quantity" min="1" value="1">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="quoteDelivery" class="form-label">Expected Delivery</label>
+                                <select class="form-select" id="quoteDelivery" name="delivery">
+                                    <option value="">Select Timeline</option>
+                                    <option value="ASAP">As Soon As Possible</option>
+                                    <option value="1-2 weeks">1-2 Weeks</option>
+                                    <option value="1 month">1 Month</option>
+                                    <option value="2-3 months">2-3 Months</option>
+                                    <option value="Flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quoteMessage" class="form-label">Additional Requirements</label>
+                            <textarea class="form-control" id="quoteMessage" name="message" rows="3" placeholder="Please specify any special requirements, customization needs, or additional information..."></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="quoteNewsletter" name="newsletter" checked>
+                            <label class="form-check-label" for="quoteNewsletter">Subscribe to our newsletter for updates and offers</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Quote Request</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Related Products Section -->
-    <section class="related-products" id="related-products">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>RELATED PRODUCTS</h2>
-                <p class="section-subtitle">Discover more machinery that matches your needs.</p>
-            </div>
-            <div class="row g-4" id="related-products-container">
-                <!-- Related products will be loaded dynamically -->
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4" data-aos="fade-up">
                     <h4 class="footer-logo">Dinesh Industries</h4>
                     <p>Reliable · Innovative · Industrial Solutions</p>
-                    <p>We provide high-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency. With over 20 years of experience, we are your trusted partner for industrial automation.</p>
+                    <p>High-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency.</p>
                     <div class="social-icons mt-4">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1343,654 +393,249 @@
                 <div class="col-lg-2 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <h6 class="footer-heading">Quick Links</h6>
                     <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="product.html">Products</a>
-                        <a href="index.html#features">Features</a>
-                        <a href="index.html#industries">Industries</a>
-                        <a href="index.html#services">Services</a>
-                        <a href="index.html/about">About Us</a>
-                        <a href="index.html#contact">Contact</a>
+                        <a href="index.html">Home</a><a href="product.html">Products</a><a href="feturesh.html">Features</a><a href="industries.html">Industries</a><a href="services.html">Services</a><a href="aboutus.html">About Us</a><a href="index.html#contact">Contact</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <h6 class="footer-heading">Support</h6>
                     <div class="footer-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Warranty Information</a>
-                        <a href="#">Service & Maintenance</a>
-                        <a href="#">Technical Support</a>
-                        <a href="#">Spare Parts</a>
-                        <a href="#">Training Programs</a>
+                        <a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Warranty</a><a href="#">Service & Maintenance</a><a href="#">Technical Support</a><a href="#">Spare Parts</a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <h6 class="footer-heading">Contact</h6>
                     <div class="footer-links">
                         <p><i class="fa-solid fa-phone me-2"></i> +91 98765 43210</p>
-                        <p><i class="fa-solid fa-envelope me-2"></i> info@Dinesh Industries.com</p>
+                        <p><i class="fa-solid fa-envelope me-2"></i> info@dineshindustries.com</p>
                         <p><i class="fa-solid fa-location-dot me-2"></i> Industrial Area, Sector 25, Delhi, India</p>
                         <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p class="mb-0">© 2025 Dinesh Industries Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
+                <p class="mb-0">© 2025 Dinesh Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
             </div>
         </div>
     </footer>
 
-    <!-- Industrial Floating Buttons -->
+    <!-- Floating buttons -->
     <a href="https://wa.me/919876543210" class="floating-wp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
     <a href="tel:+919876543210" class="floating-call"><i class="fa-solid fa-phone"></i></a>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
+    <!-- Back to top -->
+    <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
 
-    <!-- Scripts -->
+    <!-- ==========  SCRIPTS  ========== -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
+        /* ----------  AOS  ---------- */
+        AOS.init({duration:1000, once:true, offset:100});
+
+        /* ----------  PRELOADER  ---------- */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity='0';
+                setTimeout(() => document.getElementById('preloader').style.visibility='hidden', 500);
+            }, 1500);
+            loadProducts(); // build cards from Word data
         });
 
-        // Product data
+        /* ----------  NAVBAR SCROLL  ---------- */
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('nav-scrolled', window.scrollY > 50);
+            document.querySelector('.back-to-top').classList.toggle('active', window.scrollY > 300);
+        });
+
+        /* ----------  BACK TO TOP  ---------- */
+        document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+        /* ----------  PRODUCT DATA (from Word table)  ---------- */
         const products = [
-            {
-                id: 1,
-                title: "Hydraulic Cutting Machine",
-                price: 24500,
-                originalPrice: 28500,
-                description: "High-precision cutting with advanced hydraulic technology for various materials. Perfect for metal fabrication industries with cutting capacity up to 50mm thickness.",
-                image: "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80",
-                badge: "New",
-                category: "Cutting",
-                industry: "Manufacturing",
-                images: [
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581092337203-3b5c3c49c9b0?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Cutting Capacity", value: "Up to 50mm thickness" },
-                    { name: "Power", value: "15 HP Hydraulic System" },
-                    { name: "Cutting Speed", value: "Adjustable 0-150 mm/s" },
-                    { name: "Machine Weight", value: "2,500 kg" },
-                    { name: "Dimensions", value: "3200 x 1800 x 2100 mm" }
-                ],
-                fullDescription: "Our advanced hydraulic cutting machine delivers precision cutting performance for a wide range of materials including metals, plastics, and composites. Engineered with state-of-the-art hydraulic technology, this machine offers exceptional cutting capacity up to 50mm thickness with minimal material waste.",
-                applications: "Ideal for metal fabrication, construction industry, shipbuilding, heavy equipment manufacturing, and custom metal works.",
-                reviews: [
-                    { name: "Rajesh Kumar", company: "MetalWorks Inc.", date: "October 15, 2023", rating: 5, text: "We've been using this hydraulic cutting machine for 6 months now, and it has significantly improved our production efficiency." },
-                    { name: "Priya Sharma", company: "Precision Fabricators", date: "September 2, 2023", rating: 4.5, text: "This machine has been running two shifts daily for over a year without any major issues." }
-                ]
-            },
-            {
-                id: 2,
-                title: "Automatic Packing Machine",
-                price: 18750,
-                originalPrice: 22000,
-                description: "Fully automated packaging solution with smart sensors and precision controls for various product types. Capable of packaging up to 120 units per minute.",
-                image: "https://images.unsplash.com/photo-1581092337203-3b5c3c49c9b0?auto=format&fit=crop&w=900&q=80",
-                badge: "Popular",
-                category: "Packaging",
-                industry: "Food & Beverage",
-                images: [
-                    "https://images.unsplash.com/photo-1581092337203-3b5c3c49c9b0?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Packaging Speed", value: "Up to 120 units/minute" },
-                    { name: "Power", value: "10 HP Motor" },
-                    { name: "Machine Weight", value: "1,800 kg" },
-                    { name: "Dimensions", value: "2800 x 1600 x 1900 mm" }
-                ],
-                fullDescription: "Our automatic packing machine revolutionizes packaging operations with its high-speed capabilities and precision controls.",
-                applications: "Perfect for food and beverage, pharmaceutical, consumer goods, and e-commerce industries.",
-                reviews: [
-                    { name: "Amit Patel", company: "FoodPack Ltd.", date: "November 5, 2023", rating: 5, text: "This machine has doubled our packaging capacity while reducing labor costs." }
-                ]
-            },
-            {
-                id: 3,
-                title: "Industrial Mixer",
-                price: 32000,
-                originalPrice: 35000,
-                description: "Heavy-duty mixing for consistent high-volume processing. Ideal for chemical, food, and pharmaceutical industries with capacity from 500L to 5000L.",
-                image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
-                badge: "Best Seller",
-                category: "Mixing",
-                industry: "Pharmaceutical",
-                images: [
-                    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Capacity", value: "500L to 5000L" },
-                    { name: "Power", value: "20 HP Motor" },
-                    { name: "Mixing Speed", value: "Variable 0-100 RPM" },
-                    { name: "Machine Weight", value: "3,200 kg" }
-                ],
-                fullDescription: "Our industrial mixer is designed for heavy-duty mixing applications in various industries.",
-                applications: "Ideal for chemical processing, food production, pharmaceutical manufacturing, and paint production.",
-                reviews: [
-                    { name: "Sanjay Verma", company: "ChemiMix Inc.", date: "August 12, 2023", rating: 5, text: "The consistency and quality of mixing have improved significantly since we installed this machine." }
-                ]
-            },
-            {
-                id: 4,
-                title: "CNC Milling Machine",
-                price: 45800,
-                originalPrice: 52000,
-                description: "Precision CNC milling with 5-axis capability for complex parts manufacturing. Features advanced control systems and high-speed spindles for superior accuracy.",
-                image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80",
-                badge: "New",
-                category: "Processing",
-                industry: "Manufacturing",
-                images: [
-                    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Axis", value: "5-axis capability" },
-                    { name: "Spindle Speed", value: "Up to 20,000 RPM" },
-                    { name: "Working Area", value: "1000 x 600 x 500 mm" },
-                    { name: "Machine Weight", value: "4,500 kg" }
-                ],
-                fullDescription: "Our CNC milling machine offers unparalleled precision for complex part manufacturing.",
-                applications: "Perfect for aerospace, automotive, mold making, and precision engineering industries.",
-                reviews: [
-                    { name: "Rahul Mehta", company: "Precision Parts Ltd.", date: "September 28, 2023", rating: 5, text: "The accuracy and surface finish we achieve with this machine are exceptional." }
-                ]
-            },
-            {
-                id: 5,
-                title: "Industrial Conveyor System",
-                price: 28900,
-                originalPrice: 32000,
-                description: "Customizable conveyor systems for efficient material handling. Modular design allows for easy integration into existing production lines with minimal downtime.",
-                image: "https://images.unsplash.com/photo-1581093458791-9d4a3f7b8645?auto=format&fit=crop&w=900&q=80",
-                badge: "Featured",
-                category: "Processing",
-                industry: "Manufacturing",
-                images: [
-                    "https://images.unsplash.com/photo-1581093458791-9d4a3f7b8645?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Length", value: "Customizable up to 50 meters" },
-                    { name: "Speed", value: "Adjustable 0-30 m/min" },
-                    { name: "Load Capacity", value: "Up to 500 kg/m" },
-                    { name: "Power", value: "5 HP Motor" }
-                ],
-                fullDescription: "Our industrial conveyor systems are designed for efficient material handling in various industrial applications.",
-                applications: "Ideal for assembly lines, packaging facilities, warehouses, and distribution centers.",
-                reviews: [
-                    { name: "Neha Gupta", company: "AutoAssemble Inc.", date: "July 15, 2023", rating: 4.5, text: "The modular design made installation quick and easy. Our production flow has improved significantly." }
-                ]
-            },
-            {
-                id: 6,
-                title: "Industrial Oven",
-                price: 22500,
-                originalPrice: 26000,
-                description: "High-temperature industrial ovens for drying, curing, and heat treatment applications. Energy-efficient design with precise temperature control up to 650°C.",
-                image: "https://images.unsplash.com/photo-1581093459159-2e2df258ecc1?auto=format&fit=crop&w=900&q=80",
-                badge: "Special Offer",
-                category: "Processing",
-                industry: "Manufacturing",
-                images: [
-                    "https://images.unsplash.com/photo-1581093459159-2e2df258ecc1?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1581091012184-5c8a9b6da8b0?auto=format&fit=crop&w=900&q=80"
-                ],
-                specs: [
-                    { name: "Temperature Range", value: "Up to 650°C" },
-                    { name: "Chamber Size", value: "Customizable" },
-                    { name: "Heating Power", value: "30 kW" },
-                    { name: "Control System", value: "Digital PID Controller" }
-                ],
-                fullDescription: "Our industrial ovens are designed for precise temperature control in various heat treatment applications.",
-                applications: "Perfect for paint curing, composite curing, drying processes, and heat treatment of metals.",
-                reviews: [
-                    { name: "Vikram Singh", company: "ThermoTech Ltd.", date: "June 8, 2023", rating: 5, text: "The temperature uniformity across the chamber is excellent. Our product quality has improved significantly." }
-                ]
-            }
+            {id:1, title:"C.I. TAPPER BUFFER", price:24500, originalPrice:28500, badge:"New", description:"High-strength cast-iron buffer for smooth rotation and enhanced durability in heavy-duty operations.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80"], category:"Cutting", material:"Cast Iron", specs:[{name:"Size", value:"14'' INCH , 17'' INCH"}, {name:"Usage", value:"Balti mouth stretch"}, {name:"Material", value:"Cast Iron"}, {name:"Hardness", value:"180–220 BHN"}], fullDescription:"Precision-engineered cast iron buffer designed for heavy-duty industrial applications. Ideal for metal forming, automotive, and general manufacturing.", applications:"Ideal for metal forming, automotive, and general manufacturing.", reviews:[{name:"Rajesh Kumar", company:"MetalWorks Inc.", rating:5, text:"Excellent durability and performance."}]},
+            {id:2, title:"PAWALI BHAVRA", price:18750, originalPrice:22000, badge:"Popular", description:"Precision-machined bhavra for stable, accurate metal punching with superior balance.", image:"https://images.unsplash.com/photo-1581092337203-3b5c3c49c9b0?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1581092337203-3b5c3c49c9b0?auto=format&fit=crop&w=900&q=80"], category:"Punching", material:"WPS Temper", specs:[{name:"Size", value:"6'' INCH, 5'' INCH"}, {name:"Usage", value:"Pawali mouth bidding"}, {name:"Material", value:"WPS Iron"}], fullDescription:"Robust, finely-finished bhavra for high-speed metal forming with consistent alignment.", applications:"Perfect for metal fabrication and precision punching.", reviews:[{name:"Amit Patel", company:"FabTech Ltd.", rating:4.5, text:"Reliable and precise."}]},
+            {id:3, title:"BALTI PUNCHING BHINGRI", price:32000, originalPrice:35000, badge:"Best Seller", description:"Precision-machined bhingri designed for stable, accurate metal punching with superior balance.", image:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80"], category:"Punching", material:"WPS Temper", specs:[{name:"Size", value:"100 / 35 MM"}, {name:"Usage", value:"Balti taliya punching"}, {name:"Material", value:"WPS Temper Iron Roll"}], fullDescription:"Heavy-duty bhingri designed for continuous punching operations.", applications:"Suitable for high-volume metal punching and forming.", reviews:[{name:"Sanjay Verma", company:"PressTools Inc.", rating:5, text:"Outstanding performance."}]},
+            {id:4, title:"BALTI BIDDING BEARING", price:28000, originalPrice:31000, badge:"Hot", description:"High-precision bearing for smooth and accurate bidding operations.", image:"https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=80"], category:"Bidding", material:"Steel", specs:[{name:"Size", value:"90 Diameter Bearing"}, {name:"Usage", value:"Balti mouth bidding"}, {name:"Material", value:"Steel"}], fullDescription:"Engineered for high-speed bidding with minimal maintenance.", applications:"Ideal for continuous bidding processes.", reviews:[{name:"Neha Sharma", company:"Bearing Solutions", rating:4.5, text:"Smooth operation."}]},
+            {id:5, title:"KHUMCHA ROLLING ROLL", price:35000, originalPrice:38000, badge:"New", description:"Precision rolling roll for straightening and forming operations.", image:"https://images.unsplash.com/photo-1581093458791-9d4a3f7b8645?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1581093458791-9d4a3f7b8645?auto=format&fit=crop&w=900&q=80"], category:"Rolling", material:"WPS Temper", specs:[{name:"Size", value:"120 / 45 MM"}, {name:"Usage", value:"Straightens normal khumcha"}, {name:"Material", value:"WPS Temper Roll"}], fullDescription:"High-precision roll for consistent straightening performance.", applications:"Suitable for metal straightening and forming.", reviews:[{name:"Vikram Singh", company:"RollTech Ltd.", rating:5, text:"Excellent quality."}]},
+            {id:6, title:"BALTI FARMA CUTTER", price:42000, originalPrice:45000, badge:"Best Seller", description:"Precision cutter for accurate angle cutting in forming operations.", image:"https://images.unsplash.com/photo-1581093459159-2e2df258ecc1?auto=format&fit=crop&w=900&q=80", images:["https://images.unsplash.com/photo-1581093459159-2e2df258ecc1?auto=format&fit=crop&w=900&q=80"], category:"Cutting", material:"WPS Temper", specs:[{name:"Size", value:"15° Degree, 30° Degree"}, {name:"Usage", value:"Balti farma cutting"}, {name:"Material", value:"WPS Temper Cutter"}], fullDescription:"Heavy-duty cutter for precise angle cutting.", applications:"Ideal for metal forming and cutting operations.", reviews:[{name:"Ravi Kumar", company:"CutTech Inc.", rating:4.5, text:"Precise cuts."}]}
         ];
 
-        // Filter state
-        let filterState = {
-            category: 'all',
-            industry: 'all',
-            maxPrice: 100000,
-            sortBy: 'default'
-        };
+        /* ----------  LOAD PRODUCTS  ---------- */
+        function loadProducts() {
+            applyFilters();
+        }
 
-        // Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-            }, 1500);
-            
-            // Load products after preloader
-            loadProducts();
-            setupFilters();
-        });
+        /* ----------  FILTER STATE  ---------- */
+        let filterState = {category:'all', material:'all', maxPrice:100000, sortBy:'default'};
 
-        // Sticky Navbar
-        window.addEventListener('scroll', function(){
-            const nav = document.querySelector('.navbar');
-            nav.classList.toggle('nav-scrolled', window.scrollY > 50);
-            
-            // Back to top button
-            const backToTop = document.querySelector('.back-to-top');
-            if(window.scrollY > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-
-        // Back to top functionality
-        document.querySelector('.back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Setup filter functionality
-        function setupFilters() {
-            // Category filters
-            document.querySelectorAll('#category-filters .filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
+        /* ----------  FILTER SETUP  ---------- */
+        function setupFilters(){
+            // category
+            document.querySelectorAll('#category-filters .filter-btn').forEach(btn=>{
+                btn.addEventListener('click', function(){
+                    document.querySelectorAll('#category-filters .filter-btn').forEach(b=>b.classList.remove('active'));
                     this.classList.add('active');
-                    filterState.category = this.getAttribute('data-category');
+                    filterState.category = this.dataset.category;
                     applyFilters();
                 });
             });
-
-            // Industry filters
-            document.querySelectorAll('#industry-filters .filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('#industry-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            // material
+            document.querySelectorAll('#material-filters .filter-btn').forEach(btn=>{
+                btn.addEventListener('click', function(){
+                    document.querySelectorAll('#material-filters .filter-btn').forEach(b=>b.classList.remove('active'));
                     this.classList.add('active');
-                    filterState.industry = this.getAttribute('data-industry');
+                    filterState.material = this.dataset.material;
                     applyFilters();
                 });
             });
-
-            // Price range filter
+            // price
             const priceRange = document.getElementById('price-range');
-            const priceMax = document.getElementById('price-max');
-            
-            priceRange.addEventListener('input', function() {
+            const priceMax   = document.getElementById('price-max');
+            priceRange.addEventListener('input', function(){
                 filterState.maxPrice = parseInt(this.value);
                 priceMax.textContent = '₹' + filterState.maxPrice.toLocaleString();
                 applyFilters();
             });
-
-            // Sort options
-            document.querySelectorAll('#sort-options .filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('#sort-options .filter-btn').forEach(b => b.classList.remove('active'));
+            // sort
+            document.querySelectorAll('#sort-options .filter-btn').forEach(btn=>{
+                btn.addEventListener('click', function(){
+                    document.querySelectorAll('#sort-options .filter-btn').forEach(b=>b.classList.remove('active'));
                     this.classList.add('active');
-                    filterState.sortBy = this.getAttribute('data-sort');
+                    filterState.sortBy = this.dataset.sort;
                     applyFilters();
                 });
             });
         }
 
-        // Apply filters and sort products
-        function applyFilters() {
-            let filteredProducts = [...products];
-            
-            // Apply category filter
-            if (filterState.category !== 'all') {
-                filteredProducts = filteredProducts.filter(product => product.category === filterState.category);
-            }
-            
-            // Apply industry filter
-            if (filterState.industry !== 'all') {
-                filteredProducts = filteredProducts.filter(product => product.industry === filterState.industry);
-            }
-            
-            // Apply price filter
-            filteredProducts = filteredProducts.filter(product => product.price <= filterState.maxPrice);
-            
-            // Apply sorting
-            if (filterState.sortBy === 'price-low') {
-                filteredProducts.sort((a, b) => a.price - b.price);
-            } else if (filterState.sortBy === 'price-high') {
-                filteredProducts.sort((a, b) => b.price - a.price);
-            }
-            
-            // Display filtered products
-            displayProducts(filteredProducts);
+        /* ----------  APPLY FILTERS  ---------- */
+        function applyFilters(){
+            let filtered = [...products];
+            if(filterState.category !== 'all') filtered = filtered.filter(p=>p.category === filterState.category);
+            if(filterState.material !== 'all') filtered = filtered.filter(p=>p.material === filterState.material);
+            filtered = filtered.filter(p=>p.price <= filterState.maxPrice);
+            if(filterState.sortBy === 'price-low')  filtered.sort((a,b)=>a.price - b.price);
+            if(filterState.sortBy === 'price-high') filtered.sort((a,b)=>b.price - a.price);
+            displayProducts(filtered);
         }
 
-        // Load products function
-        function loadProducts() {
-            displayProducts(products);
-        }
-
-        // Display products in the container
-        function displayProducts(productsToDisplay) {
-            const productsContainer = document.getElementById('products-container');
-            productsContainer.innerHTML = '';
-            
-            if (productsToDisplay.length === 0) {
-                productsContainer.innerHTML = `
+        /* ----------  DISPLAY PRODUCTS  ---------- */
+        function displayProducts(list){
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            if(list.length === 0){
+                container.innerHTML = `
                     <div class="col-12 text-center py-5">
-                        <h4 class="text-muted">No products found matching your criteria</h4>
-                        <p class="text-muted">Try adjusting your filters to see more products</p>
+                        <h4 class="text-muted">No products match your filters</h4>
+                        <p class="text-muted">Try adjusting your selection</p>
                     </div>
-                `;
-                return;
+                `; return;
             }
-            
-            productsToDisplay.forEach((product, index) => {
-                const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-                
-                const productCard = document.createElement('div');
-                productCard.className = 'col-lg-4 col-md-6';
-                productCard.setAttribute('data-aos', 'fade-up');
-                productCard.setAttribute('data-aos-delay', (index % 3) * 100);
-                
-                productCard.innerHTML = `
+            list.forEach((p,i)=>{
+                const discount = Math.round(((p.originalPrice - p.price)/p.originalPrice)*100);
+                const card = document.createElement('div');
+                card.className = 'col-lg-4 col-md-6';
+                card.setAttribute('data-aos','fade-up');
+                card.setAttribute('data-aos-delay',(i%3)*100);
+                card.innerHTML = `
                     <div class="card product-card">
                         <div class="position-relative">
-                            <img src="₹{product.image}" class="card-img-top" alt="₹{product.title}" />
-                            <span class="product-badge">₹{product.badge}</span>
+                            <img src="${p.image}" class="card-img-top" alt="${p.title}">
+                            <span class="product-badge">${p.badge}</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">${product.title}</h5>
-                            <p class="card-text">${product.description}</p>
-                            <div class="product-price">₹${product.price.toLocaleString()}</div>
-                            ${product.originalPrice > product.price ? 
-                                `<div class="price-rate">
-                                    <span class="original-price">${product.originalPrice.toLocaleString()}</span>
-                                    <span class="discount-badge">Save ₹{discount}%</span>
-                                </div>` : ''}
-                            <button class="product-btn" data-product-id="₹{product.id}">View Details</button>
+                            <h5 class="card-title">${p.title}</h5>
+                            <p class="card-text">${p.description}</p>
+                            <div class="product-price">₹${p.price.toLocaleString('en-IN')}</div>
+                            ${p.originalPrice>p.price?`<div class="price-rate"><span class="original-price">₹${p.originalPrice.toLocaleString('en-IN')}</span><span class="discount-badge">Save ${discount}%</span></div>`:''}
+                            <button class="product-btn" data-id="${p.id}">View Details</button>
                         </div>
                     </div>
                 `;
-                
-                productsContainer.appendChild(productCard);
-                
-                // Add animation after a short delay
-                setTimeout(() => {
-                    const card = productCard.querySelector('.product-card');
-                    card.classList.add('animate-in');
-                }, 100 + (index % 3) * 100);
+                container.appendChild(card);
             });
-            
-            // Add event listeners to product buttons
-            document.querySelectorAll('.product-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = parseInt(this.getAttribute('data-product-id'));
-                    showProductDetail(productId);
-                });
-            });
+            document.querySelectorAll('.product-btn').forEach(btn=>btn.addEventListener('click',e=>showProductDetail(+e.target.dataset.id)));
         }
 
-        // Show product detail
-        function showProductDetail(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            
-            // Calculate discount and savings
-            const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-            const marketPrice = Math.round(product.originalPrice * 1.1); // Market price is 10% higher than original
-            const savings = marketPrice - product.price;
-            
-            // Update product detail section
-            document.getElementById('detail-product-title').textContent = product.title;
-            document.getElementById('detail-product-price').textContent = `₹₹{product.price.toLocaleString()}`;
-            document.getElementById('detail-product-description').textContent = product.description;
-            
-            // Update price display
-            if (product.originalPrice > product.price) {
-                document.getElementById('detail-original-price').textContent = `₹₹{product.originalPrice.toLocaleString()}`;
-                document.getElementById('detail-discount').textContent = `Save ₹{discount}%`;
-            } else {
-                document.getElementById('detail-original-price').style.display = 'none';
-                document.getElementById('detail-discount').style.display = 'none';
-            }
-            
-            // Update price comparison
-            document.getElementById('comparison-our-price').textContent = `₹₹{product.price.toLocaleString()}`;
-            document.getElementById('comparison-market-price').textContent = `₹₹{marketPrice.toLocaleString()}`;
-            document.getElementById('comparison-savings').textContent = `₹₹{savings.toLocaleString()}`;
-            
-            // Update product images
-            document.getElementById('main-product-img').src = product.images[0];
-            const thumbnailsContainer = document.getElementById('product-thumbnails');
-            thumbnailsContainer.innerHTML = '';
-            
-            product.images.forEach((image, index) => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = `thumbnail ₹{index === 0 ? 'active' : ''}`;
-                thumbnail.setAttribute('data-img', image);
-                thumbnail.innerHTML = `<img src="₹{image}" alt="Thumbnail ₹{index + 1}">`;
-                thumbnailsContainer.appendChild(thumbnail);
-            });
-            
-            // Update product specs
-            const specsContainer = document.getElementById('detail-product-specs');
-            specsContainer.innerHTML = '';
-            
-            product.specs.forEach(spec => {
-                const specItem = document.createElement('div');
-                specItem.className = 'spec-item';
-                specItem.innerHTML = `
-                    <span class="spec-name">₹{spec.name}</span>
-                    <span class="spec-value">₹{spec.value}</span>
-                `;
-                specsContainer.appendChild(specItem);
-            });
-            
-            // Update tab content
-            document.getElementById('tab-description-title').textContent = `₹{product.title} - Advanced Technology`;
-            document.getElementById('tab-description-content').textContent = product.fullDescription;
-            
-            // Update specifications tab
-            const specsTable = document.getElementById('tab-specifications');
-            specsTable.innerHTML = '';
-            
-            product.specs.forEach(spec => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>₹{spec.name}</td>
-                    <td>₹{spec.value}</td>
-                `;
-                specsTable.appendChild(row);
-            });
-            
-            // Update applications tab
-            document.getElementById('tab-applications-title').textContent = `₹{product.title} - Industry Applications`;
-            document.getElementById('tab-applications-content').innerHTML = `<p>₹{product.applications}</p>`;
-            
-            // Update reviews tab
-            const reviewsContainer = document.getElementById('tab-reviews-content');
-            reviewsContainer.innerHTML = '';
-            
-            product.reviews.forEach(review => {
-                const reviewItem = document.createElement('div');
-                reviewItem.className = 'review-item mb-4';
-                
-                let stars = '';
-                for (let i = 1; i <= 5; i++) {
-                    if (i <= review.rating) {
-                        stars += '<i class="fas fa-star text-warning"></i>';
-                    } else if (i - 0.5 === review.rating) {
-                        stars += '<i class="fas fa-star-half-alt text-warning"></i>';
-                    } else {
-                        stars += '<i class="far fa-star text-warning"></i>';
-                    }
-                }
-                
-                reviewItem.innerHTML = `
-                    <div class="d-flex justify-content-between">
-                        <h5>₹{review.name}</h5>
-                        <div class="text-warning">
-                            ₹{stars}
-                        </div>
+        /* ----------  OFF-CANVAS DETAIL  ---------- */
+        function showProductDetail(id){
+            const p = products.find(x=>x.id===id);
+            if(!p) return;
+            const discount = Math.round(((p.originalPrice - p.price)/p.originalPrice)*100);
+            document.getElementById('canvasTitle').textContent = p.title;
+            document.getElementById('canvasBody').innerHTML = `
+                <div class="swiper swiper-detail mb-3">
+                    <div class="swiper-wrapper">${p.images.map(img=>`<div class="swiper-slide"><img src="${img}" alt="${p.title}"></div>`).join('')}</div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+                </div>
+                <h5 class="text-primary mb-2">₹${p.price.toLocaleString('en-IN')} ${p.originalPrice>p.price?`<del class="text-muted">₹${p.originalPrice.toLocaleString('en-IN')}</del> <span class="badge bg-danger">Save ${discount}%</span>`:''}</h5>
+                <p class="mb-3">${p.fullDescription}</p>
+                <h6 class="fw-bold">Specifications</h6>
+                <table class="table table-bordered spec-table mb-3"><tbody>${p.specs.map(s=>`<tr><th>${s.name}</th><td>${s.value}</td></tr>`).join('')}</tbody></table>
+                <h6 class="fw-bold">Applications</h6>
+                <p>${p.applications}</p>
+                <h6 class="fw-bold mt-3">Customer Reviews</h6>
+                ${p.reviews.map(r=>`
+                    <div class="border rounded p-3 mb-2">
+                        <div class="review-stars mb-1">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+                        <p class="mb-1 fst-italic">"${r.text}"</p>
+                        <small class="text-muted">- ${r.name}, ${r.company}</small>
                     </div>
-                    <p class="text-muted">By ₹{review.name}, ₹{review.company} | ₹{review.date}</p>
-                    <p>₹{review.text}</p>
-                `;
-                reviewsContainer.appendChild(reviewItem);
-            });
-            
-            // Show product detail section and hide products list
-            document.getElementById('product-detail').style.display = 'block';
-            document.querySelector('.py-5').style.display = 'none';
-            
-            // Show related products
-            showRelatedProducts(product);
-            
-            // Scroll to product detail
-            window.scrollTo({
-                top: document.getElementById('product-detail').offsetTop - 100,
-                behavior: 'smooth'
-            });
-            
-            // Initialize thumbnail functionality
-            initThumbnails();
+                `).join('')}
+                <div class="d-grid gap-2 d-md-flex mt-4">
+                    <button class="btn btn-primary flex-fill" onclick="openQuoteModal(${p.id})">Get Quote</button>
+                    <button class="btn btn-outline-primary flex-fill">Download Brochure</button>
+                </div>
+            `;
+            const offcanvas = new bootstrap.Offcanvas(document.getElementById('productCanvas'));
+            offcanvas.show();
+            new Swiper('.swiper-detail', {loop:true, pagination:{el:'.swiper-pagination', clickable:true}, navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'}});
         }
 
-        // Show related products
-        function showRelatedProducts(currentProduct) {
-            // Find products in the same category but excluding the current product
-            const relatedProducts = products.filter(product => 
-                product.category === currentProduct.category && product.id !== currentProduct.id
-            );
+        /* ----------  QUOTE MODAL FUNCTIONS  ---------- */
+        function openQuoteModal(productId) {
+            const p = products.find(x => x.id === productId);
+            if (!p) return;
             
-            const relatedContainer = document.getElementById('related-products-container');
-            relatedContainer.innerHTML = '';
+            // Set product info in modal
+            document.getElementById('quoteProductName').textContent = p.title;
+            document.getElementById('quoteProductPrice').textContent = `Price: ₹${p.price.toLocaleString('en-IN')}`;
+            document.getElementById('quoteProductId').value = p.id;
             
-            if (relatedProducts.length === 0) {
-                document.getElementById('related-products').style.display = 'none';
-                return;
-            }
+            // Close product detail offcanvas
+            const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('productCanvas'));
+            if (offcanvas) offcanvas.hide();
             
-            // Display related products
-            relatedProducts.forEach((product, index) => {
-                const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-                
-                const productCard = document.createElement('div');
-                productCard.className = 'col-lg-4 col-md-6';
-                productCard.setAttribute('data-aos', 'fade-up');
-                productCard.setAttribute('data-aos-delay', (index % 3) * 100);
-                
-                productCard.innerHTML = `
-                    <div class="card product-card">
-                        <div class="position-relative">
-                            <img src="₹{product.image}" class="card-img-top" alt="₹{product.title}" />
-                            <span class="product-badge">₹{product.badge}</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">${product.title}</h5>
-                            <p class="card-text">${product.description}</p>
-                            <div class="product-price">₹${product.price.toLocaleString()}</div>
-                            ${product.originalPrice > product.price ? 
-                                `<div class="price-rate">
-                                    <span class="original-price">${product.originalPrice.toLocaleString()}</span>
-                                    <span class="discount-badge">Save ₹{discount}%</span>
-                                </div>` : ''}
-                            <button class="product-btn" data-product-id="₹{product.id}">View Details</button>
-                        </div>
-                    </div>
-                `;
-                
-                relatedContainer.appendChild(productCard);
-                
-                // Add animation after a short delay
-                setTimeout(() => {
-                    const card = productCard.querySelector('.product-card');
-                    card.classList.add('animate-in');
-                }, 100 + (index % 3) * 100);
-            });
-            
-            // Add event listeners to related product buttons
-            document.querySelectorAll('#related-products-container .product-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = parseInt(this.getAttribute('data-product-id'));
-                    showProductDetail(productId);
-                });
-            });
-            
-            // Show related products section
-            document.getElementById('related-products').style.display = 'block';
+            // Show quote modal
+            const quoteModal = new bootstrap.Modal(document.getElementById('quoteModal'));
+            quoteModal.show();
         }
 
-        // Initialize thumbnail functionality
-        function initThumbnails() {
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            const mainImage = document.getElementById('main-product-img');
+        // Handle form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    // Remove active class from all thumbnails
-                    thumbnails.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked thumbnail
-                    this.classList.add('active');
-                    
-                    // Update main image
-                    const newImageSrc = this.getAttribute('data-img');
-                    mainImage.src = newImageSrc;
-                });
-            });
-        }
-
-        // Quantity selector functionality
-        const minusBtn = document.querySelector('.quantity-btn.minus');
-        const plusBtn = document.querySelector('.quantity-btn.plus');
-        const quantityInput = document.querySelector('.quantity-input');
-        
-        if (minusBtn && plusBtn && quantityInput) {
-            minusBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                if(currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
+            // Get form data
+            const formData = new FormData(this);
+            const productId = formData.get('productId');
+            const product = products.find(p => p.id == productId);
             
-            plusBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                if(currentValue < 10) {
-                    quantityInput.value = currentValue + 1;
-                }
-            });
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just show an alert
+            alert(`Thank you for your quote request for ${product.title}!\n\nWe have received your information and will contact you shortly.`);
+            
+            // Close modal
+            const quoteModal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
+            quoteModal.hide();
+            
+            // Reset form
+            this.reset();
         });
+
+        /* ----------  INIT  ---------- */
+        setupFilters();
     </script>
 </body>
 </html>
