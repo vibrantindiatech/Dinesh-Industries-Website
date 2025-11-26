@@ -559,70 +559,247 @@
 
         /* ----------  PRODUCT DATA FROM DOC  ---------- */
         const products = [
-            {id:1, title:"C.I. TAPPER BUFFER", price:24500, originalPrice:28500, badge:"New", description:"High-strength cast iron buffer for smooth rotation and enhanced durability in heavy-duty operations.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"14'' INCH , 17'' INCH"}, {name:"Usage", value:"Balti mouth stretch"}, {name:"Material", value:"Cast Iron"}], fullDescription:"Precision-engineered cast iron buffer designed for heavy-duty industrial applications.", applications:"Ideal for metal forming, automotive, and general manufacturing.", reviews:[{name:"Rajesh Kumar", company:"MetalWorks Inc.", rating:5, text:"Excellent durability and performance."}]},
-            {id:2, title:"PAWALI BHAVRA", price:18750, originalPrice:22000, badge:"Popular", description:"Precision-machined bhavra for stable, accurate metal punching with superior balance.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"6'' INCH, 5'' INCH"}, {name:"Usage", value:"Pawali mouth bidding"}, {name:"Material", value:"WPS Iron"}], fullDescription:"Robust, finely-finished bhavra for high-speed metal forming with consistent alignment.", applications:"Perfect for metal fabrication and precision punching.", reviews:[{name:"Amit Patel", company:"FabTech Ltd.", rating:4.5, text:"Reliable and precise."}]},
-            {id:3, title:"BALTI PUNCHING BHINGRI", price:32000, originalPrice:35000, badge:"Best Seller", description:"Precision-machined bhingri for accurate metal punching with superior balance.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"100 / 35 MM"}, {name:"Usage", value:"Balti taliya punching"}, {name:"Material", value:"WPS Temper Iron Roll"}], fullDescription:"Heavy-duty bhingri designed for continuous punching operations.", applications:"Suitable for high-volume metal punching and forming.", reviews:[{name:"Sanjay Verma", company:"PressTools Inc.", rating:5, text:"Outstanding performance."}]},
-            {id:4, title:"BALTI BIDDING BEARING", price:28000, originalPrice:31000, badge:"Hot", description:"High-precision bearing for smooth and accurate bidding operations.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"90 Diameter Bearing"}, {name:"Usage", value:"Balti mouth bidding"}, {name:"Material", value:"Steel"}], fullDescription:"Engineered for high-speed bidding with minimal maintenance.", applications:"Ideal for continuous bidding processes.", reviews:[{name:"Neha Sharma", company:"Bearing Solutions", rating:4.5, text:"Smooth operation."}]},
-            {id:5, title:"KHUMCHA ROLLING ROLL", price:35000, originalPrice:38000, badge:"New", description:"Precision rolling roll for straightening and forming operations.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"120 / 45 MM"}, {name:"Usage", value:"Straightens normal khumcha"}, {name:"Material", value:"WPS Temper Roll"}], fullDescription:"High-precision roll for consistent straightening performance.", applications:"Suitable for metal straightening and forming.", reviews:[{name:"Vikram Singh", company:"RollTech Ltd.", rating:5, text:"Excellent quality."}]},
-            {id:6, title:"BALTI FARMA CUTTER", price:42000, originalPrice:45000, badge:"Best Seller", description:"Precision cutter for accurate angle cutting in forming operations.", image:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80", images:["https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"], specs:[{name:"Size", value:"15° Degree, 30° Degree"}, {name:"Usage", value:"Balti farma cutting"}, {name:"Material", value:"WPS Temper Cutter"}], fullDescription:"Heavy-duty cutter for precise angle cutting.", applications:"Ideal for metal forming and cutting operations.", reviews:[{name:"Ravi Kumar", company:"CutTech Inc.", rating:4.5, text:"Precise cuts."}]}
-        ];
+    {
+        id: 1,
+        title: "C.I. TAPPER BUFFER",
+        price: 24500,
+        originalPrice: 28500,
+        badge: "New",
+        description: "High-strength cast iron buffer engineered for long life and smooth industrial operation.",
+        image: "./img/product1.png",
+        images: ["./img/product1.png"],
+        specs: [
+            { name: "Size", value: "14'' , 17''" },
+            { name: "Usage", value: "Balti mouth stretch" },
+            { name: "Material", value: "Cast Iron" }
+        ],
+        fullDescription: "Precision-engineered heavy-duty buffer designed for industrial forming applications. Built from premium CI material for stability, vibration reduction, and long service life.",
+        applications: "Used in utensil forming, metal shaping, and continuous rotation systems.",
+        reviews: [
+            { name: "Rajesh Kumar", company: "MetalWorks Inc.", rating: 5, text: "Excellent durability and performance." },
+            { name: "Ketan Solanki", company: "Shree Fabricators", rating: 5, text: "Very stable, zero vibration." },
+            { name: "Mohit Chauhan", company: "Utensil Pro", rating: 4, text: "Strong build and accurate balance." }
+        ]
+    },
+
+    {
+        id: 2,
+        title: "PAWALI BHAVRA",
+        price: 18750,
+        originalPrice: 22000,
+        badge: "Popular",
+        description: "Precision machined bhavra engineered for accurate pawali mouth bidding.",
+        image: "./img/product2.png",
+        images: ["./img/product2.png"],
+        specs: [
+            { name: "Size", value: "5'' , 6''" },
+            { name: "Usage", value: "Pawali mouth bidding" },
+            { name: "Material", value: "WPS Iron" }
+        ],
+        fullDescription: "High-performance pawali bhavra designed for aligned, stable and vibration-free bidding operations.",
+        applications: "Used in pawali bidding, utensil shaping, and industrial metal forming.",
+        reviews: [
+            { name: "Amit Patel", company: "FabTech Ltd.", rating: 5, text: "Perfect for precision bidding." },
+            { name: "Vinit Prajapati", company: "Neel Metals", rating: 4, text: "Very accurate and balanced." },
+            { name: "Ramesh Joshi", company: "Prime Utensils", rating: 5, text: "Smooth working; highly recommended." }
+        ]
+    },
+
+    {
+        id: 3,
+        title: "BALTI PUNCHING BHINGRI",
+        price: 32000,
+        originalPrice: 35000,
+        badge: "Best Seller",
+        description: "Heavy-duty punching bhingri for sharp, accurate balti taliya punching.",
+        image: "./img/product3.png",
+        images: ["./img/product3.png"],
+        specs: [
+            { name: "Size", value: "100 / 35 MM" },
+            { name: "Usage", value: "Balti taliya punching" },
+            { name: "Material", value: "WPS Temper Iron Roll" }
+        ],
+        fullDescription: "Designed for continuous punching cycles with hardened temper iron for maximum lifespan.",
+        applications: "Ideal for punching, forming, balti manufacturing lines.",
+        reviews: [
+            { name: "Sanjay Verma", company: "PressTools Inc.", rating: 5, text: "Very powerful and precise." },
+            { name: "Jaydeep Rana", company: "Vraj Metals", rating: 5, text: "Best bhingri in the market." },
+            { name: "Chirag Panchal", company: "Modern Steel Co.", rating: 4, text: "Heavy-duty quality. Recommended." }
+        ]
+    },
+
+    {
+        id: 4,
+        title: "BALTI BIDDING BEARING",
+        price: 28000,
+        originalPrice: 31000,
+        badge: "Hot",
+        description: "High-precision bearing engineered for smooth balti mouth bidding.",
+        image: "./img/product4.png",
+        images: ["./img/product4.png"],
+        specs: [
+            { name: "Size", value: "90 Diameter Bearing" },
+            { name: "Usage", value: "Balti mouth bidding" },
+            { name: "Material", value: "Steel" }
+        ],
+        fullDescription: "Premium-grade steel bearing offering low friction, high RPM stability and long service life.",
+        applications: "Used in all balti bidding machines and industrial rotation systems.",
+        reviews: [
+            { name: "Neha Sharma", company: "Bearing Solutions", rating: 5, text: "Very smooth and premium quality." },
+            { name: "Jignesh Rana", company: "Perfect Industries", rating: 4, text: "Good rotation and strong build." },
+            { name: "Nirav Mistry", company: "Steel Fab Works", rating: 5, text: "Highly durable bearing." }
+        ]
+    },
+
+    {
+        id: 5,
+        title: "KHUMCHA ROLLING ROLL",
+        price: 35000,
+        originalPrice: 38000,
+        badge: "New",
+        description: "High-precision rolling roll for khumcha straightening and forming.",
+        image: "./img/product5.png",
+        images: ["./img/product5.png"],
+        specs: [
+            { name: "Size", value: "120 / 45 MM" },
+            { name: "Usage", value: "Straightens normal khumcha" },
+            { name: "Material", value: "WPS Temper Roll" }
+        ],
+        fullDescription: "Engineered to deliver straight and uniform khumcha output with zero distortion.",
+        applications: "Used for utensil khumcha rolling, straightening and forming.",
+        reviews: [
+            { name: "Vikram Singh", company: "RollTech Ltd.", rating: 5, text: "Straightening accuracy is excellent." },
+            { name: "Hiren Vora", company: "Classic Metals", rating: 5, text: "Perfect hardness and finish." },
+            { name: "Imran Shaikh", company: "MetalLine Works", rating: 4, text: "Works smoothly under load." }
+        ]
+    },
+
+    {
+        id: 6,
+        title: "BALTI FARMA CUTTER",
+        price: 42000,
+        originalPrice: 45000,
+        badge: "Best Seller",
+        description: "High-precision hardened temper cutter for angle-based balti farma cutting.",
+        image: "./img/product6.png",
+        images: ["./img/product6.png"],
+        specs: [
+            { name: "Size", value: "15° , 30°" },
+            { name: "Usage", value: "Balti farma cutting" },
+            { name: "Material", value: "WPS Temper Cutter" }
+        ],
+        fullDescription: "Industrial-grade WPS temper cutter with ultra-sharp edge geometry for accurate, clean cuts.",
+        applications: "Used in utensil forming, angle cutting, balti manufacturing.",
+        reviews: [
+            { name: "Ravi Kumar", company: "CutTech Inc.", rating: 5, text: "Cutting accuracy is perfect." },
+            { name: "Hardik Dave", company: "Farma Tools", rating: 4, text: "Very sharp and durable." },
+            { name: "Mihir Vaghela", company: "Metal Base Co.", rating: 5, text: "No heat marks, smooth edges." }
+        ]
+    }
+];
 
         /* ----------  RENDER PRODUCT CARDS  ---------- */
-        function loadProducts() {
-            const container = document.getElementById('products-container');
-            container.innerHTML = products.map((p, i) => `
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i % 3) * 100}">
-                    <div class="card product-card">
-                        <div class="position-relative">
-                            <img src="${p.image}" class="card-img-top" alt="${p.title}">
-                            <span class="product-badge">${p.badge}</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">${p.title}</h5>
-                            <p class="card-text">${p.description}</p>
-                            <button class="product-btn" data-id="${p.id}">View Details</button>
-                        </div>
-                    </div>
+        /* ---------- RENDER PRODUCT CARDS ---------- */
+    function loadProducts() {
+    const container = document.getElementById("products-container");
+    container.innerHTML = products.map((p, i) => `
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i % 3) * 100}">
+            <div class="card product-card">
+                <div class="position-relative">
+                    <img src="${p.image}" class="card-img-top" alt="${p.title}">
+                    <span class="product-badge">${p.badge}</span>
                 </div>
-            `).join('');
-            document.querySelectorAll('.product-btn').forEach(btn => btn.addEventListener('click', e => showProductDetail(+e.target.dataset.id)));
-        }
+                <div class="card-body">
+                    <h5 class="card-title">${p.title}</h5>
+                    <p class="card-text">${p.description}</p>
+                    <button class="product-btn" data-id="${p.id}">View Details</button>
+                </div>
+            </div>
+        </div>
+    `).join("");
 
-        /* ----------  PRODUCT DETAIL PANEL  ---------- */
-        function showProductDetail(id) {
-            const p = products.find(x => x.id === id);
-            const offcanvas = new bootstrap.Offcanvas(document.getElementById('productCanvas'));
-            document.getElementById('canvasTitle').textContent = p.title;
-            document.getElementById('canvasBody').innerHTML = `
-                <div class="swiper swiper-detail mb-3">
-                    <div class="swiper-wrapper">${p.images.map(img => `<div class="swiper-slide"><img src="${img}" alt="${p.title}"></div>`).join('')}</div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-                <h5 class="text-primary mb-2">₹${p.price.toLocaleString('en-IN')} <del class="text-muted">₹${p.originalPrice.toLocaleString('en-IN')}</del></h5>
-                <p class="mb-3">${p.fullDescription}</p>
-                <h6 class="fw-bold">Specifications</h6>
-                <table class="table table-bordered spec-table mb-3">
-                    <tbody>${p.specs.map(s => `<tr><th>${s.name}</th><td>${s.value}</td></tr>`).join('')}</tbody>
-                </table>
-                <h6 class="fw-bold">Applications</h6>
-                <p>${p.applications}</p>
-                <h6 class="fw-bold mt-3">Customer Reviews</h6>
+    document.querySelectorAll(".product-btn").forEach(btn => 
+        btn.addEventListener("click", e => showProductDetail(+e.target.dataset.id))
+    );
+}
+
+/* ---------- PRODUCT DETAIL PANEL + REVIEW CAROUSEL ---------- */
+    function showProductDetail(id) {
+    const p = products.find(x => x.id === id);
+    const offcanvas = new bootstrap.Offcanvas(document.getElementById("productCanvas"));
+
+    document.getElementById("canvasTitle").textContent = p.title;
+
+    document.getElementById("canvasBody").innerHTML = `
+        <div class="swiper swiper-detail mb-3">
+            <div class="swiper-wrapper">
+                ${p.images.map(img => `<div class="swiper-slide"><img src="${img}"></div>`).join("")}
+            </div>
+            
+        </div>
+
+        <h5 class="text-primary mb-2">
+            ₹${p.price.toLocaleString("en-IN")}
+            <del class="text-muted">₹${p.originalPrice.toLocaleString("en-IN")}</del>
+        </h5>
+
+        <p>${p.fullDescription}</p>
+
+        <h6 class="fw-bold mt-3">Specifications</h6>
+        <table class="table table-bordered mb-3">
+            <tbody>
+                ${p.specs.map(s => `<tr><th>${s.name}</th><td>${s.value}</td></tr>`).join("")}
+            </tbody>
+        </table>
+
+        <h6 class="fw-bold">Applications</h6>
+        <p>${p.applications}</p>
+
+        <h6 class="fw-bold mt-4">Customer Reviews</h6>
+
+        <div class="swiper review-swiper mt-3">
+            <div class="swiper-wrapper">
                 ${p.reviews.map(r => `
-                    <div class="border rounded p-3 mb-2">
-                        <div class="review-stars mb-1">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
-                        <p class="mb-1 fst-italic">"${r.text}"</p>
-                        <small class="text-muted">- ${r.name}, ${r.company}</small>
+                    <div class="swiper-slide">
+                        <div class="border rounded p-3 bg-light">
+                            <div class="text-warning mb-1" style="font-size:18px;">
+                                ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
+                            </div>
+                            <p class="fst-italic">"${r.text}"</p>
+                            <small class="text-muted">- ${r.name}, ${r.company}</small>
+                        </div>
                     </div>
-                `).join('')}
-                <div class="d-grid gap-2 d-md-flex mt-4">
-                    <button class="btn btn-primary flex-fill" onclick="openQuoteModal(${p.id})">Get Quote</button>
-                </div>
-            `;
-            offcanvas.show();
-            new Swiper('.swiper-detail', {loop:true, pagination:{el:'.swiper-pagination', clickable:true}, navigation:{nextEl:'.swiper-button-next', prevEl:'.swiper-button-prev'}});
+                `).join("")}
+            </div>
+
+            
+        </div>
+
+        <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-primary" onclick="openQuoteModal(${p.id})">Get Quote</button>
+        </div>
+    `;
+
+    offcanvas.show();
+
+    new Swiper(".swiper-detail", {
+        loop: true,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+    });
+
+    new Swiper(".review-swiper", {
+        loop: true,
+        autoplay: { delay: 2500, disableOnInteraction: false },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
         }
+    });
+}
 
         /* ----------  QUOTE MODAL FUNCTIONS  ---------- */
         function openQuoteModal(productId) {
