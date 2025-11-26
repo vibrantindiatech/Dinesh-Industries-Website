@@ -18,7 +18,7 @@
             --metal-gray:#4a5568; --steel:#718096; --light:#f8f9fa; --dark:#1a1a1a; --gray:#6c757d;
         }
         *{margin:0; padding:0; box-sizing:border-box}
-        body{font-family:'Poppins',sans-serif; background:#fff; color:#333; overflow-x:hidden; position:relative}
+        body{font-family:'Poppins',sans-serif; background:#fff; color:#333; overflow-x:hidden!important; position:relative}
         .industrial-bg{position:fixed; inset:0; background-image:linear-gradient(rgba(30,58,95,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(30,58,95,.03) 1px,transparent 1px); background-size:50px 50px; z-index:-1; pointer-events:none}
         ::-webkit-scrollbar{width:12px}
         ::-webkit-scrollbar-track{background:#f1f1f1; border-radius:10px}
@@ -173,7 +173,7 @@
 
         /* ----------  BACK TO TOP  ---------- */
         .back-to-top{position:fixed; bottom:30px; right:30px; width:50px; height:50px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; z-index:1000; cursor:pointer; opacity:0; visibility:hidden; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2)}
-        .back-to-top.active{opacity:1; visibility:visible}
+        .back-to-top.active{opacity:0; visibility:visible}
         .back-to-top:hover{background:var(--secondary); transform:translateY(-3px)}
 
         /* ----------  OFF-CANVAS PRODUCT PANEL  ---------- */
@@ -269,7 +269,7 @@
     </section>
 
     <!-- About Intro -->
-    <section class="about-intro overflow-x">
+    <section class="about-intro overflow-x-hidden">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
@@ -277,7 +277,7 @@
                         <h2 class="mb-4" style="color:var(--industrial-blue); font-weight:700;">Welcome To Dinesh Industries</h2>
                         <p class="lead mb-4">Founded in 2005, Dinesh Industries has grown from a small workshop to a global leader in industrial machinery solutions. Our journey began with a simple vision: to revolutionize manufacturing through precision engineering and innovative technology.</p>
                         <p class="lead">Our commitment to quality, innovation, and customer satisfaction has made us the trusted partner for industries ranging from automotive and aerospace to pharmaceuticals and consumer goods.</p>
-                        <a href="aboutus.html" class="btn btn-hero btn-lg text-white mb-3">Learn More About Us</a>
+                        <a href="aboutus.html" class="btn btn-hero btn-lg text-white mb-5">Learn More About Us</a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
