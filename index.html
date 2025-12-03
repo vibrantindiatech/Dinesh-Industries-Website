@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinesh Industries | Industrial Machinery Solutions</title>
+
+    <!-- ==========  CSS  ========== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #0d6efd;
+        --secondary: #003366;
+        --accent: #ff6b00;
+        --industrial-blue: #1e3a5f;
+        --metal-gray: #4a5568;
+        --steel: #718096;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fff;
+        color: #333;
+        overflow-x: hidden !important;
+        position: relative;
+      }
+      .industrial-bg {
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(
+            rgba(30, 58, 95, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+      }
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--primary), var(--secondary));
+        border-radius: 10px;
+        border: 2px solid #f1f1f1;
+      }
+
+      /* ----------  PRELOADER  ---------- */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #fff;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .loader {
+        width: 70px;
+        height: 70px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      .loader-text {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--industrial-blue);
+        letter-spacing: 2px;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ----------  HEADER STRIP  ---------- */
+      .industrial-strip {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: #fff;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: 2px solid var(--accent);
+      }
+      .industrial-strip .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .strip-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .strip-item i {
+        color: var(--accent);
+      }
+
+      /* ----------  NAVBAR  ---------- */
+      .navbar {
+        padding: 15px 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo_image{
+        width: 50px;
+        height: 50px;
+      }
+      /* .navbar-brand::before {
+        content: "⚙️";
+        font-size: 1.5rem;
+      } */
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        color: var(--dark) !important;
+        transition: all 0.3s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background: var(--primary);
+        transition: width 0.3s;
+        border-radius: 10px;
+      }
+      .nav-link:hover {
+        color: var(--primary) !important;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (max-width:426px) {
+        .Nav_Industry_Name{
+          display: none;
+        }
+        .logo_image{
+        width: 80px;
+        height: 80px;
+      }
+      }
+
+      /* ----------  HERO  ---------- */
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("./img/img3.jpeg") center/cover no-repeat;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.3),
+          rgba(0, 51, 102, 0.3)
+        );
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .hero h1 {
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        font-size: 3.5rem;
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 1px;
+      }
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-inline: auto;
+        opacity: 0.9;
+      }
+      .btn-hero {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+      .btn-hero:hover::before {
+        left: 100%;
+      }
+      .btn-hero:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(13, 110, 253, 0.6);
+      }
+
+      /* ----------  FEATURES BAR  ---------- */
+      .features-bar {
+        background: var(--industrial-blue);
+        padding: 30px 0;
+        color: #fff;
+      }
+      .feature-bar-item {
+        text-align: center;
+        padding: 15px;
+      }
+      .feature-bar-icon {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
+      .feature-bar-text {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* ----------  SECTION HEADERS  ---------- */
+      .section-header {
+        position: relative;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+      .section-header h2 {
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 2.5rem;
+        font-family: "Orbitron", sans-serif;
+      }
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin-inline: auto;
+      }
+
+      /* ----------  PRODUCT CARD  ---------- */
+      .product-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.4s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        background: #fff;
+        position: relative;
+      }
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        z-index: 1;
+      }
+      .product-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .product-card .card-img-top {
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .product-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
+      .product-card .card-body {
+        padding: 25px;
+      }
+      .product-card .card-title {
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--industrial-blue);
+      }
+      .product-card .card-text {
+        color: var(--gray);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .product-btn {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .product-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+      .product-btn:hover::before {
+        left: 100%;
+      }
+      .product-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent);
+        color: #fff;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+      }
+
+      /* ----------  ABOUT INTRO  ---------- */
+      .about-intro {
+        padding: 100px 0;
+        background: #fff;
+      }
+      .about-text {
+        padding-right: 30px;
+      }
+      .about-image {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      .about-image img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+      .about-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.1),
+          rgba(255, 107, 0, 0.1)
+        );
+        z-index: 1;
+      }
+
+      /* ----------  FEATURES SECTION  ---------- */
+      .features-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        position: relative;
+      }
+      .features-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./img/img1.webp") no-repeat center/cover;
+
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .feature-box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        transition: all 0.4s;
+        text-align: center;
+        height: 100%;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        border-top: 5px solid transparent;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .feature-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+      .feature-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .feature-box:hover::before {
+        transform: scaleX(1);
+      }
+      .feature-icon {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        color: #fff;
+        font-size: 35px;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+      }
+      .feature-box:hover .feature-icon {
+        transform: rotateY(180deg) scale(1.1);
+      }
+      .feature-box h5 {
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--industrial-blue);
+      }
+      .feature-box p {
+        color: var(--gray);
+        line-height: 1.6;
+      }
+
+      /* ----------  STATS  ---------- */
+      .stats-section {
+        padding: 100px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .stats-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./img/bg5.jpg") center/cover no-repeat;
+        opacity: 0.1;
+      }
+      .stats-box {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px 30px;
+        transition: all 0.4s;
+        text-align: center;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        z-index: 2;
+      }
+      .stats-box:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .stats-box h1 {
+        font-weight: 800;
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #fff, #e0e0e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+      .stats-box p {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+        opacity: 0.9;
+      }
+
+      /* ----------  PARALLAX  ---------- */
+      .parallax-area {
+        background: url("img/img7.webp") center/cover fixed no-repeat;
+        padding: 150px 0;
+        color: #fff;
+        position: relative;
+      }
+      .parallax-area::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.85),
+          rgba(0, 51, 102, 0.85)
+        );
+      }
+      .parallax-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .parallax-content h2 {
+        font-weight: 800;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        font-family: "Orbitron", sans-serif;
+      }
+      .parallax-content p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        max-width: 800px;
+        margin-inline: auto;
+      }
+      .btn-parallax {
+        background: #fff;
+        color: var(--primary);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-parallax::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(13, 110, 253, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+      .btn-parallax:hover::before {
+        left: 100%;
+      }
+      .btn-parallax:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        background: var(--light);
+      }
+
+      /* ----------  TESTIMONIALS  ---------- */
+      .testimonials-section {
+        padding: 100px 0;
+        background: #f8f9fa;
+      }
+      .testimonial-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        position: relative;
+        transition: all 0.3s;
+        border-left: 5px solid var(--primary);
+      }
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        font-size: 80px;
+        color: rgba(13, 110, 253, 0.1);
+        font-family: Georgia, serif;
+        line-height: 1;
+      }
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      .testimonial-author {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+      .testimonial-company {
+        color: var(--gray);
+        font-size: 0.95rem;
+      }
+
+      /* ----------  CERTIFICATIONS  ---------- */
+      .certifications-section {
+        padding: 80px 0;
+        background: var(--industrial-blue);
+        color: #fff;
+      }
+      .certification-item {
+        text-align: center;
+        padding: 20px;
+      }
+      .certification-icon {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
+      .certification-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .certification-desc {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* ----------  QUOTE MODAL  ---------- */
+      .quote-modal .modal-header {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: #fff;
+      }
+      .quote-modal .modal-title {
+        font-weight: 700;
+      }
+      .quote-modal .product-info {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      .quote-modal .product-name {
+        font-weight: 700;
+        color: var(--industrial-blue);
+        margin-bottom: 5px;
+      }
+      .quote-modal .product-price {
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .quote-modal .form-label {
+        font-weight: 600;
+        color: var(--industrial-blue);
+      }
+      .quote-modal .form-control,
+      .quote-modal .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+      }
+      .quote-modal .form-control:focus,
+      .quote-modal .form-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+      .quote-modal .submit-btn {
+        background: var(--primary);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s;
+        width: 100%;
+      }
+      .quote-modal .submit-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+
+      /* ----------  FOOTER  ---------- */
+      footer {
+        background: #111;
+        color: #fff;
+        padding: 70px 0 20px;
+        position: relative;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+      .footer-logo {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+      .footer-heading {
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+        border-radius: 10px;
+      }
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+      .footer-links a:hover {
+        color: #fff;
+        padding-left: 8px;
+      }
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 12px;
+        color: #fff;
+        transition: all 0.3s;
+        font-size: 18px;
+      }
+      .social-icons a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        margin-top: 50px;
+        text-align: center;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+
+      /* ----------  FLOATING BUTTONS  ---------- */
+      .floating-wp,
+      .floating-call {
+        position: fixed;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 2000;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+        text-decoration: none;
+      }
+      .floating-wp {
+        bottom: 100px;
+        background: #25d366;
+      }
+      .floating-call {
+        bottom: 25px;
+        background: var(--primary);
+      }
+      .floating-wp:hover,
+      .floating-call:hover {
+        transform: scale(1.1);
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* ----------  BACK TO TOP  ---------- */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 1000;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .back-to-top:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      /* ----------  OFF-CANVAS PRODUCT PANEL  ---------- */
+      .product-offcanvas {
+        width: 700px;
+        max-width: 100vw;
+      }
+      .swiper-detail {
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .swiper-detail .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .spec-table th {
+        width: 40%;
+      }
+      .review-stars {
+        color: #ffc107;
+      }
+      .offcanvas.offcanvas-end {
+        z-index: 2001;
+        width: 600px;
+      }
+
+      /* ----------  RESPONSIVE  ---------- */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+        .section-header h2 {
+          font-size: 2.2rem;
+        }
+        .stats-box h1 {
+          font-size: 2.8rem;
+        }
+        .industrial-strip .container {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.3rem;
+        }
+        .hero p {
+          font-size: 1.1rem;
+        }
+        .section-header h2 {
+          font-size: 2rem;
+        }
+        .feature-box,
+        .stats-box,
+        .testimonial-card {
+          margin-bottom: 30px;
+        }
+        .parallax-content h2 {
+          font-size: 2.2rem;
+        }
+        .floating-wp,
+        .floating-call {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          right: 15px;
+        }
+        .floating-wp {
+          bottom: 80px;
+        }
+      }
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .btn-hero {
+          padding: 12px 30px;
+          font-size: 1rem;
+        }
+        .section-header h2 {
+          font-size: 1.8rem;
+        }
+        .product-card .card-img-top {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Industrial Background -->
+    <div class="industrial-bg"></div>
+
+    <!-- Preloader -->
+ <div id="preloader">
+    <div class="loader"></div>
+
+    <div class="loader-text">
+        <img src="img/DIlogo.png" class="loader-logo" alt="Logo">
+        Dinesh Industries
+    </div>
+</div>
+<style>
+.loader-logo {
+    width: 45px;      /* adjust size */
+    height: auto;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+
+    /* simple animation */
+    animation: logoZoom 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoZoom {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+</style>
+
+    <!-- Industrial Strip -->
+    <div class="industrial-strip">
+      <div class="container">
+        <div class="strip-item">
+          <i class="fas fa-phone"></i><span>+91 98793 11650</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-envelope"></i
+          ><span>shreedineshindustries@gmail.com</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-map-marker-alt"></i
+          ><span>
+            1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+            Ahmedabad-382415.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="logo_image" src="./img/DIlogo.png" alt="">
+          <span class="Nav_Industry_Name">Dinesh Industries</span> </a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="product.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="industries.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contect.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content text-center">
+        <h1 class="display-4 fw-bold mb-3" data-aos="fade-down">
+          PREMIUM INDUSTRIAL MACHINERY
+        </h1>
+        <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          ENGINEERED FOR EXCELLENCE
+        </div>
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">
+          High-performance machines engineered for reliability, efficiency, and
+          long-term productivity. Trusted by industries worldwide for over two
+          decades.
+        </p>
+        <a
+          href="#products"
+          class="btn btn-hero btn-lg"
+          data-aos="zoom-in"
+          data-aos-delay="600"
+          >Explore Products</a
+        >
+      </div>
+    </section>
+
+    <!-- Features Bar -->
+    <section class="features-bar">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-3 col-6">
+            <div class="feature-bar-item">
+              <div class="feature-bar-icon"><i class="fas fa-cogs"></i></div>
+              <div class="feature-bar-text">Precision Engineering</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="feature-bar-item">
+              <div class="feature-bar-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="feature-bar-text">Quality Certified</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="feature-bar-item">
+              <div class="feature-bar-icon"><i class="fas fa-tools"></i></div>
+              <div class="feature-bar-text">Custom Solutions</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="feature-bar-item">
+              <div class="feature-bar-icon"><i class="fas fa-headset"></i></div>
+              <div class="feature-bar-text">24/7 Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Intro -->
+    <section class="about-intro overflow-x-hidden">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="about-text">
+              <h2
+                class="mb-4"
+                style="color: var(--industrial-blue); font-weight: 700"
+              >
+                Welcome To Dinesh Industries
+              </h2>
+              <p class="lead mb-4">
+                Founded in 2005, Dinesh Industries has grown from a small
+                workshop to a global leader in industrial machinery solutions.
+                Our journey began with a simple vision: to revolutionize
+                manufacturing through precision engineering and innovative
+                technology.
+              </p>
+              <p class="lead">
+                Our commitment to quality, innovation, and customer satisfaction
+                has made us the trusted partner for industries ranging from
+                automotive and aerospace to pharmaceuticals and consumer goods.
+              </p>
+              <a href="aboutus.html" class="btn btn-hero btn-lg text-white mb-5"
+                >Learn More About Us</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="about-image">
+              <img src="./img/bg3.webp" alt="Dinesh Industries Facility" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>WHY CHOOSE US?</h2>
+          <p class="section-subtitle">
+            We deliver quality, durability, and modern technology with
+            exceptional service.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fa-solid fa-gears"></i></div>
+              <h5>Advanced Engineering</h5>
+              <p>
+                Our machines are designed using the latest engineering
+                technologies and innovations for optimal performance.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h5>High Durability</h5>
+              <p>
+                Built with premium materials for long-lasting reliability even
+                in the toughest industrial conditions.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fa-solid fa-industry"></i>
+              </div>
+              <h5>Industrial Grade</h5>
+              <p>
+                Suitable for heavy-duty operations with maximum output,
+                efficiency, and minimal downtime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>OUR CERTIFICATIONS</h2>
+          <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8)">
+            Quality and safety certifications that demonstrate our commitment to
+            excellence.
+          </p>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-item">
+              <div class="certification-icon"><i class="fas fa-award"></i></div>
+              <div class="certification-title">ISO 9001:2015</div>
+              <div class="certification-desc">Quality Management</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <div class="certification-title">CE Marking</div>
+              <div class="certification-desc">European Conformity</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="certification-title">OSHA Compliant</div>
+              <div class="certification-desc">Safety Standards</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-item">
+              <div class="certification-icon">
+                <i class="fas fa-recycle"></i>
+              </div>
+              <div class="certification-title">RoHS Compliant</div>
+              <div class="certification-desc">Environmental</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Summary -->
+    <section id="products" class="py-5">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>INDUSTRIAL MACHINERY</h2>
+          <p class="section-subtitle">
+            Our machines are built for precise metal forming and high-volume
+            component production.
+          </p>
+        </div>
+        <div class="row g-4" id="products-container">
+          <!-- populated by JS -->
+        </div>
+        <div class="text-center mt-5" data-aos="zoom-in">
+          <a href="product.html" class="btn btn-hero btn-lg text-white"
+            >View All Products</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="stats-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>LEADING MACHINERY MANUFACTURER</h2>
+          <p class="section-subtitle" style="color: white">
+            Trusted globally for high-performance industrial machines.
+          </p>
+        </div>
+        <div class="row g-4 text-center">
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="stats-box">
+              <h1 class="counter" data-count="20">0</h1>
+              <p>Years Experience</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="stats-box">
+              <h1 class="counter" data-count="5000">0</h1>
+              <p>Machines Installed</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="stats-box">
+              <h1 class="counter" data-count="1500">0</h1>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="stats-box">
+              <h1 class="counter" data-count="20">0</h1>
+              <p>Countries Served</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax CTA -->
+    <section class="parallax-area">
+      <div class="container parallax-content">
+        <h2 class="fw-bold display-5 mb-3" data-aos="fade-down">
+          BUILT FOR HEAVY‑DUTY PERFORMANCE
+        </h2>
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
+          Engineered with precision. Designed for durability. Trusted worldwide.
+        </p>
+        <a
+          href="#contact"
+          class="btn btn-parallax btn-lg"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+          >Get In Touch</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4" data-aos="fade-up">
+            <h4 class="footer-logo">Dinesh Industries</h4>
+            <p>Reliable · Innovative · Industrial Solutions</p>
+            <p>
+              High-quality industrial machinery with exceptional service and
+              support.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <h6 class="footer-heading">Quick Links</h6>
+            <div class="footer-links">
+              <a href="#home">Home</a>
+              <a href="product.html">Products</a>
+              <a href="features.html">Features</a>
+              <a href="industries.html">Industries</a>
+              <a href="services.html">Services</a>
+              <a href="aboutus.html">About Us</a>
+              <a href="contect.html">Contact</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="200" >
+            <h6 class="footer-heading">Support</h6>
+            <div class="footer-links">
+              <a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a
+              ><a href="#">Warranty</a><a href="#">Service & Maintenance</a
+              ><a href="#">Technical Support</a><a href="#">Spare Parts</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="300" >
+            <h6 class="footer-heading">Contact</h6>
+            <div class="footer-links">
+              <!-- Phone -->
+              <p>
+                <a href="tel:+919879311650" style="text-decoration: none; color: inherit">
+                  <i class="fa-solid fa-phone me-2"></i>
+                  +91 98793 11650
+                </a>
+              </p>
+
+              <!-- Email -->
+              <p>
+                <a
+                href="mailto:shreedineshindustries@gmail.com"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-envelope me-2"></i>
+                  shreedineshindustries@gmail.com
+                </a>
+              </p>
+
+              <!-- Location -->
+              <p>
+                <a
+                href="https://www.google.com/maps/search/?api=1&query=1,+Gayatri+Estate,+Nr.+Aapa+Hotel,+Ambica+Nagar,+Odhav,+Ahmedabad-382415"
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-location-dot me-2"></i>
+                  1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+                  Ahmedabad-382415.
+                </a>
+              </p>
+
+              <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p class="mb-0">
+            © 2025 Dinesh Industries. All Rights Reserved. | ISO 9001:2015
+            Certified
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating buttons -->
+    <a href="https://wa.me/919879311650" class="floating-wp" target="_blank"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <a href="tel:+919879311650" class="floating-call"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+
+    <!-- Back to top -->
+    <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+    <!-- ==========  OFF-CANVAS PRODUCT PANEL  ========== -->
+    <div
+      class="offcanvas offcanvas-end product-offcanvas"
+      tabindex="-1"
+      id="productCanvas"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="canvasTitle">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="canvasBody">
+        <!-- dynamic content -->
+      </div>
+    </div>
+
+    <!-- ==========  QUOTE MODAL  ========== -->
+    <div
+      class="modal fade quote-modal"
+      id="quoteModal"
+      tabindex="-1"
+      aria-labelledby="quoteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="quoteModalLabel">
+              Request Product Quote
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="product-info">
+              <div class="product-name" id="quoteProductName">Product Name</div>
+              <div class="product-price" id="quoteProductPrice">Price: ₹0</div>
+            </div>
+            <form id="quoteForm">
+              <input type="hidden" id="quoteProductId" name="productId" />
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteName" class="form-label">Full Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteName"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteCompany" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteCompany"
+                    name="company"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteEmail" class="form-label"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="quoteEmail"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quotePhone" class="form-label"
+                    >Phone Number *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="quotePhone"
+                    name="phone"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteCountry" class="form-label">Country</label>
+                  <select class="form-select" id="quoteCountry" name="country">
+                    <option value="">Select Country</option>
+                    <option value="India" selected>India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteState" class="form-label">State</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteState"
+                    name="state"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="quoteAddress" class="form-label">Address</label>
+                <textarea
+                  class="form-control"
+                  id="quoteAddress"
+                  name="address"
+                  rows="2"
+                ></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteQuantity" class="form-label"
+                    >Quantity Required</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="quoteQuantity"
+                    name="quantity"
+                    min="1"
+                    value="1"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteDelivery" class="form-label"
+                    >Expected Delivery</label
+                  >
+                  <select
+                    class="form-select"
+                    id="quoteDelivery"
+                    name="delivery"
+                  >
+                    <option value="">Select Timeline</option>
+                    <option value="ASAP">As Soon As Possible</option>
+                    <option value="1-2 weeks">1-2 Weeks</option>
+                    <option value="1 month">1 Month</option>
+                    <option value="2-3 months">2-3 Months</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="quoteMessage" class="form-label"
+                  >Additional Requirements</label
+                >
+                <textarea
+                  class="form-control"
+                  id="quoteMessage"
+                  name="message"
+                  rows="3"
+                  placeholder="Please specify any special requirements, customization needs, or additional information..."
+                ></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="quoteNewsletter"
+                  name="newsletter"
+                  checked
+                />
+                <label class="form-check-label" for="quoteNewsletter"
+                  >Subscribe to our newsletter for updates and offers</label
+                >
+              </div>
+              <button type="submit" class="submit-btn" id="submitQuoteBtn">
+                <span id="submitText">Submit Quote Request</span>
+                <div
+                  id="submitSpinner"
+                  class="spinner-border spinner-border-sm ms-2 d-none"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+              <div id="formAlert" class="alert mt-3 d-none"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========  SCRIPTS  ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+      /* ----------  AOS  ---------- */
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+
+      /* ----------  PRELOADER  ---------- */
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          document.getElementById("preloader").style.opacity = "0";
+          setTimeout(
+            () =>
+              (document.getElementById("preloader").style.visibility =
+                "hidden"),
+            500
+          );
+        }, 1500);
+      });
+
+      /* ----------  NAVBAR SCROLL  ---------- */
+      window.addEventListener("scroll", () => {
+        document
+          .querySelector(".navbar")
+          .classList.toggle("nav-scrolled", window.scrollY > 50);
+        document
+          .querySelector(".back-to-top")
+          .classList.toggle("active", window.scrollY > 300);
+      });
+
+      /* ----------  BACK TO TOP  ---------- */
+      document
+        .querySelector(".back-to-top")
+        .addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        );
+
+      /* ----------  COUNTER  ---------- */
+      const counters = document.querySelectorAll(".counter");
+      const speed = 200;
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-count");
+          const count = +counter.innerText;
+          const inc = target / speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        const observer = new IntersectionObserver((entries) =>
+          entries.forEach((entry) => entry.isIntersecting && updateCount())
+        );
+        observer.observe(counter);
+      });
+
+      /* ----------  SMOOTH SCROLL  ---------- */
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target)
+            window.scrollTo({ top: target.offsetTop - 80, behavior: "smooth" });
+        });
+      });
+
+      /* ----------  EMAILJS CONFIGURATION  ---------- */
+      // Initialize EmailJS with your public key
+      (function () {
+        emailjs.init("KghlO8K9Bz_nwqQ_G");
+        console.log("EmailJS initialized");
+      })();
+
+      /* ----------  PRODUCT DATA FROM DOC  ---------- */
+      const products = [
+        {
+          id: 1,
+          title: "C.I. TAPPER BUFFER",
+          price: 24500,
+          originalPrice: 28500,
+          badge: "New",
+          description:
+            "High-strength cast iron buffer engineered for long life and smooth industrial operation.",
+          image: "./img/Product1.png",
+          images: ["./img/Product1.png"],
+          specs: [
+            { name: "Size", value: "14'' , 17''" },
+            { name: "Usage", value: "Balti mouth stretch" },
+            { name: "Material", value: "Cast Iron" },
+          ],
+          fullDescription:
+            "Precision-engineered heavy-duty buffer designed for industrial forming applications. Built from premium CI material for stability, vibration reduction, and long service life.",
+          applications:
+            "Used in utensil forming, metal shaping, and continuous rotation systems.",
+          reviews: [
+            {
+              name: "Rajesh Kumar",
+              company: "MetalWorks Inc.",
+              rating: 5,
+              text: "Excellent durability and performance.",
+            },
+            {
+              name: "Ketan Solanki",
+              company: "Shree Fabricators",
+              rating: 5,
+              text: "Very stable, zero vibration.",
+            },
+            {
+              name: "Mohit Chauhan",
+              company: "Utensil Pro",
+              rating: 4,
+              text: "Strong build and accurate balance.",
+            },
+          ],
+        },
+
+        {
+          id: 2,
+          title: "PAWALI BHAVRA",
+          price: 18750,
+          originalPrice: 22000,
+          badge: "Popular",
+          description:
+            "Precision machined bhavra engineered for accurate pawali mouth bidding.",
+          image: "./img/product2.png",
+          images: ["./img/product2.png"],
+          specs: [
+            { name: "Size", value: "5'' , 6''" },
+            { name: "Usage", value: "Pawali mouth bidding" },
+            { name: "Material", value: "WPS Iron" },
+          ],
+          fullDescription:
+            "High-performance pawali bhavra designed for aligned, stable and vibration-free bidding operations.",
+          applications:
+            "Used in pawali bidding, utensil shaping, and industrial metal forming.",
+          reviews: [
+            {
+              name: "Amit Patel",
+              company: "FabTech Ltd.",
+              rating: 5,
+              text: "Perfect for precision bidding.",
+            },
+            {
+              name: "Vinit Prajapati",
+              company: "Neel Metals",
+              rating: 4,
+              text: "Very accurate and balanced.",
+            },
+            {
+              name: "Ramesh Joshi",
+              company: "Prime Utensils",
+              rating: 5,
+              text: "Smooth working; highly recommended.",
+            },
+          ],
+        },
+
+        {
+          id: 3,
+          title: "BALTI PUNCHING BHINGRI",
+          price: 32000,
+          originalPrice: 35000,
+          badge: "Best Seller",
+          description:
+            "Heavy-duty punching bhingri for sharp, accurate balti taliya punching.",
+          image: "./img/product3.png",
+          images: ["./img/product3.png"],
+          specs: [
+            { name: "Size", value: "100 / 35 MM" },
+            { name: "Usage", value: "Balti taliya punching" },
+            { name: "Material", value: "WPS Temper Iron Roll" },
+          ],
+          fullDescription:
+            "Designed for continuous punching cycles with hardened temper iron for maximum lifespan.",
+          applications:
+            "Ideal for punching, forming, balti manufacturing lines.",
+          reviews: [
+            {
+              name: "Sanjay Verma",
+              company: "PressTools Inc.",
+              rating: 5,
+              text: "Very powerful and precise.",
+            },
+            {
+              name: "Jaydeep Rana",
+              company: "Vraj Metals",
+              rating: 5,
+              text: "Best bhingri in the market.",
+            },
+            {
+              name: "Chirag Panchal",
+              company: "Modern Steel Co.",
+              rating: 4,
+              text: "Heavy-duty quality. Recommended.",
+            },
+          ],
+        },
+
+        {
+          id: 4,
+          title: "BALTI BIDDING BEARING",
+          price: 28000,
+          originalPrice: 31000,
+          badge: "Hot",
+          description:
+            "High-precision bearing engineered for smooth balti mouth bidding.",
+          image: "./img/product4.png",
+          images: ["./img/product4.png"],
+          specs: [
+            { name: "Size", value: "90 Diameter Bearing" },
+            { name: "Usage", value: "Balti mouth bidding" },
+            { name: "Material", value: "Steel" },
+          ],
+          fullDescription:
+            "Premium-grade steel bearing offering low friction, high RPM stability and long service life.",
+          applications:
+            "Used in all balti bidding machines and industrial rotation systems.",
+          reviews: [
+            {
+              name: "Neha Sharma",
+              company: "Bearing Solutions",
+              rating: 5,
+              text: "Very smooth and premium quality.",
+            },
+            {
+              name: "Jignesh Rana",
+              company: "Perfect Industries",
+              rating: 4,
+              text: "Good rotation and strong build.",
+            },
+            {
+              name: "Nirav Mistry",
+              company: "Steel Fab Works",
+              rating: 5,
+              text: "Highly durable bearing.",
+            },
+          ],
+        },
+
+        {
+          id: 5,
+          title: "KHUMCHA ROLLING ROLL",
+          price: 35000,
+          originalPrice: 38000,
+          badge: "New",
+          description:
+            "High-precision rolling roll for khumcha straightening and forming.",
+          image: "./img/product5.png",
+          images: ["./img/product5.png"],
+          specs: [
+            { name: "Size", value: "120 / 45 MM" },
+            { name: "Usage", value: "Straightens normal khumcha" },
+            { name: "Material", value: "WPS Temper Roll" },
+          ],
+          fullDescription:
+            "Engineered to deliver straight and uniform khumcha output with zero distortion.",
+          applications:
+            "Used for utensil khumcha rolling, straightening and forming.",
+          reviews: [
+            {
+              name: "Vikram Singh",
+              company: "RollTech Ltd.",
+              rating: 5,
+              text: "Straightening accuracy is excellent.",
+            },
+            {
+              name: "Hiren Vora",
+              company: "Classic Metals",
+              rating: 5,
+              text: "Perfect hardness and finish.",
+            },
+            {
+              name: "Imran Shaikh",
+              company: "MetalLine Works",
+              rating: 4,
+              text: "Works smoothly under load.",
+            },
+          ],
+        },
+
+        {
+          id: 6,
+          title: "BALTI FARMA CUTTER",
+          price: 42000,
+          originalPrice: 45000,
+          badge: "Best Seller",
+          description:
+            "High-precision hardened temper cutter for angle-based balti farma cutting.",
+          image: "./img/product6.png",
+          images: ["./img/product6.png"],
+          specs: [
+            { name: "Size", value: "15° , 30°" },
+            { name: "Usage", value: "Balti farma cutting" },
+            { name: "Material", value: "WPS Temper Cutter" },
+          ],
+          fullDescription:
+            "Industrial-grade WPS temper cutter with ultra-sharp edge geometry for accurate, clean cuts.",
+          applications:
+            "Used in utensil forming, angle cutting, balti manufacturing.",
+          reviews: [
+            {
+              name: "Ravi Kumar",
+              company: "CutTech Inc.",
+              rating: 5,
+              text: "Cutting accuracy is perfect.",
+            },
+            {
+              name: "Hardik Dave",
+              company: "Farma Tools",
+              rating: 4,
+              text: "Very sharp and durable.",
+            },
+            {
+              name: "Mihir Vaghela",
+              company: "Metal Base Co.",
+              rating: 5,
+              text: "No heat marks, smooth edges.",
+            },
+          ],
+        },
+      ];
+
+      /* ----------  RENDER PRODUCT CARDS  ---------- */
+      function loadProducts() {
+        const container = document.getElementById("products-container");
+        container.innerHTML = products
+          .map(
+            (p, i) => `
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${
+                  (i % 3) * 100
+                }">
+                    <div class="card product-card">
+                        <div class="position-relative">
+                            <img src="${p.image}" class="card-img-top" alt="${
+              p.title
+            }">
+                            <span class="product-badge">${p.badge}</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${p.title}</h5>
+                            <p class="card-text">${p.description}</p>
+                            <button class="product-btn" data-id="${
+                              p.id
+                            }">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+
+        document
+          .querySelectorAll(".product-btn")
+          .forEach((btn) =>
+            btn.addEventListener("click", (e) =>
+              showProductDetail(+e.target.dataset.id)
+            )
+          );
+      }
+
+      /* ---------- PRODUCT DETAIL PANEL + REVIEW CAROUSEL ---------- */
+      function showProductDetail(id) {
+        const p = products.find((x) => x.id === id);
+        const offcanvas = new bootstrap.Offcanvas(
+          document.getElementById("productCanvas")
+        );
+
+        document.getElementById("canvasTitle").textContent = p.title;
+
+        document.getElementById("canvasBody").innerHTML = `
+                <div class="swiper swiper-detail mb-3">
+                    <div class="swiper-wrapper">
+                        ${p.images
+                          .map(
+                            (img) =>
+                              `<div class="swiper-slide"><img src="${img}"></div>`
+                          )
+                          .join("")}
+                    </div>
+
+                </div>
+
+                <h5 class="text-primary mb-2">
+                    ₹${p.price.toLocaleString("en-IN")}
+                    <del class="text-muted">₹${p.originalPrice.toLocaleString(
+                      "en-IN"
+                    )}</del>
+                </h5>
+
+                <p>${p.fullDescription}</p>
+
+                <h6 class="fw-bold mt-3">Specifications</h6>
+                <table class="table table-bordered mb-3">
+                    <tbody>
+                        ${p.specs
+                          .map(
+                            (s) =>
+                              `<tr><th>${s.name}</th><td>${s.value}</td></tr>`
+                          )
+                          .join("")}
+                    </tbody>
+                </table>
+
+                <h6 class="fw-bold">Applications</h6>
+                <p>${p.applications}</p>
+
+                <h6 class="fw-bold mt-4">Customer Reviews</h6>
+
+                <div class="swiper review-swiper mt-3">
+                    <div class="swiper-wrapper">
+                        ${p.reviews
+                          .map(
+                            (r) => `
+                            <div class="swiper-slide">
+                                <div class="border rounded p-3 bg-light">
+                                    <div class="text-warning mb-1" style="font-size:18px;">
+                                        ${"★".repeat(r.rating)}${"☆".repeat(
+                              5 - r.rating
+                            )}
+                                    </div>
+                                    <p class="fst-italic">"${r.text}"</p>
+                                    <small class="text-muted">- ${r.name}, ${
+                              r.company
+                            }</small>
+                                </div>
+                            </div>
+                        `
+                          )
+                          .join("")}
+                    </div>
+                  
+                </div>
+
+                <div class="d-grid gap-2 mt-4">
+                    <button class="btn btn-primary" onclick="openQuoteModal(${
+                      p.id
+                    })">Get Quote</button>
+                </div>
+            `;
+
+        offcanvas.show();
+
+        new Swiper(".swiper-detail", {
+          loop: true,
+          pagination: { el: ".swiper-pagination", clickable: true },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+
+        new Swiper(".review-swiper", {
+          loop: true,
+          autoplay: { delay: 2500, disableOnInteraction: false },
+          slidesPerView: 1,
+          spaceBetween: 10,
+          pagination: { el: ".swiper-pagination", clickable: true },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      }
+
+      /* ----------  QUOTE MODAL FUNCTIONS  ---------- */
+      function openQuoteModal(productId) {
+        const p = products.find((x) => x.id === productId);
+        if (!p) return;
+
+        // Set product info in modal
+        document.getElementById("quoteProductName").textContent = p.title;
+        document.getElementById(
+          "quoteProductPrice"
+        ).textContent = `Price: ₹${p.price.toLocaleString("en-IN")}`;
+        document.getElementById("quoteProductId").value = p.id;
+
+        // Close product detail offcanvas
+        const offcanvas = bootstrap.Offcanvas.getInstance(
+          document.getElementById("productCanvas")
+        );
+        if (offcanvas) offcanvas.hide();
+
+        // Show quote modal
+        const quoteModal = new bootstrap.Modal(
+          document.getElementById("quoteModal")
+        );
+        quoteModal.show();
+      }
+
+      /* ----------  EMAIL FUNCTIONALITY  ---------- */
+      // Handle form submission
+      document
+        .getElementById("quoteForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const productId = formData.get("productId");
+          const product = products.find((p) => p.id == productId);
+
+          // Show loading state
+          const submitBtn = document.getElementById("submitQuoteBtn");
+          const submitText = document.getElementById("submitText");
+          const submitSpinner = document.getElementById("submitSpinner");
+          const formAlert = document.getElementById("formAlert");
+
+          submitText.textContent = "Sending...";
+          submitSpinner.classList.remove("d-none");
+          submitBtn.disabled = true;
+          formAlert.classList.add("d-none");
+
+          // Prepare email parameters - MATCHING YOUR TEMPLATE VARIABLES
+          const templateParams = {
+            customer_name: formData.get("name"),
+            product_id: productId,
+            product_name: product.title,
+            product_price: `₹${product.price.toLocaleString("en-IN")}`,
+            customer_company: formData.get("company"),
+            customer_email: formData.get("email"),
+            customer_phone: formData.get("phone"),
+            customer_country: formData.get("country"),
+            customer_state: formData.get("state"),
+            customer_address: formData.get("address"),
+            quantity: formData.get("quantity"),
+            delivery_timeline: formData.get("delivery"),
+            additional_requirements: formData.get("message"),
+            newsletter_subscription: formData.get("newsletter") ? "Yes" : "No",
+            submission_date: new Date().toLocaleString("en-IN", {
+              timeZone: "Asia/Kolkata",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }),
+          };
+
+          console.log("Sending email with params:", templateParams);
+
+          // Send email using EmailJS
+          emailjs
+            .send("sservice_reyptje", "template_m2cqggq", templateParams)
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+
+                // Show success message
+                formAlert.textContent =
+                  "Thank you for your quote request! We have received your information and will contact you shortly.";
+                formAlert.className = "alert alert-success mt-3";
+                formAlert.classList.remove("d-none");
+
+                // Reset form
+                document.getElementById("quoteForm").reset();
+
+                // Close modal after 3 seconds
+                setTimeout(() => {
+                  const quoteModal = bootstrap.Modal.getInstance(
+                    document.getElementById("quoteModal")
+                  );
+                  if (quoteModal) {
+                    quoteModal.hide();
+                  }
+                  formAlert.classList.add("d-none");
+                }, 3000);
+              },
+              function (error) {
+                console.log("FAILED...", error);
+
+                // Show detailed error message
+                let errorMessage =
+                  "Sorry, there was an error sending your request. ";
+
+                if (error.status === 400) {
+                  errorMessage +=
+                    "Please check if all required fields are filled correctly.";
+                } else if (error.status === 401) {
+                  errorMessage +=
+                    "Authentication failed. Please contact support.";
+                } else if (error.status === 404) {
+                  errorMessage +=
+                    "Service not found. Please check your EmailJS configuration.";
+                } else {
+                  errorMessage += "Please try again or contact us directly.";
+                }
+
+                formAlert.textContent = errorMessage;
+                formAlert.className = "alert alert-danger mt-3";
+                formAlert.classList.remove("d-none");
+              }
+            )
+            .finally(() => {
+              // Reset button state
+              submitText.textContent = "Submit Quote Request";
+              submitSpinner.classList.add("d-none");
+              submitBtn.disabled = false;
+            });
+        });
+
+      /* ----------  INIT  ---------- */
+      loadProducts();
+    </script>
+  </body>
+</html>

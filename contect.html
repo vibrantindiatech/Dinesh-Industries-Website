@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Dinesh Industries</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      /* Loading spinner for form submission */
+      .fa-spinner {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Form validation styles */
+      .is-invalid {
+        border-color: #dc3545 !important;
+        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+      }
+
+      .is-valid {
+        border-color: #198754 !important;
+        box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+      }
+
+      .contact-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      :root {
+        --primary: #0d6efd;
+        --secondary: #003366;
+        --accent: #ff6b00;
+        --industrial-blue: #1e3a5f;
+        --metal-gray: #4a5568;
+        --steel: #718096;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Industrial Background Pattern */
+      .industrial-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(30, 58, 95, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          to bottom,
+          var(--primary),
+          var(--secondary)
+        );
+        border-radius: 10px;
+        border: 2px solid #f1f1f1;
+      }
+
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .loader {
+        width: 70px;
+        height: 70px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+
+      .loader-text {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--industrial-blue);
+        letter-spacing: 2px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Industrial Header Strip */
+      .industrial-strip {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: white;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .industrial-strip .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .strip-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .strip-item i {
+        color: var(--accent);
+      }
+
+      /* Navbar */
+      .navbar {
+        padding: 15px 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* .navbar-brand::before {
+        content: "⚙️";
+        font-size: 1.5rem;
+      } */
+      .logo_image{
+        width: 50px;
+        height: 50px;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        color: var(--dark) !important;
+        transition: all 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background: var(--primary);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary) !important;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+      @media screen and (max-width:426px) {
+        .Nav_Industry_Name{
+          display: none;
+        }
+        .logo_image{
+        width: 80px;
+        height: 80px;
+      }
+      }
+
+      /* Contact Hero Section */
+      .contact-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("img/img10.jpg") center/cover no-repeat;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.3),
+          rgba(0, 51, 102, 0.3)
+        );
+        z-index: 1;
+      }
+
+      .contact-hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .contact-hero h1 {
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        font-size: 3.5rem;
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .contact-hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .contact-hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        position: relative;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230d6efd' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      .contact-container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid var(--primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+
+      .contact-form .form-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .contact-form label {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--industrial-blue);
+        display: block;
+      }
+
+      .contact-form .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+      }
+
+      .contact-form .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        background: white;
+      }
+
+      .contact-form textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .contact-btn {
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        width: 100%;
+      }
+
+      .contact-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .contact-btn:hover::before {
+        left: 100%;
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(13, 110, 253, 0.6);
+      }
+
+      .contact-info {
+        padding-left: 30px;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        border-left: 4px solid var(--primary);
+      }
+
+      .contact-info-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background: white;
+      }
+
+      .contact-info-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        margin-right: 20px;
+        flex-shrink: 0;
+      }
+
+      .contact-info-content h5 {
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--industrial-blue);
+      }
+
+      .contact-info-content p {
+        color: var(--gray);
+        margin-bottom: 5px;
+      }
+
+      .contact-info-content a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .contact-info-content a:hover {
+        color: var(--secondary);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .map-container {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        height: 450px;
+        position: relative;
+      }
+
+      .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.1),
+          rgba(0, 51, 102, 0.1)
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .faq-accordion .accordion-item {
+        border: none;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+
+      .faq-accordion .accordion-button {
+        background: white;
+        border: none;
+        padding: 25px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--industrial-blue);
+        transition: all 0.3s;
+      }
+
+      .faq-accordion .accordion-button:not(.collapsed) {
+        background: var(--primary);
+        color: white;
+        box-shadow: none;
+      }
+
+      .faq-accordion .accordion-button:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      .faq-accordion .accordion-body {
+        padding: 25px;
+        background: white;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* Section Headers */
+      .section-header {
+        position: relative;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 2.5rem;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Industrial Footer */
+      footer {
+        background: #111;
+        color: white;
+        padding: 70px 0 20px;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+
+      .footer-logo {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .footer-heading {
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+        border-radius: 10px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+
+      .footer-links a:hover {
+        color: white;
+        padding-left: 8px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 12px;
+        color: white;
+        transition: all 0.3s;
+        font-size: 18px;
+      }
+
+      .social-icons a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        margin-top: 50px;
+        text-align: center;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+
+      /* Industrial Floating Buttons */
+      .floating-wp,
+      .floating-call {
+        position: fixed;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 2000;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+        text-decoration: none;
+      }
+
+      .floating-wp {
+        bottom: 100px;
+        background: #25d366;
+      }
+
+      .floating-call {
+        bottom: 25px;
+        background: var(--primary);
+      }
+
+      .floating-wp:hover,
+      .floating-call:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 1000;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-top.active {
+        opacity: 0;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .contact-hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-header h2 {
+          font-size: 2.2rem;
+        }
+
+        .contact-info {
+          padding-left: 0;
+          margin-top: 50px;
+        }
+
+        .industrial-strip .container {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-hero h1 {
+          font-size: 2.3rem;
+        }
+
+        .contact-hero p {
+          font-size: 1.1rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .contact-card {
+          padding: 30px 20px;
+        }
+
+        .floating-wp,
+        .floating-call {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          right: 15px;
+        }
+
+        .floating-wp {
+          bottom: 80px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .contact-hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-header h2 {
+          font-size: 1.8rem;
+        }
+
+        .contact-info-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact-info-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Industrial Background Pattern -->
+    <div class="industrial-bg"></div>
+
+    <div id="preloader">
+    <div class="loader"></div>
+
+    <div class="loader-text">
+        <img src="img/DIlogo.png" class="loader-logo" alt="Logo">
+        Dinesh Industries
+    </div>
+</div>
+<style>
+.loader-logo {
+    width: 45px;      /* adjust size */
+    height: auto;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+
+    /* simple animation */
+    animation: logoZoom 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoZoom {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+</style>
+
+    <!-- Industrial Header Strip -->
+    <div class="industrial-strip">
+      <div class="container">
+        <div class="strip-item">
+          <i class="fas fa-phone"></i>
+          <span>+91 98765 43210</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-envelope"></i>
+          <span>shreedineshindustries@gmail.com</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span
+            >1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+            Ahmedabad-382415.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top animated-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="logo_image" src="./img/DIlogo.png" alt="">
+          <span class="Nav_Industry_Name">Dinesh Industries</span> </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/industries.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contect.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+      <div class="contact-hero-overlay"></div>
+      <div class="container contact-hero-content text-center">
+        <h1
+          class="display-4 fw-bold mb-3"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
+          GET IN TOUCH
+        </h1>
+        <div
+          class="contact-hero-subtitle"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          YOUR INDUSTRIAL SOLUTIONS PARTNER
+        </div>
+        <p
+          class="lead mb-4"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+        >
+          Have questions about our machinery? Need a custom solution? Our team
+          of experts is ready to assist you with all your industrial equipment
+          needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container contact-container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>CONTACT US</h2>
+          <p class="section-subtitle">
+            Reach out to our team for inquiries, quotes, or technical support
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
+            <div class="contact-card">
+              <h3 class="mb-4" style="color: var(--industrial-blue)">
+                Send us a Message
+              </h3>
+              <form class="contact-form" id="contactForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="firstName">First Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        placeholder="Enter your first name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="lastName">Last Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        placeholder="Enter your last name"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="phone">Phone Number</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="company">Company Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company"
+                    placeholder="Enter your company name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="subject"
+                    placeholder="Enter message subject"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Your Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    placeholder="Tell us about your requirements..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="contact-btn mt-3">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-left" data-aos-delay="400">
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>Our Location</h5>
+                  <p>1, Gayatri Estate, Nr. Aapa Hotel,</p>
+                  <p>Ambica Nagar, Odhav, Ahmedabad-382415.</p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>Phone Number</h5>
+                  <p><a href="tel:+919879311650">+91 9879311650</a></p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>Email Address</h5>
+                  <p>
+                    <a href="mailto:shreedineshindustries@gmail.com"
+                      >shreedineshindustries@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-info-content">
+                  <h5>Working Hours</h5>
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p>Saturday: 9:00 AM - 2:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>FIND US</h2>
+          <p class="section-subtitle">
+            Visit our facility or get directions to our location
+          </p>
+        </div>
+        <div class="map-container" data-aos="zoom-in" data-aos-delay="200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.366391590331!2d77.20985731508246!3d28.61390198242478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2e8d8f7e47b%3A0x1651553e3a6a7c1a!2sIndustrial%20Area%2C%20Sector%2025%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sus!4v1646142345678!5m2!1sen!2sus"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+          <div class="map-overlay"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+          <p class="section-subtitle">
+            Find answers to common questions about our industrial components and
+            manufacturing services
+          </p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="faq-accordion" data-aos="fade-up" data-aos-delay="200">
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      What types of industrial components do you manufacture?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      We specialize in manufacturing precision industrial
+                      components including C.I. Tapper Buffers (14", 17"),
+                      Pawali Bhavra (5", 6"), Balti Punching Bhingri (100/35
+                      MM), Balti Bidding Bearings (90 diameter), spinning
+                      machine components, press machine parts, and various
+                      specialized rolls and tools for utensil manufacturing and
+                      metal forming industries.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Do you provide custom manufacturing services?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes, we specialize in custom manufacturing services
+                      tailored to your specific requirements. Our engineering
+                      team works closely with clients to design and manufacture
+                      components that meet their unique production needs,
+                      ensuring optimal performance, precise dimensions, and
+                      material specifications for various industrial
+                      applications.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      What materials do you work with?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      We work with a variety of high-quality materials including
+                      WPS Iron, M.S. (Mild Steel), C.I. (Cast Iron), tempered
+                      rolls, hardened steels, and specialized alloys. All
+                      materials are carefully selected based on the application
+                      requirements to ensure durability, performance, and
+                      longevity in industrial environments.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFour"
+                      aria-expanded="false"
+                      aria-controls="collapseFour"
+                    >
+                      What is your quality assurance process?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFour"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Our quality assurance process includes rigorous material
+                      testing, precision dimensional inspection, performance
+                      validation, and surface finish evaluation. Each component
+                      undergoes multiple quality checks throughout the
+                      manufacturing process to ensure it meets our high
+                      standards and customer specifications before delivery.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFive">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseFive"
+                      aria-expanded="false"
+                      aria-controls="collapseFive"
+                    >
+                      What is your manufacturing capacity and lead time?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseFive"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingFive"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      We have the capacity to handle both small batch
+                      productions and large volume orders. Standard lead times
+                      range from 2-4 weeks depending on the complexity and
+                      quantity of components. For urgent requirements, we offer
+                      expedited manufacturing services. Contact our team for
+                      specific timeline estimates based on your project needs.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingSix">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSix"
+                      aria-expanded="false"
+                      aria-controls="collapseSix"
+                    >
+                      Do you provide technical support and after-sales service?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseSix"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSix"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      Yes, we provide comprehensive technical support and
+                      after-sales services. Our team is available to assist with
+                      component selection, application guidance, and
+                      troubleshooting. We also offer replacement parts and
+                      maintenance services to ensure your components continue to
+                      perform optimally throughout their service life.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingSeven">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseSeven"
+                      aria-expanded="false"
+                      aria-controls="collapseSeven"
+                    >
+                      How can I request a quote or place an order?
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseSeven"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingSeven"
+                    data-bs-parent="#faqAccordion"
+                  >
+                    <div class="accordion-body">
+                      You can request a quote by filling out the contact form on
+                      our website, calling our sales team directly at +91
+                      9879311650, or emailing us at
+                      shreedineshindustries@gmail.com. Please provide details
+                      about your requirements including component
+                      specifications, quantities, materials, and any special
+                      processing needs for an accurate quotation.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4" data-aos="fade-up">
+            <h4 class="footer-logo">Dinesh Industries</h4>
+            <p>Reliable · Innovative · Industrial Solutions</p>
+            <p>
+              We provide high-quality industrial machinery with exceptional
+              service and support to help businesses maximize productivity and
+              efficiency. With over 20 years of experience, we are your trusted
+              partner for industrial automation.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div
+            class="col-lg-2 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h6 class="footer-heading">Quick Links</h6>
+            <div class="footer-links">
+              <a href="/index.html">Home</a>
+              <a href="/product.html">Products</a>
+              <a href="/features.html">Features</a>
+              <a href="/industries.html">Industries</a>
+              <a href="/services.html">Services</a>
+              <a href="/aboutus.html">About Us</a>
+              <a href="#">Contact</a>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h6 class="footer-heading">Support</h6>
+            <div class="footer-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms & Conditions</a>
+              <a href="#">Warranty Information</a>
+              <a href="#">Service & Maintenance</a>
+              <a href="#">Technical Support</a>
+              <a href="#">Spare Parts</a>
+              <a href="#">Training Programs</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="300" >
+            <h6 class="footer-heading">Contact</h6>
+            <div class="footer-links">
+              <!-- Phone -->
+              <p>
+                <a href="tel:+919879311650" style="text-decoration: none; color: inherit">
+                  <i class="fa-solid fa-phone me-2"></i>
+                  +91 98793 11650
+                </a>
+              </p>
+
+              <!-- Email -->
+              <p>
+                <a
+                href="mailto:shreedineshindustries@gmail.com"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-envelope me-2"></i>
+                  shreedineshindustries@gmail.com
+                </a>
+              </p>
+
+              <!-- Location -->
+              <p>
+                <a
+                href="https://www.google.com/maps/search/?api=1&query=1,+Gayatri+Estate,+Nr.+Aapa+Hotel,+Ambica+Nagar,+Odhav,+Ahmedabad-382415"
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-location-dot me-2"></i>
+                  1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+                  Ahmedabad-382415.
+                </a>
+              </p>
+
+              <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p class="mb-0">
+            © 2025 Dinesh Industries Industries. All Rights Reserved. | ISO
+            9001:2015 Certified
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Industrial Floating Buttons -->
+    <a href="https://wa.me/919876543210" class="floating-wp" target="_blank"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <a href="tel:+919876543210" class="floating-call"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Preloader
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          preloader.style.visibility = "hidden";
+        }, 1500);
+      });
+
+      // Sticky Navbar
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".navbar");
+        nav.classList.toggle("nav-scrolled", window.scrollY > 50);
+
+        // Back to top button
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTop.classList.add("active");
+        } else {
+          backToTop.classList.remove("active");
+        }
+      });
+
+      // Back to top functionality
+      document
+        .querySelector(".back-to-top")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form values
+          let firstName = document.getElementById("firstName").value.trim();
+          let lastName = document.getElementById("lastName").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let phone = document.getElementById("phone").value.trim();
+          let company = document.getElementById("company").value.trim();
+          let subject = document.getElementById("subject").value.trim();
+          let message = document.getElementById("message").value.trim();
+
+          // Validate required fields
+          if (
+            !firstName ||
+            !lastName ||
+            !email ||
+            !phone ||
+            !subject ||
+            !message
+          ) {
+            alert("⚠ Please fill in all required fields.");
+            return;
+          }
+
+          // Validate email format
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("⚠ Please enter a valid email address.");
+            return;
+          }
+
+          // Validate phone number (basic validation)
+          const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+          if (!phoneRegex.test(phone.replace(/\D/g, ""))) {
+            alert("⚠ Please enter a valid phone number.");
+            return;
+          }
+
+          // Show loading state
+          const submitBtn = this.querySelector(".contact-btn");
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+          submitBtn.disabled = true;
+
+          // YOUR WHATSAPP NUMBER - REPLACE WITH YOUR ACTUAL NUMBER
+          // Format: 919876543210 (India: 91 + your 10-digit number without + or 0)
+          let whatsappNumber = "919879311650"; // ← CHANGE THIS TO YOUR NUMBER
+
+          // Create professional WhatsApp message
+          let finalMessage = `🏭 *NEW CONTACT FORM SUBMISSION - DINESH INDUSTRIES* 🏭
+
+*👤 CONTACT INFORMATION*
+• *Full Name:* ${firstName} ${lastName}
+• *Company:* ${company || "Not Provided"}
+• *Email:* ${email}
+• *Phone:* ${phone}
+
+*📋 ENQUIRY DETAILS*
+• *Subject:* ${subject}
+• *Message:* 
+${message}
+
+*📍 SOURCE*
+• Website Contact Form
+• Submitted: ${new Date().toLocaleString("en-IN", {
+            timeZone: "Asia/Kolkata",
+            dateStyle: "full",
+            timeStyle: "medium",
+          })}
+
+*⚡ ACTION REQUIRED*
+Please follow up with this potential client at your earliest convenience.`;
+
+          // Encode message for URL
+          let encodedMessage = encodeURIComponent(finalMessage);
+
+          // Create WhatsApp URL
+          let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+          // Success message
+          alert(
+            `✅ Form submitted successfully! Opening WhatsApp to send details...\n\nPlease click "Send" in WhatsApp to complete the process.`
+          );
+
+          // Open WhatsApp in new tab
+          window.open(whatsappURL, "_blank");
+
+          // Reset form after 2 seconds
+          setTimeout(() => {
+            this.reset();
+
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            // Show confirmation
+            console.log("✅ Contact form submitted successfully!");
+          }, 2000);
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add industrial sound effect on button hover (conceptual)
+      document
+        .querySelectorAll(".contact-btn, .floating-wp, .floating-call")
+        .forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            // In a real implementation, you would play a subtle industrial sound
+            console.log("Industrial sound effect triggered");
+          });
+        });
+    </script>
+  </body>
+</html>

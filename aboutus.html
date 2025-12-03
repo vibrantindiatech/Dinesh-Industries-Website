@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      About Us | Dinesh Industries - Industrial Components & Machinery
+    </title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #0d6efd;
+        --secondary: #003366;
+        --accent: #ff6b00;
+        --industrial-blue: #1e3a5f;
+        --metal-gray: #4a5568;
+        --steel: #718096;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Industrial Background Pattern */
+      .industrial-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            rgba(30, 58, 95, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Preloader */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .loader {
+        width: 70px;
+        height: 70px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+
+      .loader-text {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--industrial-blue);
+        letter-spacing: 2px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Industrial Header Strip */
+      .industrial-strip {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: white;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .industrial-strip .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .strip-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .strip-item i {
+        color: var(--accent);
+      }
+
+      /* Navbar */
+      .navbar {
+        padding: 15px 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo_image{
+        width: 50px;
+        height: 50px;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        color: var(--dark) !important;
+        transition: all 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background: var(--primary);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .nav-link:hover {
+        color: var(--primary) !important;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (max-width:426px) {
+        .Nav_Industry_Name{
+          display: none;
+        }
+        .logo_image{
+        width: 80px;
+        height: 80px;
+      }
+      }
+
+      /* Page Header */
+      .page-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("img/img8.jpg") center/cover no-repeat;
+        padding: 150px 0 100px;
+        color: white;
+        text-align: center;
+        position: relative;
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.3),
+          rgba(0, 51, 102, 0.3)
+        );
+        z-index: 1;
+      }
+
+      .page-header-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .page-header h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .page-header p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+
+      /* About Intro Section */
+      .about-intro {
+        padding: 100px 0;
+        background: white;
+        overflow-x: hidden;
+      }
+
+      .about-content {
+        position: relative;
+      }
+
+      .about-text {
+        padding-right: 30px;
+      }
+
+      .about-image {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 600px;
+        transition: transform 0.5s ease;
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.1),
+          rgba(255, 107, 0, 0.1)
+        );
+        z-index: 1;
+      }
+
+      /* Mission & Vision Section */
+      .mission-vision {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        position: relative;
+        z-index: 1;
+        overflow-x: hidden;
+      }
+
+      .mission-vision::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("img/img6.jpg") center/cover no-repeat;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .mission-card,
+      .vision-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        transition: all 0.4s ease;
+        border-top: 5px solid transparent;
+      }
+
+      .mission-card:hover,
+      .vision-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        border-top: 5px solid var(--primary);
+      }
+
+      .mission-card {
+        border-left: 4px solid var(--primary);
+      }
+
+      .vision-card {
+        border-right: 4px solid var(--accent);
+      }
+
+      .card-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 25px;
+      }
+
+      /* Values Section */
+      .values-section {
+        padding: 100px 0;
+        background: white;
+        overflow-x: hidden;
+      }
+
+      .value-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        height: 100%;
+        transition: all 0.4s ease;
+        border-top: 4px solid transparent;
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-top: 4px solid var(--primary);
+      }
+
+      .value-icon {
+        width: 70px;
+        height: 70px;
+        background: rgba(13, 110, 253, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 24px;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+      }
+
+      .value-card:hover .value-icon {
+        background: var(--primary);
+        color: white;
+        transform: rotate(15deg) scale(1.1);
+      }
+
+      /* Products Section */
+      .products-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-img {
+        height: 200px;
+        overflow: hidden;
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .product-img img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-img img {
+        transform: scale(1.1);
+      }
+
+      .product-info {
+        padding: 25px;
+      }
+
+      .product-specs {
+        margin: 15px 0;
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      .product-specs span {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      /* Team Section */
+      .team-section {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .team-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        height: 100%;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .team-img {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .team-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .team-card:hover .team-img img {
+        transform: scale(1.1);
+      }
+
+      .team-info {
+        padding: 25px;
+      }
+
+      .team-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .team-social a {
+        width: 35px;
+        height: 35px;
+        background: rgba(13, 110, 253, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .team-social a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Stats Section */
+      .stats-section {
+        padding: 100px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .stats-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("img/img8.jpg") center/cover no-repeat;
+        opacity: 0.1;
+      }
+
+      .stats-box {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px 30px;
+        transition: all 0.4s ease;
+        text-align: center;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        z-index: 2;
+      }
+
+      .stats-box:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .stats-box h1 {
+        font-weight: 800;
+        font-size: 3.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #ffffff, #e0e0e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .stats-box p {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+        opacity: 0.9;
+      }
+
+      /* Section Header */
+      .section-header {
+        position: relative;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 2.5rem;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Footer */
+      footer {
+        background: #111;
+        color: white;
+        padding: 70px 0 20px;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+
+      .footer-logo {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .footer-heading {
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+        border-radius: 10px;
+      }
+
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+
+      .footer-links a:hover {
+        color: white;
+        padding-left: 8px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 12px;
+        color: white;
+        transition: all 0.3s;
+        font-size: 18px;
+      }
+
+      .social-icons a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        margin-top: 50px;
+        text-align: center;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+
+      /* Industrial Floating Buttons */
+      .floating-wp,
+      .floating-call {
+        position: fixed;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 2000;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+        text-decoration: none;
+      }
+
+      .floating-wp {
+        bottom: 100px;
+        background: #25d366;
+      }
+
+      .floating-call {
+        bottom: 25px;
+        background: var(--primary);
+      }
+
+      .floating-wp:hover,
+      .floating-call:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 1000;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-top.active {
+        opacity: 0;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .page-header h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-header h2 {
+          font-size: 2.2rem;
+        }
+
+        .stats-box h1 {
+          font-size: 2.8rem;
+        }
+
+        .industrial-strip .container {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .about-text {
+          padding-right: 0;
+          margin-bottom: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 2.3rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .floating-wp,
+        .floating-call {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          right: 15px;
+        }
+
+        .floating-wp {
+          bottom: 80px;
+        }
+
+        .page-header {
+          padding: 120px 0 80px;
+        }
+
+        .mission-card,
+        .vision-card {
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .page-header h1 {
+          font-size: 2rem;
+        }
+
+        .section-header h2 {
+          font-size: 1.8rem;
+        }
+
+        .page-header p {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Industrial Background Pattern -->
+    <div class="industrial-bg"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+    <div class="loader"></div>
+
+    <div class="loader-text">
+        <img src="img/DIlogo.png" class="loader-logo" alt="Logo">
+        Dinesh Industries
+    </div>
+</div>
+<style>
+.loader-logo {
+    width: 45px;      /* adjust size */
+    height: auto;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+
+    /* simple animation */
+    animation: logoZoom 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoZoom {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+</style>
+
+    <!-- Industrial Header Strip -->
+    <div class="industrial-strip">
+      <div class="container">
+        <div class="strip-item">
+          <i class="fas fa-phone"></i>
+          <span>+91 98793 11650</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-envelope"></i>
+          <span>shreedineshindustries@gmail.com</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>
+            1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+            Ahmedabad-382415.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top animated-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="logo_image" src="./img/DIlogo.png" alt="">
+          <span class="Nav_Industry_Name">Dinesh Industries</span> </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/industries.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contect.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="page-header-content">
+        <h1>About Dinesh Industries</h1>
+        <p>
+          Manufacturers of precision industrial components and machinery since
+          1995
+        </p>
+      </div>
+    </section>
+
+    <!-- About Intro Section -->
+    <section class="about-intro">
+      <div class="container" >
+        <div class="row align-items-center" >
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="about-text">
+              <h2
+                class="mb-4"
+                style="color: var(--industrial-blue); font-weight: 700"
+              >
+                Our Story
+              </h2>
+              <p class="lead mb-4">
+                Established in 1995, Dinesh Industries has evolved from a small
+                workshop to a leading manufacturer of industrial components and
+                machinery. Our journey began with a commitment to quality and
+                precision in manufacturing industrial tools and components.
+              </p>
+              <p class="mb-4">
+                Today, we specialize in producing high-quality industrial
+                components including C.I. Tapper Buffers, Pawali Bhavra, Balti
+                Punching Bhingri, and various specialized rolls and bearings
+                used in utensil manufacturing and metal forming industries.
+              </p>
+              <p>
+                Our dedication to precision engineering, use of quality
+                materials like WPS Iron and M.S., and focus on customer needs
+                has established us as a trusted partner for industries across
+                India and beyond.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="about-image">
+              <img
+                src="img/img9.webp"
+                alt="Dinesh Industries Manufacturing Facility"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Our Mission & Vision</h2>
+          <p class="section-subtitle">
+            Driving industrial excellence through precision engineering
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-delay="300">
+            <div class="mission-card">
+              <div class="card-icon">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3 class="mb-3" style="color: var(--industrial-blue)">
+                Our Mission
+              </h3>
+              <p class="mb-3">
+                To manufacture high-precision industrial components and
+                machinery that enhance manufacturing efficiency and productivity
+                for our clients in utensil manufacturing and metal forming
+                industries.
+              </p>
+              <p>
+                We achieve this through skilled craftsmanship, quality
+                materials, and continuous improvement in our manufacturing
+                processes to deliver reliable and durable products.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-delay="300">
+            <div class="vision-card">
+              <div class="card-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3 class="mb-3" style="color: var(--industrial-blue)">
+                Our Vision
+              </h3>
+              <p class="mb-3">
+                To become the preferred manufacturer of industrial components
+                and machinery, recognized for our precision engineering, product
+                reliability, and commitment to customer satisfaction.
+              </p>
+              <p>
+                We envision expanding our product range and geographical reach
+                while maintaining our core values of quality, integrity, and
+                innovation in industrial manufacturing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <!-- <section class="products-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-down">
+                <h2>Our Core Products</h2>
+                <p class="section-subtitle">Precision-engineered industrial components for various applications</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-cogs fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">C.I. Tapper Buffer</h4>
+                            <div class="product-specs">
+                                <span><strong>Sizes:</strong> 14", 17" Inch</span>
+                                <span><strong>Usage:</strong> Balti mouth stretch</span>
+                            </div>
+                            <p class="small">Precision-cast iron buffers designed for consistent performance in utensil manufacturing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-industry fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Pawali Bhavra</h4>
+                            <div class="product-specs">
+                                <span><strong>Sizes:</strong> 5", 6" Inch</span>
+                                <span><strong>Material:</strong> WPS Iron</span>
+                                <span><strong>Usage:</strong> Pawali mouth bidding</span>
+                            </div>
+                            <p class="small">Durable components designed for precise forming in utensil manufacturing processes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-hammer fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Balti Punching Bhingri</h4>
+                            <div class="product-specs">
+                                <span><strong>Size:</strong> 100/35 MM</span>
+                                <span><strong>Material:</strong> WPS Temper Iron Roll</span>
+                                <span><strong>Usage:</strong> Balti Taliya punching</span>
+                            </div>
+                            <p class="small">Specialized punching components for efficient metal forming in utensil production.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-cog fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Spinning Machine Components</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Studs, Screws, Wheels</span>
+                                <span><strong>Materials:</strong> WPS Iron, M.S., C.I. Casting</span>
+                                <span><strong>Sizes:</strong> Various sizes available</span>
+                            </div>
+                            <p class="small">Complete range of spinning machine components for industrial applications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-compress-alt fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Press Machine Components</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Mendrills, Punches, Bushings</span>
+                                <span><strong>Materials:</strong> M.S., WPS Temper</span>
+                                <span><strong>Sizes:</strong> Various configurations</span>
+                            </div>
+                            <p class="small">Precision components for hydraulic and mechanical press machines.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <i class="fas fa-tools fa-4x" style="color: var(--primary);"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="mb-3">Specialized Tools & Dies</h4>
+                            <div class="product-specs">
+                                <span><strong>Products:</strong> Cutters, Hathodi, Kharwel</span>
+                                <span><strong>Materials:</strong> WPS Temper, Hard Plastic</span>
+                                <span><strong>Usage:</strong> Various industrial applications</span>
+                            </div>
+                            <p class="small">Custom tools and dies designed for specific manufacturing requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header" data-aos="fade-down">
+          <h2>Our Core Values</h2>
+          <p class="section-subtitle">
+            The principles that guide everything we do
+          </p>
+        </div>
+        <div class="row g-4">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up-right"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-medal"></i>
+              </div>
+              <h4 class="mb-3">Quality Excellence</h4>
+              <p>
+                We never compromise on quality. Every component undergoes
+                rigorous inspection to ensure it meets the highest standards and
+                exceeds customer expectations.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h4 class="mb-3">Precision Engineering</h4>
+              <p>
+                We specialize in precision manufacturing, ensuring every
+                component meets exact specifications for optimal performance in
+                industrial applications.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up-left"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4 class="mb-3">Customer Focus</h4>
+              <p>
+                Our customers are at the heart of everything we do. We build
+                lasting partnerships by understanding their needs and delivering
+                solutions that drive their success.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-right"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h4 class="mb-3">Reliability</h4>
+              <p>
+                Our components are built to last, delivering consistent
+                performance even in the most demanding industrial environments
+                with minimal downtime.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h4 class="mb-3">Expert Craftsmanship</h4>
+              <p>
+                With decades of experience, our skilled craftsmen bring
+                expertise and attention to detail to every product we
+                manufacture.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-left"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h4 class="mb-3">Integrity</h4>
+              <p>
+                We conduct business with transparency, honesty, and ethical
+                practices, building trust with customers, partners, and
+                employees alike.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <div
+          class="section-header"
+          style="text-align: center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <h2>Leadership Team</h2>
+          <p class="section-subtitle">
+            Meet the visionaries driving Dinesh Industries's success
+          </p>
+        </div>
+        <div class="row g-4" style="justify-content: center">
+          <!-- Rajendra manilal Sharma -->
+          <div class="col-lg-3 col-md-6" style="margin: 0 10px" 
+            data-aos="fade-right" data-aos-delay="1000"
+            data-aos-duration="1000">
+            <div class="team-card" style="text-align: center">
+              <div class="team-img">
+                <img src="./img/founder_photo.jpg" alt="Rajendra manilal Sharma"
+                  style="width: 100%; max-width: 200px; height: auto" />
+              </div>
+              <div class="team-info">
+                <h4 class="mb-1">Rajendra Sharma</h4>
+                <p class="text-primary mb-2">Founder</p>
+                <p class="small">
+                  Rajendra Sharma established Dinesh Industries with a commitment to precision, innovation, and reliability. company’s foundation, ensuring the delivery of high-quality industrial components trusted by manufacturers across sectors.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" style="margin: 0 10px" 
+            data-aos="fade-right" data-aos-delay="1000"
+            data-aos-duration="1000">
+            <div class="team-card" style="text-align: center">
+              <div class="team-img">
+                <img src="./img/CEO_Image.jpg" alt="Aayush Sharma"
+                  style="width: 100%; max-width: 200px; height: auto" />
+              </div>
+              <div class="team-info">
+                <h4 class="mb-1">Aayush Sharma</h4>
+                <p class="text-primary mb-2">CEO</p>
+                <p class="small">
+                  Aayush Sharma leads Dinesh Industries with a modern, growth-driven vision—blending innovation, technology adoption, and strategic expansion. Passionate about elevating manufacturing standards, he focuses on process modernization, customer-centric solutions, and building long-term industry partnerships.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-aos="fade-up" data-aos-duration="1000">
+            Our Impact in Numbers
+          </h2>
+          <p
+            class="section-subtitle"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            style="color: rgba(255, 255, 255, 0.8)"
+          >
+            Three decades of excellence and counting
+          </p>
+        </div>
+        <div
+          class="row g-4 text-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-box">
+              <h1 class="fw-bold counter" data-count="30">0</h1>
+              <p class="mb-0">Years Experience</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-box">
+              <h1 class="fw-bold counter" data-count="150">0</h1>
+              <p class="mb-0">Product Variants</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-box">
+              <h1 class="fw-bold counter" data-count="500">0</h1>
+              <p class="mb-0">Happy Clients</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-box">
+              <h1 class="fw-bold counter" data-count="15">0</h1>
+              <p class="mb-0">States Served</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4" data-aos="fade-up">
+            <h4 class="footer-logo">Dinesh Industries</h4>
+            <p>Precision · Quality · Industrial Components</p>
+            <p>
+              We manufacture high-quality industrial components and machinery
+              with exceptional craftsmanship to help businesses maximize
+              productivity and efficiency. With over 30 years of experience, we
+              are your trusted partner for industrial manufacturing needs.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/dinesh_industry_official/"><i class="fab fa-instagram"></i></a>
+              <a href="https://wa.me/+919879311650"><i class="fab fa-whatsapp"></i></a>
+              <a href="mailto:shreedineshindustries@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+          </div>
+          <div
+            class="col-lg-2 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h6 class="footer-heading">Quick Links</h6>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="products.html">Products</a>
+              <a href="services.html">Services</a>
+              <a href="industries.html">Industries</a>
+              <a href="#">About Us</a>
+              <a href="contect.html">Contact</a>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h6 class="footer-heading">Our Products</h6>
+            <div class="footer-links">
+              <a href="#">C.I. Tapper Buffers</a>
+              <a href="#">Pawali Bhavra</a>
+              <a href="#">Balti Components</a>
+              <a href="#">Spinning Machine Parts</a>
+              <a href="#">Press Machine Components</a>
+              <a href="#">Industrial Rolls & Bearings</a>
+              <a href="#">Custom Tools & Dies</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="300" >
+            <h6 class="footer-heading">Contact</h6>
+            <div class="footer-links">
+              <!-- Phone -->
+              <p>
+                <a href="tel:+919879311650" style="text-decoration: none; color: inherit">
+                  <i class="fa-solid fa-phone me-2"></i>
+                  +91 98793 11650
+                </a>
+              </p>
+
+              <!-- Email -->
+              <p>
+                <a
+                href="mailto:shreedineshindustries@gmail.com"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-envelope me-2"></i>
+                  shreedineshindustries@gmail.com
+                </a>
+              </p>
+
+              <!-- Location -->
+              <p>
+                <a
+                href="https://www.google.com/maps/search/?api=1&query=1,+Gayatri+Estate,+Nr.+Aapa+Hotel,+Ambica+Nagar,+Odhav,+Ahmedabad-382415"
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-location-dot me-2"></i>
+                  1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+                  Ahmedabad-382415.
+                </a>
+              </p>
+
+              <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p class="mb-0">© 2025 Dinesh Industries. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Industrial Floating Buttons -->
+    <a href="https://wa.me/919879311650" class="floating-wp" target="_blank"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <a href="tel:+919879311650" class="floating-call"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Preloader
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          preloader.style.visibility = "hidden";
+        }, 1500);
+      });
+
+      // Sticky Navbar
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".navbar");
+        nav.classList.toggle("nav-scrolled", window.scrollY > 50);
+
+        // Back to top button
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.scrollY > 300) {
+          backToTop.classList.add("active");
+        } else {
+          backToTop.classList.remove("active");
+        }
+      });
+
+      // Back to top functionality
+      document
+        .querySelector(".back-to-top")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+      // Counter Animation
+      const counters = document.querySelectorAll(".counter");
+      const speed = 200;
+
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-count");
+          const count = +counter.innerText;
+
+          const inc = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              updateCount();
+            }
+          });
+        });
+
+        observer.observe(counter);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

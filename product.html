@@ -1,0 +1,3883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinesh Industries | Products – Industrial Machinery Solutions</title>
+
+    <!-- ==========  CSS  ========== -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #0d6efd;
+        --secondary: #003366;
+        --accent: #ff6b00;
+        --industrial-blue: #1e3a5f;
+        --metal-gray: #4a5568;
+        --steel: #718096;
+        --light: #f8f9fa;
+        --dark: #1a1a1a;
+        --gray: #6c757d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fff;
+        color: #333;
+        overflow-x: hidden;
+        position: relative;
+      }
+      .industrial-bg {
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(
+            rgba(30, 58, 95, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: -1;
+        pointer-events: none;
+      }
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--primary), var(--secondary));
+        border-radius: 10px;
+        border: 2px solid #f1f1f1;
+      }
+
+      /* ----------  PRELOADER  ---------- */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: #fff;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+      .loader {
+        width: 70px;
+        height: 70px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+      }
+      .loader-text {
+        font-family: "Orbitron", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--industrial-blue);
+        letter-spacing: 2px;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ----------  HEADER STRIP  ---------- */
+      .industrial-strip {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: #fff;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: 2px solid var(--accent);
+      }
+      .industrial-strip .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .strip-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .strip-item i {
+        color: var(--accent);
+      }
+
+      /* ----------  NAVBAR  ---------- */
+      .navbar {
+        padding: 15px 0;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 1.8rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo_image{
+        width: 50px;
+        height: 50px;
+      }
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+        color: var(--dark) !important;
+        transition: all 0.3s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background: var(--primary);
+        transition: width 0.3s;
+        border-radius: 10px;
+      }
+      .nav-link:hover {
+        color: var(--primary) !important;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-scrolled {
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (max-width:426px) {
+        .Nav_Industry_Name{
+          display: none;
+        }
+        .logo_image{
+        width: 80px;
+        height: 80px;
+      }
+      }
+
+      /* ----------  HERO  ---------- */
+      .products-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("./img/img3.jpeg") center/cover no-repeat;
+        padding: 150px 0 80px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .products-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(13, 110, 253, 0.3),
+          rgba(0, 51, 102, 0.3)
+        );
+        z-index: 1;
+      }
+      .products-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .products-hero h1 {
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        font-size: 3.5rem;
+        font-family: "Orbitron", sans-serif;
+        letter-spacing: 1px;
+      }
+      .products-hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      .products-hero p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-inline: auto;
+        opacity: 0.9;
+      }
+      .breadcrumb {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 50px;
+        padding: 10px 25px;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+      .breadcrumb-item a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .breadcrumb-item.active {
+        color: var(--accent);
+      }
+
+      /* ----------  SECTION HEADERS  ---------- */
+      .section-header {
+        position: relative;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+      .section-header h2 {
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 2.5rem;
+        font-family: "Orbitron", sans-serif;
+      }
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--gray);
+        max-width: 700px;
+        margin-inline: auto;
+      }
+
+      /* ----------  FILTERS  ---------- */
+      .product-filters {
+        background: #f8f9fa;
+        padding: 30px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .filter-group {
+        margin-bottom: 20px;
+      }
+      .filter-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--industrial-blue);
+      }
+      .filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .filter-btn {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+      .price-range-container {
+        padding: 0 10px;
+      }
+      .price-range {
+        width: 100%;
+      }
+      .price-display {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 0.9rem;
+      }
+
+      /* ----------  PRODUCT CARDS  ---------- */
+      .product-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.4s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        background: #fff;
+        position: relative;
+        margin-bottom: 30px;
+      }
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        z-index: 1;
+      }
+      .product-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+      .product-card .card-img-top {
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .product-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
+      .product-card .card-body {
+        padding: 25px;
+      }
+      .product-card .card-title {
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--industrial-blue);
+      }
+      .product-card .card-text {
+        color: var(--gray);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .product-price {
+        font-weight: 800;
+        color: var(--primary);
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        display: block;
+        font-family: "Orbitron", sans-serif;
+      }
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent);
+        color: #fff;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+        animation: pulse 2s infinite;
+      }
+      .product-btn {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .product-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+      .product-btn:hover::before {
+        left: 100%;
+      }
+      .product-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+      .price-rate {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .original-price {
+        text-decoration: line-through;
+        color: var(--gray);
+        font-size: 1.2rem;
+      }
+      .discount-badge {
+        background: var(--accent);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      /* ----------  OFF-CANVAS PRODUCT DETAIL  ---------- */
+      .product-offcanvas {
+        width: 700px;
+        max-width: 100vw;
+      }
+      .swiper-detail {
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .swiper-detail .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .spec-table th {
+        width: 40%;
+      }
+      .review-stars {
+        color: #ffc107;
+      }
+      .offcanvas.offcanvas-end {
+        z-index: 2001;
+        width: 600px;
+      }
+
+      /* ----------  QUOTE MODAL  ---------- */
+      .quote-modal .modal-header {
+        background: linear-gradient(
+          90deg,
+          var(--industrial-blue),
+          var(--secondary)
+        );
+        color: #fff;
+      }
+      .quote-modal .modal-title {
+        font-weight: 700;
+      }
+      .quote-modal .product-info {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      .quote-modal .product-name {
+        font-weight: 700;
+        color: var(--industrial-blue);
+        margin-bottom: 5px;
+      }
+      .quote-modal .product-price {
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .quote-modal .form-label {
+        font-weight: 600;
+        color: var(--industrial-blue);
+      }
+      .quote-modal .form-control,
+      .quote-modal .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+      }
+      .quote-modal .form-control:focus,
+      .quote-modal .form-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+      .quote-modal .submit-btn {
+        background: var(--primary);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s;
+        width: 100%;
+      }
+      .quote-modal .submit-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+
+      /* ----------  FOOTER / FLOATING / BACK-TOP  ---------- */
+      footer {
+        background: #111;
+        color: #fff;
+        padding: 70px 0 20px;
+        position: relative;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+      .footer-logo {
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        background: linear-gradient(45deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: "Orbitron", sans-serif;
+      }
+      .footer-heading {
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+      .footer-heading::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+        border-radius: 10px;
+      }
+      .footer-links a {
+        color: #aaa;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+      .footer-links a:hover {
+        color: #fff;
+        padding-left: 8px;
+      }
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin-right: 12px;
+        color: #fff;
+        transition: all 0.3s;
+        font-size: 18px;
+      }
+      .social-icons a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        margin-top: 50px;
+        text-align: center;
+        color: #aaa;
+        font-size: 0.95rem;
+      }
+
+      .floating-wp,
+      .floating-call {
+        position: fixed;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 2000;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+        text-decoration: none;
+      }
+      .floating-wp {
+        bottom: 100px;
+        background: #25d366;
+      }
+      .floating-call {
+        bottom: 25px;
+        background: var(--primary);
+      }
+      .floating-wp:hover,
+      .floating-call:hover {
+        transform: scale(1.1);
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        z-index: 1000;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .back-to-top:hover {
+        background: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      /* ----------  RESPONSIVE  ---------- */
+      @media (max-width: 992px) {
+        .products-hero h1 {
+          font-size: 2.8rem;
+        }
+        .section-header h2 {
+          font-size: 2.2rem;
+        }
+        .product-offcanvas {
+          width: 100%;
+        }
+      }
+      @media (max-width: 768px) {
+        .products-hero h1 {
+          font-size: 2.3rem;
+        }
+        .products-hero p {
+          font-size: 1.1rem;
+        }
+        .section-header h2 {
+          font-size: 2rem;
+        }
+        .floating-wp,
+        .floating-call {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          right: 15px;
+        }
+        .floating-wp {
+          bottom: 80px;
+        }
+      }
+      @media (max-width: 576px) {
+        .products-hero h1 {
+          font-size: 2rem;
+        }
+        .section-header h2 {
+          font-size: 1.8rem;
+        }
+        .product-card .card-img-top {
+          height: 200px;
+        }
+      }
+
+      /* Pagination styles with rounded corners */
+      .pagination {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .pagination .page-item {
+        border-radius: 8px;
+        margin: 0 2px;
+      }
+
+      .pagination .page-link {
+        border-radius: 8px;
+        padding: 10px 15px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+      }
+
+      .pagination .page-item.active .page-link {
+        background-color: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      .pagination .page-link:hover {
+        background-color: var(--primary);
+        color: #fff;
+      }
+
+      /* Extra products table section */
+      .table-responsive-extra {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      #extraProductsTable {
+        min-width: 1100px;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      #extraProductsTable thead th {
+        background: linear-gradient(90deg, var(--industrial-blue), var(--secondary));
+        color: white;
+        border: none;
+        padding: 15px 12px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      #extraProductsTable tbody tr {
+        transition: all 0.3s;
+      }
+
+      #extraProductsTable tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.05);
+      }
+
+      #extraProductsTable td {
+        padding: 12px;
+        vertical-align: middle;
+        border-color: #dee2e6;
+        font-size: 0.9rem;
+      }
+
+      /* Customer reviews section */
+      .customer-reviews-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .customer-reviews-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+      }
+
+      .review-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        height: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .review-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .review-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .review-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        margin-right: 15px;
+      }
+
+      .review-info h5 {
+        margin-bottom: 5px;
+        color: var(--industrial-blue);
+      }
+
+      .review-info p {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      .review-stars {
+        color: #ffc107;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .review-text {
+        color: var(--metal-gray);
+        line-height: 1.8;
+        font-style: italic;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .review-text::before {
+        content: '"';
+        position: absolute;
+        left: 0;
+        top: -10px;
+        font-size: 60px;
+        color: var(--primary);
+        opacity: 0.2;
+        font-family: serif;
+        line-height: 1;
+      }
+
+      .review-date {
+        color: var(--gray);
+        font-size: 0.85rem;
+        margin-top: 20px;
+        text-align: right;
+      }
+
+      /* Swiper for reviews */
+      .reviews-swiper {
+        padding: 20px 0 50px;
+      }
+
+      .reviews-swiper .swiper-slide {
+        height: auto;
+        padding: 10px;
+      }
+
+      .reviews-swiper .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: var(--steel);
+        opacity: 0.5;
+      }
+
+      .reviews-swiper .swiper-pagination-bullet-active {
+        background: var(--primary);
+        opacity: 1;
+      }
+
+      .reviews-swiper .swiper-button-next,
+      .reviews-swiper .swiper-button-prev {
+        color: var(--primary);
+        background: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .reviews-swiper .swiper-button-next:after,
+      .reviews-swiper .swiper-button-prev:after {
+        font-size: 18px;
+      }
+
+      /* Inquiry button styling */
+      .inquiry-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        font-weight: 500;
+      }
+
+      .inquiry-btn:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      /* Star rating only styling for extra products table */
+      .rating-stars-only {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .rating-display {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .average-rating {
+        font-weight: 600;
+        color: var(--industrial-blue);
+        font-size: 1rem;
+      }
+
+      .rating-count {
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        .table-responsive-extra {
+          font-size: 0.9rem;
+        }
+        
+        #extraProductsTable th,
+        #extraProductsTable td {
+          padding: 10px 8px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .table-responsive-extra {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
+        
+        .review-card {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #extraProductsTable {
+          min-width: 800px;
+        }
+        
+        .extra-products-section .section-subtitle {
+          padding: 0 15px;
+        }
+        
+        .review-header {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .review-avatar {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+        
+        .rating-display {
+          flex-direction: column;
+          gap: 2px;
+        }
+        
+        .average-rating {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .inquiry-btn {
+          padding: 6px 15px;
+          font-size: 0.8rem;
+        }
+        
+        #extraProductsTable td {
+          padding: 8px;
+        }
+        
+        .review-card {
+          padding: 15px;
+        }
+        
+        .rating-stars-only {
+          gap: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Industrial Background -->
+    <div class="industrial-bg"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader"></div>
+      <div class="loader-text">
+        <img src="img/DIlogo.png" class="loader-logo" alt="Logo">
+        Dinesh Industries
+      </div>
+    </div>
+    <style>
+      .loader-logo {
+        width: 45px;
+        height: auto;
+        margin-right: 8px;
+        object-fit: contain;
+        vertical-align: middle;
+        animation: logoZoom 1.2s ease-in-out infinite alternate;
+      }
+
+      @keyframes logoZoom {
+        from {
+          transform: scale(0.9);
+          opacity: 0.7;
+        }
+        to {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- Industrial Strip -->
+    <div class="industrial-strip">
+      <div class="container">
+        <div class="strip-item">
+          <i class="fas fa-phone"></i><span>+919879311650</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-envelope"></i
+          ><span>shreedineshindustries@gmail.com</span>
+        </div>
+        <div class="strip-item">
+          <i class="fas fa-map-marker-alt"></i
+          ><span>
+            1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+            Ahmedabad-382415.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img class="logo_image" src="./img/DIlogo.png" alt="">
+          <span class="Nav_Industry_Name">Dinesh Industries</span> </a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="product.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="features.html">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="industries.html">Industries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="products-hero">
+      <div class="products-hero-overlay"></div>
+      <div class="container products-hero-content">
+        <h1 class="display-4 fw-bold mb-3" data-aos="fade-down">
+          OUR MACHINERY PRODUCTS
+        </h1>
+        <div
+          class="products-hero-subtitle"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          ENGINEERED FOR EXCELLENCE
+        </div>
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">
+          Explore our comprehensive range of industrial machinery engineered for
+          reliability, efficiency, and maximum productivity.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters (auto-hidden on detail view) -->
+    <section class="product-filters" id="filter-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="filter-group">
+              <div class="filter-title">Category</div>
+              <div class="filter-options" id="category-filters">
+                <div class="filter-btn active" data-category="all">All</div>
+                <div class="filter-btn" data-category="Cutting">Cutting</div>
+                <div class="filter-btn" data-category="Punching">Punching</div>
+                <div class="filter-btn" data-category="Rolling">Rolling</div>
+                <div class="filter-btn" data-category="Bidding">Bidding</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="filter-group">
+              <div class="filter-title">Material</div>
+              <div class="filter-options" id="material-filters">
+                <div class="filter-btn active" data-material="all">
+                  All Materials
+                </div>
+                <div class="filter-btn" data-material="WPS Temper">
+                  WPS Temper
+                </div>
+                <div class="filter-btn" data-material="Cast Iron">
+                  Cast Iron
+                </div>
+                <div class="filter-btn" data-material="M.S">M.S</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="filter-group">
+              <div class="filter-title">Price Range</div>
+              <div class="price-range-container">
+                <input
+                  type="range"
+                  class="price-range"
+                  id="price-range"
+                  min="0"
+                  max="100000"
+                  value="100000"
+                />
+                <div class="price-display">
+                  <span>₹0</span>
+                  <span id="price-max">₹100,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="filter-group">
+              <div class="filter-title">Sort By</div>
+              <div class="filter-options" id="sort-options">
+                <div class="filter-btn active" data-sort="default">Newest</div>
+                <div class="filter-btn" data-sort="price-low">
+                  Price: Low → High
+                </div>
+                <div class="filter-btn" data-sort="price-high">
+                  Price: High → Low
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="py-5" id="product-grid">
+      <div class="container py-5">
+        <div class="section-header" data-aos="fade-up">
+          <h2>INDUSTRIAL MACHINERY</h2>
+          <p class="section-subtitle">
+            Our industrial machinery is built for precise metal forming and
+            high-volume component production.
+          </p>
+        </div>
+        <div class="row g-4" id="products-container">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagination buttons section -->
+    <nav aria-label="Page navigation" class="mt-4">
+      <ul class="pagination justify-content-center" id="pagination-controls">
+        <!-- Pagination buttons will be generated here -->
+      </ul>
+    </nav>
+
+    <!-- Extra Products Table Section -->
+    <section class="py-5 extra-products-section" id="extra-products" data-aos="fade-up">
+      <div class="container py-5">
+        <div class="section-header" data-aos="fade-up">
+          <h2>ADDITIONAL PRODUCTS & ACCESSORIES</h2>
+          <p class="section-subtitle">
+            Explore our range of extra industrial products, accessories, and components with detailed specifications.
+          </p>
+        </div>
+        
+        <!-- Table with Extra Products -->
+        <div class="table-responsive-extra">
+          <table class="table table-hover table-bordered align-middle" id="extraProductsTable">
+            <thead class="table-dark">
+              <tr>
+                <th width="15%">Product Name</th>
+                <th width="25%">Description</th>
+                <th width="10%">Price</th>
+                <th width="8%">Diameter</th>
+                <th width="12%">Usage</th>
+                <th width="10%">Material</th>
+                <th width="20%">Customer Reviews</th>
+                <th width="10%">Action</th>
+              </tr>
+            </thead>
+            <tbody id="extraProductsBody">
+              <!-- Will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Off-Canvas Product Detail -->
+    <div
+      class="offcanvas offcanvas-end product-offcanvas"
+      tabindex="-1"
+      id="productCanvas"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="canvasTitle">Product Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body" id="canvasBody">
+        <!-- dynamic content -->
+      </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div
+      class="modal fade quote-modal"
+      id="quoteModal"
+      tabindex="-1"
+      aria-labelledby="quoteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="quoteModalLabel">
+              Request Product Quote
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="product-info">
+              <div class="product-name" id="quoteProductName">Product Name</div>
+              <div class="product-price" id="quoteProductPrice">Price: ₹0</div>
+            </div>
+
+            <form id="quoteForm">
+              <!-- Hidden Product ID if needed -->
+              <input type="hidden" id="quoteProductId" name="productId" />
+
+              <!-- Name / Company -->
+              <div class="row">
+                <!-- Name Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="quoteName" class="form-label">Full Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteName"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please provide your full name.
+                  </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="quoteEmail" class="form-label"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="quoteEmail"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please provide a valid email address.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="company" class="form-label">Company *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company"
+                    required
+                  />
+                </div>
+                <!-- Phone Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="quotePhone" class="form-label"
+                    >Phone Number *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="quotePhone"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- Country / State -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteCountry" class="form-label">Country</label>
+                  <select class="form-select" id="quoteCountry">
+                    <option value="India" selected>India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteState" class="form-label">State</label>
+                  <input type="text" class="form-control" id="quoteState" />
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="mb-3">
+                <label for="quoteAddress" class="form-label">Address</label>
+                <textarea
+                  class="form-control"
+                  id="quoteAddress"
+                  rows="2"
+                ></textarea>
+              </div>
+
+              <!-- Quantity / Delivery -->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteQuantity" class="form-label"
+                    >Quantity Required</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="quoteQuantity"
+                    min="1"
+                    value="1"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteDelivery" class="form-label"
+                    >Expected Delivery</label
+                  >
+                  <select class="form-select" id="quoteDelivery">
+                    <option value="">Select Timeline</option>
+                    <option value="ASAP">As Soon As Possible</option>
+                    <option value="1-2 weeks">1-2 Weeks</option>
+                    <option value="1 month">1 Month</option>
+                    <option value="2-3 months">2-3 Months</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message / Newsletter -->
+              <div class="mb-3">
+                <label for="quoteMessage" class="form-label"
+                  >Additional Requirements</label
+                >
+                <textarea
+                  class="form-control"
+                  id="quoteMessage"
+                  rows="3"
+                  placeholder="Additional requirements..."
+                ></textarea>
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="quoteNewsletter"
+                  checked
+                />
+                <label class="form-check-label" for="quoteNewsletter"
+                  >Subscribe to newsletter</label
+                >
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="submit-btn">
+                Submit Quote Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4" data-aos="fade-up">
+            <h4 class="footer-logo">Dinesh Industries</h4>
+            <p>Reliable · Innovative · Industrial Solutions</p>
+            <p>
+              High-quality industrial machinery with exceptional service and
+              support to help businesses maximize productivity and efficiency.
+            </p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div
+            class="col-lg-2 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h6 class="footer-heading">Quick Links</h6>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="#">Products</a
+              ><a href="features.html">Features</a
+              ><a href="industries.html">Industries</a
+              ><a href="services.html">Services</a
+              ><a href="aboutus.html">About Us</a
+              ><a href="contect.html">Contact</a>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h6 class="footer-heading">Support</h6>
+            <div class="footer-links">
+              <a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a
+              ><a href="#">Warranty</a><a href="#">Service & Maintenance</a
+              ><a href="#">Technical Support</a><a href="#">Spare Parts</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="300" >
+            <h6 class="footer-heading">Contact</h6>
+            <div class="footer-links">
+              <!-- Phone -->
+              <p>
+                <a href="tel:+919879311650" style="text-decoration: none; color: inherit">
+                  <i class="fa-solid fa-phone me-2"></i>
+                  +91 98793 11650
+                </a>
+              </p>
+
+              <!-- Email -->
+              <p>
+                <a
+                href="mailto:shreedineshindustries@gmail.com"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-envelope me-2"></i>
+                  shreedineshindustries@gmail.com
+                </a>
+              </p>
+
+              <!-- Location -->
+              <p>
+                <a
+                href="https://www.google.com/maps/search/?api=1&query=1,+Gayatri+Estate,+Nr.+Aapa+Hotel,+Ambica+Nagar,+Odhav,+Ahmedabad-382415"
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-location-dot me-2"></i>
+                  1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+                  Ahmedabad-382415.
+                </a>
+              </p>
+
+              <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p class="mb-0">
+            © 2025 Dinesh Industries. All Rights Reserved. | ISO 9001:2015
+            Certified
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating buttons -->
+    <a href="https://wa.me/919879311650" class="floating-wp" target="_blank"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+    <a href="tel:+919879311650" class="floating-call"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+
+    <!-- Back to top -->
+    <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+    <!-- ==========  SCRIPTS  ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+      /* ---------------- CONFIG ---------------- */
+      const IMG_FOLDER = "./img";
+      const IMG_EXT = "png";
+      const PLACEHOLDER = `${IMG_FOLDER}/placeholder.${IMG_EXT}`;
+
+      /* ---------- AOS ---------- */
+      if (window.AOS) AOS.init({ duration: 1000, once: true, offset: 100 });
+
+      /* ---------- PRELOADER ---------- */
+      window.addEventListener("load", () => {
+        const pre = document.getElementById("preloader");
+        setTimeout(() => {
+          if (pre) pre.style.opacity = "0";
+          setTimeout(() => {
+            if (pre) pre.style.visibility = "hidden";
+          }, 500);
+        }, 1500);
+        loadProducts();
+        // Initialize extra products after DOM is ready
+        initializeExtraProducts();
+        // Initialize customer reviews
+        initializeCustomerReviews();
+      });
+
+      /* ---------- NAVBAR + BACK TO TOP ---------- */
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".navbar");
+        if (nav) nav.classList.toggle("nav-scrolled", window.scrollY > 50);
+        const btt = document.querySelector(".back-to-top");
+        if (btt) btt.classList.toggle("active", window.scrollY > 300);
+      });
+      const btt = document.querySelector(".back-to-top");
+      if (btt)
+        btt.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        );
+
+      // ---------------- PRODUCTS -----------------------
+      const products = [
+        /* 1 */
+        {
+          id: 1,
+          title: "C.I. TAPPER BUFFER",
+          price: 24500,
+          originalPrice: 28000,
+          badge: "New",
+          category: "Buffer",
+          material: "Cast Iron",
+          image: `${IMG_FOLDER}/Product1.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/Product1.${IMG_EXT}`],
+          specs: [
+            { name: "Sizes", value: '14" , 17"' },
+            { name: "Hardness", value: "180–220 BHN" },
+            { name: "Usage", value: "Balti mouth stretch" },
+            { name: "Material", value: "Cast Iron (C.I.)" },
+          ],
+          fullDescription:
+            "Precision cast-iron tapper buffer engineered for heavy-duty utensil forming. Manufactured from high-grade C.I. to provide exceptional wear resistance and dimensional stability under repetitive load.",
+          features: [
+            "High abrasion resistance",
+            "Stable balancing for reduced vibration",
+            "Heat-treated for improved lifespan",
+            "Precision-machined tolerances",
+          ],
+          benefits: [
+            "Long service life under continuous operation",
+            "Consistent forming quality",
+            "Reduced downtime and maintenance",
+          ],
+          applications:
+            "Specifically designed for balti mouth stretching on industrial spinner and forming machines.",
+          reviews: [
+            {
+              name: "Dinesh Patel",
+              company: "PressFab Co.",
+              rating: 5,
+              text: "Robust build and steady performance in continuous operation.",
+            },
+            {
+              name: "Rajesh Shah",
+              company: "UtensilPro",
+              rating: 4,
+              text: "Precision fit and long life — saved us replacement time.",
+            },
+            {
+              name: "Meera Joshi",
+              company: "FabLine",
+              rating: 5,
+              text: "Excellent balance and minimal vibration at high rpm.",
+            },
+          ],
+        },
+
+        /* 2 */
+        {
+          id: 2,
+          title: "PAWALI BHAVRA",
+          price: 18500,
+          originalPrice: 22000,
+          badge: "Popular",
+          category: "Bidding",
+          material: "WPS Iron",
+          image: `${IMG_FOLDER}/product2.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product2.${IMG_EXT}`],
+          specs: [
+            { name: "Sizes", value: '6" , 5"' },
+            { name: "Usage", value: "Pawali mouth bidding" },
+            { name: "Material", value: "WPS Iron" },
+          ],
+          fullDescription:
+            "High-precision Pawali Bhavra manufactured using WPS-grade iron and precision finishing to ensure accurate contact and long wear life.",
+          features: [
+            "Precision-balanced geometry",
+            "Heat-stabilized surface finish",
+            "Low-friction contact surface",
+          ],
+          benefits: [
+            "Improved product consistency",
+            "Less frequent rework",
+            "Lower tool replacement costs",
+          ],
+          applications:
+            "Ideal for pawali mouth bidding operations in utensil manufacturing lines.",
+          reviews: [
+            {
+              name: "Amit Patel",
+              company: "FabTech Ltd.",
+              rating: 5,
+              text: "Reliable and precise.",
+            },
+            {
+              name: "Sunil Desai",
+              company: "MetalCraft",
+              rating: 4,
+              text: "Good wear resistance, consistent results.",
+            },
+            {
+              name: "Pooja Shah",
+              company: "Shah Industries",
+              rating: 5,
+              text: "Very pleased with repeatability.",
+            },
+          ],
+        },
+
+        /* 3 */
+        {
+          id: 3,
+          title: "BALTI PUNCHING BHINGRI",
+          price: 31000,
+          originalPrice: 35000,
+          badge: "Best Seller",
+          category: "Punching",
+          material: "WPS Temper Iron Roll",
+          image: `${IMG_FOLDER}/product3.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product3.${IMG_EXT}`],
+          specs: [
+            { name: "Size", value: "100 / 35 MM" },
+            { name: "Usage", value: "Balti taliya punching" },
+            { name: "Material", value: "WPS Temper Iron Roll" },
+          ],
+          fullDescription:
+            "Heavy-duty bhingri engineered for sustained punching operations. Produced from tempered iron rolls with strict heat treatment controls.",
+          features: [
+            "Tempered roll construction",
+            "Precision profile for reduced burr",
+            "High-impact resistance",
+          ],
+          benefits: [
+            "Improved cycle life under heavy loads",
+            "Consistent punch quality",
+            "Reduced tooling downtime",
+          ],
+          applications: "Used in high-volume balti taliya punching.",
+          reviews: [
+            {
+              name: "Sanjay Verma",
+              company: "PressTools Inc.",
+              rating: 5,
+              text: "Outstanding performance and longevity.",
+            },
+            {
+              name: "Kavita Mehta",
+              company: "Mehta Works",
+              rating: 4,
+              text: "Consistent clearance and less scrap.",
+            },
+            {
+              name: "Rohit Sharma",
+              company: "Sharma Metal",
+              rating: 5,
+              text: "Great durability under heavy presses.",
+            },
+          ],
+        },
+
+        /* 4 */
+        {
+          id: 4,
+          title: "BALTI BIDDING BEARING",
+          price: 28000,
+          originalPrice: 31000,
+          badge: "Hot",
+          category: "Bidding",
+          material: "Steel",
+          image: `${IMG_FOLDER}/product4.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product4.${IMG_EXT}`],
+          specs: [
+            { name: "Diameter", value: "90 mm" },
+            { name: "Usage", value: "Balti mouth bidding" },
+            { name: "Material", value: "High-grade steel" },
+          ],
+          fullDescription:
+            "Precision bearing tailored for bidding machines, designed to handle radial and axial loads with low friction and sealed lubrication retention.",
+          features: [
+            "Sealed for lubrication retention",
+            "High radial load capacity",
+            "Low vibration construction",
+          ],
+          benefits: [
+            "Longer intervals between lubrication",
+            "Smoother bidding action",
+            "Reduced heat buildup",
+          ],
+          applications:
+            "Fits into bidding assemblies to enable smooth rotation of buffs and rollers.",
+          reviews: [
+            {
+              name: "Neha Sharma",
+              company: "Bearing Solutions",
+              rating: 4,
+              text: "Smooth operation and low maintenance.",
+            },
+            {
+              name: "Vikram Singh",
+              company: "RollTech Ltd.",
+              rating: 5,
+              text: "High load capacity and lasts long.",
+            },
+            {
+              name: "Anil Kumar",
+              company: "Kumar Engineers",
+              rating: 4,
+              text: "Good seals and consistent performance.",
+            },
+          ],
+        },
+
+        /* 5 */
+        {
+          id: 5,
+          title: "KHUMCHA ROLLING ROLL",
+          price: 35000,
+          originalPrice: 38000,
+          badge: "New",
+          category: "Rolling",
+          material: "WPS Temper Roll",
+          image: `${IMG_FOLDER}/product5.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product5.${IMG_EXT}`],
+          specs: [
+            { name: "Size", value: "120 / 45 MM" },
+            { name: "Usage", value: "Straightens normal khumcha" },
+            { name: "Material", value: "WPS Temper Roll" },
+          ],
+          fullDescription:
+            "High-precision rolling roll developed to straighten complex khumcha shapes. Manufactured with tempered WPS material to maintain surface finish and geometry over long production runs.",
+          features: [
+            "Tempered surface resistant to wear",
+            "Consistent roll profile",
+            "Low runout tolerances",
+          ],
+          benefits: [
+            "Accurate straightening with minimal scrap",
+            "Extended lifetime in abrasive environments",
+          ],
+          applications:
+            "Used in rolling lines and straightening setups for khumcha and similar formed utensils.",
+          reviews: [
+            {
+              name: "Vikram Singh",
+              company: "RollTech Ltd.",
+              rating: 5,
+              text: "Excellent straightening capability.",
+            },
+            {
+              name: "Priya Nair",
+              company: "Nair Fabricators",
+              rating: 4,
+              text: "Solid construction, good finish.",
+            },
+            {
+              name: "Rakesh Jain",
+              company: "Jain Metals",
+              rating: 5,
+              text: "Very little maintenance required.",
+            },
+          ],
+        },
+
+        /* 6 */
+        {
+          id: 6,
+          title: "BALTI FARMA CUTTER",
+          price: 42000,
+          originalPrice: 45000,
+          badge: "Best Seller",
+          category: "Cutting",
+          material: "WPS Temper Cutter",
+          image: `${IMG_FOLDER}/product6.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product6.${IMG_EXT}`],
+          specs: [
+            { name: "Angles", value: "15° , 30°" },
+            { name: "Usage", value: "Balti farma cutting" },
+            { name: "Material", value: "WPS Temper Cutter" },
+          ],
+          fullDescription:
+            "Industrial-grade balti farma cutter designed for precision angle cutting with minimal burr and high edge retention.",
+          features: [
+            "Angle-specific geometry (15°/30°)",
+            "High edge retention",
+            "Low vibration mount design",
+          ],
+          benefits: [
+            "Clean, repeatable cuts",
+            "Lower regrind frequency",
+            "Improved part finish",
+          ],
+          applications:
+            "Perfect for angle-based cutting operations in utensil forming.",
+          reviews: [
+            {
+              name: "Ravi Kumar",
+              company: "CutTech Inc.",
+              rating: 5,
+              text: "Precise cuts and long edge life.",
+            },
+            {
+              name: "Sonia Patel",
+              company: "Patel Industries",
+              rating: 4,
+              text: "Performs well at high speed.",
+            },
+            {
+              name: "Devansh Mehta",
+              company: "Mehta Tools",
+              rating: 5,
+              text: "Great for repeatability in production.",
+            },
+          ],
+        },
+
+        /* 7 */
+        {
+          id: 7,
+          title: "CHEEBA BIDDING BEARING",
+          price: 26000,
+          originalPrice: 30000,
+          badge: "Hot",
+          category: "Bidding",
+          material: "Bearing Steel",
+          image: `${IMG_FOLDER}/product7.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product7.${IMG_EXT}`],
+          specs: [
+            { name: "Diameter", value: "90 mm" },
+            { name: "Usage", value: "Aluminium cheeba round bidding" },
+          ],
+          fullDescription:
+            "Robust bearing for aluminium cheeba round bidding processes; engineered to resist galling and provide stable rotation under heavy cyclical loads.",
+          features: [
+            "Anti-galling surface",
+            "Durable raceways",
+            "Optimized lubrication path",
+          ],
+          benefits: [
+            "Reliable performance in aluminium forming",
+            "Lower maintenance requirements",
+          ],
+          applications:
+            "Ideal for aluminium cheeba round bidding and similar forming systems.",
+          reviews: [
+            {
+              name: "Manish Desai",
+              company: "Desai Metals",
+              rating: 4,
+              text: "Good anti-galling performance.",
+            },
+            {
+              name: "Kiran Joshi",
+              company: "Joshi Works",
+              rating: 5,
+              text: "Very smooth under load.",
+            },
+            {
+              name: "Ritu Bhat",
+              company: "Bhat Engineering",
+              rating: 4,
+              text: "Lasts longer than previous bearings.",
+            },
+          ],
+        },
+
+        /* 8 */
+        {
+          id: 8,
+          title: "BALTI PATTI BHINGRI / BEDA BIDDING BHINGRI",
+          price: 30000,
+          originalPrice: 34000,
+          badge: "New",
+          category: "Bidding",
+          material: "WPS Temper Roll",
+          image: `${IMG_FOLDER}/product8.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product8.${IMG_EXT}`],
+          specs: [
+            { name: "Size", value: "70 / 40 MM" },
+            {
+              name: "Usage",
+              value: "Balti patti bidding and beda mouth bidding",
+            },
+          ],
+          fullDescription:
+            "Versatile bhingri engineered for patti and beda mouth bidding. Heat-treated and precision-turned to maintain form under heavy usage.",
+          features: [
+            "Optimized profile for patti operations",
+            "Heat-treated durability",
+          ],
+          benefits: ["Reduced scrap", "Improved edge consistency"],
+          applications:
+            "Used on patti bidding lines and for beda mouth forming operations.",
+          reviews: [
+            {
+              name: "Suresh Bhatt",
+              company: "Bhatt Works",
+              rating: 5,
+              text: "Very consistent in patti operations.",
+            },
+            {
+              name: "Nidhi Agarwal",
+              company: "Agarwal Fab",
+              rating: 4,
+              text: "Good finish and long life.",
+            },
+            {
+              name: "Sunil Rao",
+              company: "Rao Industries",
+              rating: 5,
+              text: "Reduced rejects after switching.",
+            },
+          ],
+        },
+
+        /* 9 */
+        {
+          id: 9,
+          title: "SPINNING STUD",
+          price: 900,
+          originalPrice: 1200,
+          badge: "Popular",
+          category: "Machine Parts",
+          material: "WPS Iron",
+          image: `${IMG_FOLDER}/product9.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product9.${IMG_EXT}`],
+          specs: [
+            { name: "Sizes", value: "5/8, 3/4, 7/8, 1 Inch" },
+            { name: "Usage", value: "Holding the bidding roll" },
+          ],
+          fullDescription:
+            "Precision spinning studs available in multiple diameters to secure bidding rolls. Manufactured to tight concentricity standards to prevent wobble.",
+          features: [
+            "Multiple standardized diameters",
+            "High concentricity",
+            "Threaded or keyed mounting options",
+          ],
+          benefits: [
+            "Improved roll holding security",
+            "Reduced runout = better product quality",
+          ],
+          applications:
+            "Used to mount and secure bidding rolls on spinning and forming equipment.",
+          reviews: [
+            {
+              name: "Girish Nair",
+              company: "Nair Tools",
+              rating: 5,
+              text: "Multiple sizes and excellent concentricity.",
+            },
+            {
+              name: "Anita Rao",
+              company: "Rao Fabricators",
+              rating: 4,
+              text: "Sturdy and well finished.",
+            },
+            {
+              name: "Prakash Kumar",
+              company: "Kumar Works",
+              rating: 5,
+              text: "Good value for small parts.",
+            },
+          ],
+        },
+
+        /* 10 */
+        {
+          id: 10,
+          title: "OUT CUTTING CUTTER",
+          price: 38000,
+          originalPrice: 42000,
+          badge: "Hot",
+          category: "Cutting",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product10.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product10.${IMG_EXT}`],
+          specs: [
+            { name: "Size", value: '5" , 6"' },
+            { name: "Usage", value: "Out patti cutting" },
+          ],
+          fullDescription:
+            "Precision out-cutting cutter for patti edge trimming and outer profile finishing. Thermally stabilized to retain geometry during continuous cycles.",
+          features: [
+            "Low-deformation edge",
+            "Balanced construction for smooth cutting",
+          ],
+          benefits: ["Superior finish", "Lower burr and less post-processing"],
+          applications:
+            "Designed for out-patti trimming and finishing operations in utensil production.",
+          reviews: [
+            {
+              name: "Ramesh Gupta",
+              company: "Gupta Tools",
+              rating: 5,
+              text: "Excellent edge retention.",
+            },
+            {
+              name: "Kamal Verma",
+              company: "Verma Fabrication",
+              rating: 4,
+              text: "Works well on thicker material.",
+            },
+            {
+              name: "Leena Shah",
+              company: "Shah Foundry",
+              rating: 5,
+              text: "Very consistent trimming results.",
+            },
+          ],
+        },
+
+        /* 11 */
+        {
+          id: 11,
+          title: "PAWALI PUNCHING / DABBA BIDDING BHINGRI",
+          price: 30000,
+          originalPrice: 33000,
+          badge: "New",
+          category: "Punching",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product11.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product11.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "100 / 35 MM" }],
+          fullDescription:
+            "Dual-purpose bhingri engineered for pawali punching and dabba bidding operations. Heat-treated for durability and ground to maintain consistent punching geometry.",
+          features: ["Dual-application profile", "Heat-stable core"],
+          benefits: [
+            "Versatile tooling reduces inventory",
+            "Consistent punch performance",
+          ],
+          applications: "Used on pawali taliya and dabba mouth punching lines.",
+          reviews: [
+            {
+              name: "Ajay Mehta",
+              company: "Mehta Press",
+              rating: 5,
+              text: "Reliable in both pawali and dabba operations.",
+            },
+            {
+              name: "Bhavna Rao",
+              company: "Rao Machines",
+              rating: 4,
+              text: "Good life and consistent punch.",
+            },
+            {
+              name: "Harish Patel",
+              company: "Patel Works",
+              rating: 5,
+              text: "Simplified our tooling inventory.",
+            },
+          ],
+        },
+
+        /* 12 */
+        {
+          id: 12,
+          title: "SQUARE BIDDING ROLL",
+          price: 35000,
+          originalPrice: 39000,
+          badge: "Best Seller",
+          category: "Bidding",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product12.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product12.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "100 / 35 MM" }],
+          fullDescription:
+            "Square-profile bidding roll specifically profiled for square utensil bidding operations. Accurate surface finish and robust tempering ensure durable performance.",
+          features: [
+            "Square profile accuracy",
+            "Tempered alloy for durability",
+          ],
+          benefits: ["Precise square forming", "Long operational life"],
+          applications:
+            "Used to form square utensils and components on dedicated bidding machinery.",
+          reviews: [
+            {
+              name: "Manoj Kumar",
+              company: "Kumar Tools",
+              rating: 5,
+              text: "Excellent square forming, minimal rework.",
+            },
+            {
+              name: "Ananya Sen",
+              company: "Sen Fabricators",
+              rating: 4,
+              text: "Good finish and durability.",
+            },
+            {
+              name: "Arjun Reddy",
+              company: "Reddy Industries",
+              rating: 5,
+              text: "Very reliable on production lines.",
+            },
+          ],
+        },
+
+        /* 13 */
+        {
+          id: 13,
+          title: "HYDRAULIC & MECHANICAL PRESS MANDRILL",
+          price: 24000,
+          originalPrice: 27000,
+          badge: "New",
+          category: "Machine Parts",
+          material: "Steel",
+          image: `${IMG_FOLDER}/product13.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product13.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "6/6, 4/6, 6/4, 4/4" }],
+          fullDescription:
+            "Mandrill designed for both hydraulic and mechanical presses. Machined from high-strength steel to handle repetitive high-force cycles with minimal deformation.",
+          features: ["High fatigue strength", "Precision ground surfaces"],
+          benefits: ["Reliable press cycles", "Reduced downtime"],
+          applications:
+            "Used to mount tools and support components inside press systems.",
+          reviews: [
+            {
+              name: "Keshav Rao",
+              company: "Rao Press",
+              rating: 5,
+              text: "High fatigue resistance and accurate fit.",
+            },
+            {
+              name: "Maya Iyer",
+              company: "Iyer Machines",
+              rating: 4,
+              text: "Good durability under cyclic loading.",
+            },
+            {
+              name: "Sahil Kapoor",
+              company: "Kapoor Tools",
+              rating: 5,
+              text: "Reduced deformation after long runs.",
+            },
+          ],
+        },
+
+        /* 14 */
+        {
+          id: 14,
+          title: "BUFFER CENTER PIN",
+          price: 1200,
+          originalPrice: 1500,
+          badge: "Popular",
+          category: "Machine Parts",
+          material: "M.S",
+          image: `${IMG_FOLDER}/product14.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product14.${IMG_EXT}`],
+          specs: [{ name: "Type", value: "Single or Double Bearing Pin" }],
+          fullDescription:
+            "Buffer center pin available in single or double bearing configurations for spinning centers. Machined to precise diameters to reduce runout and improve buffer alignment.",
+          features: ["Single/double bearing variants", "Precision turned"],
+          benefits: ["Improved center stability", "Lower vibration"],
+          applications:
+            "Used in spinning centers as a central buffer and rotational support.",
+          reviews: [
+            {
+              name: "Rohit Goyal",
+              company: "Goyal Fabricators",
+              rating: 4,
+              text: "Good precision and reliable.",
+            },
+            {
+              name: "Kriti Malhotra",
+              company: "Malhotra Tools",
+              rating: 5,
+              text: "Worked perfectly in our spinning center.",
+            },
+            {
+              name: "Vijay Deshmukh",
+              company: "Deshmukh Works",
+              rating: 4,
+              text: "Very durable and accurate.",
+            },
+          ],
+        },
+
+        /* 15 */
+        {
+          id: 15,
+          title: "REVOLVING CENTER",
+          price: 26000,
+          originalPrice: 30000,
+          badge: "New",
+          category: "Machine Parts",
+          material: "C.I Casting",
+          image: `${IMG_FOLDER}/product15.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product15.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Spinning center, buffer" }],
+          fullDescription:
+            "Robust revolving center cast in CI with precision-machined bearing interfaces. Designed for stable rotation under medium to heavy loads in spinning applications.",
+          features: ["CI casting body", "Precision bearing fit"],
+          benefits: ["Excellent load capacity", "Low maintenance"],
+          applications:
+            "Used as a revolving center in spinning lines and buffer assemblies.",
+          reviews: [
+            {
+              name: "Manju Patel",
+              company: "Patel Spinners",
+              rating: 5,
+              text: "Excellent stability and long life.",
+            },
+            {
+              name: "Dilip Nair",
+              company: "Nair Industries",
+              rating: 4,
+              text: "Good load bearing and consistent rotation.",
+            },
+            {
+              name: "Sheetal Rao",
+              company: "Rao Spinners",
+              rating: 5,
+              text: "Low maintenance and great balance.",
+            },
+          ],
+        },
+
+        /* 16 */
+        {
+          id: 16,
+          title: "MOGRI",
+          price: 800,
+          originalPrice: 1200,
+          badge: "Hot",
+          category: "Tools",
+          material: "Hard Plastic",
+          image: `${IMG_FOLDER}/product16.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product16.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Pawali farma component" }],
+          fullDescription:
+            "Durable mogri manufactured from high-impact plastic for tooling and ergonomic handling in pawali farma processes. Resistant to deformation and chemical exposure.",
+          features: ["Impact resistant plastic", "Lightweight"],
+          benefits: [
+            "Improved operator ergonomics",
+            "Long-term dimensional stability",
+          ],
+          applications:
+            "Used in pawali farma assemblies and as a supporting fixture in forming setups.",
+          reviews: [
+            {
+              name: "Nilesh Shah",
+              company: "Shah Tools",
+              rating: 4,
+              text: "Lightweight and durable.",
+            },
+            {
+              name: "Rina Kapoor",
+              company: "Kapoor Works",
+              rating: 5,
+              text: "Perfect grip and long lasting.",
+            },
+            {
+              name: "Asha Menon",
+              company: "Menon Fabricators",
+              rating: 4,
+              text: "Good for daily use in the shop.",
+            },
+          ],
+        },
+
+        /* 17 */
+        {
+          id: 17,
+          title: "SPINNING MACHINE SCREW",
+          price: 500,
+          originalPrice: 700,
+          badge: "New",
+          category: "Machine Parts",
+          material: "M.S",
+          image: `${IMG_FOLDER}/product17.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product17.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "All sizes available" }],
+          fullDescription:
+            "General-purpose spinning machine screw available in multiple sizes. Heat-treated to resist shear and provide consistent clamping force in spin tooling.",
+          features: ["Wide size range", "Heat treated options"],
+          benefits: [
+            "Versatile replacement part",
+            "Durable under repeated torque",
+          ],
+          applications: "Used across spinning slides, centers and clamps.",
+          reviews: [
+            {
+              name: "Suman Roy",
+              company: "Roy Engineering",
+              rating: 4,
+              text: "Good range of sizes and strong.",
+            },
+            {
+              name: "Vikas Gupta",
+              company: "Gupta Tools",
+              rating: 5,
+              text: "Durable and well heat-treated.",
+            },
+            {
+              name: "Rhea Iyer",
+              company: "Iyer Tech",
+              rating: 4,
+              text: "Reliable fastener for many machines.",
+            },
+          ],
+        },
+
+        /* 18 */
+        {
+          id: 18,
+          title: "DABBA GOT ROLL OR PUNCH",
+          price: 28000,
+          originalPrice: 32000,
+          badge: "Hot",
+          category: "Punching",
+          material: "WPS",
+          image: `${IMG_FOLDER}/product18.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product18.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Dabba got punching" }],
+          fullDescription:
+            "Specialized roll/punch for dabba-got operations with precise geometry for consistent punching. Built to tolerances that reduce part scrap and increase throughput.",
+          features: ["Precision punched profile", "Tempered surface"],
+          benefits: ["Higher accuracy", "Reduced tooling changes"],
+          applications:
+            "Used in dabba got punching stations for cookware production.",
+          reviews: [
+            {
+              name: "Nitin Kulkarni",
+              company: "Kulkarni Press",
+              rating: 5,
+              text: "Great throughput and low rejects.",
+            },
+            {
+              name: "Geeta Singh",
+              company: "Singh Tools",
+              rating: 4,
+              text: "Accurate profile and good finish.",
+            },
+            {
+              name: "Arvind Kothari",
+              company: "Kothari Fabricators",
+              rating: 5,
+              text: "Improved cycle times after installing.",
+            },
+          ],
+        },
+
+        /* 19 */
+        {
+          id: 19,
+          title: "PRESSING PUNCH BUSHING",
+          price: 2200,
+          originalPrice: 2600,
+          badge: "Popular",
+          category: "Machine Parts",
+          material: "M.S",
+          image: `${IMG_FOLDER}/product19.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product19.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "All sizes available" }],
+          fullDescription:
+            "Punch bushing family covering all standard sizes for press operations. Designed to provide consistent alignment between punch and die, minimizing eccentric wear.",
+          features: ["Full size coverage", "Hardened mating surfaces"],
+          benefits: ["Extended die life", "Better punch alignment"],
+          applications:
+            "Essential in press tooling to guide punches and extend tooling life.",
+          reviews: [
+            {
+              name: "Kamal Shah",
+              company: "Shah Press",
+              rating: 5,
+              text: "Good alignment, less wear.",
+            },
+            {
+              name: "Radha Nair",
+              company: "Nair Press",
+              rating: 4,
+              text: "Strong and reliable bushes.",
+            },
+            {
+              name: "Vikram Joshi",
+              company: "Joshi Tools",
+              rating: 5,
+              text: "Quality hardened surfaces.",
+            },
+          ],
+        },
+
+        /* 20 */
+        {
+          id: 20,
+          title: "TOP ROLLING ROLL",
+          price: 35000,
+          originalPrice: 38000,
+          badge: "Best Seller",
+          category: "Rolling",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product20.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product20.${IMG_EXT}`],
+          specs: [{ name: "Sizes", value: "100/25, 120/25, 130/25, 140/25" }],
+          fullDescription:
+            "Top rolling roll with varied size options to suit different gauge and profile requirements. Heat-treated for durability and smooth finish to reduce surface marking.",
+          features: ["Multiple size availability", "Tempered finish"],
+          benefits: [
+            "Versatile across rolling lines",
+            "Improved surface quality",
+          ],
+          applications:
+            "Used on top rolling stations for metal straightening and forming.",
+          reviews: [
+            {
+              name: "Raghav Bhat",
+              company: "Bhat Rolling",
+              rating: 5,
+              text: "Excellent finish and low marking.",
+            },
+            {
+              name: "Kajal Rao",
+              company: "Rao Rolling",
+              rating: 4,
+              text: "Works across many gauges.",
+            },
+            {
+              name: "Pradeep Singh",
+              company: "Singh Tools",
+              rating: 5,
+              text: "Built to last under heavy loads.",
+            },
+          ],
+        },
+
+        /* 21 */
+        {
+          id: 21,
+          title: "HATHODI",
+          price: 900,
+          originalPrice: 1500,
+          badge: "New",
+          category: "Tools",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product21.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product21.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Pawali farma/hand hammer" }],
+          fullDescription:
+            "Traditional forging hammer (Hathodi) manufactured with tempered head for strike durability. Ergonomically balanced shaft reduces operator fatigue.",
+          features: ["Tempered head", "Ergonomic handle"],
+          benefits: ["Reliable striking force", "Long service life"],
+          applications:
+            "Used for manual shaping and finishing in pawali farma and workshop settings.",
+          reviews: [
+            {
+              name: "Suresh Nair",
+              company: "Nair Workshop",
+              rating: 5,
+              text: "Great balance and strike force.",
+            },
+            {
+              name: "Mary George",
+              company: "George Tools",
+              rating: 4,
+              text: "Comfortable handle and durable.",
+            },
+            {
+              name: "Ajit Kumar",
+              company: "Kumar Stores",
+              rating: 5,
+              text: "Long lasting and reliable.",
+            },
+          ],
+        },
+
+        /* 22 */
+        {
+          id: 22,
+          title: "KHARWEL",
+          price: 1600,
+          originalPrice: 2200,
+          badge: "Hot",
+          category: "Tools",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product22.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product22.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Removing band in pawali farma" }],
+          fullDescription:
+            "Specialized pry and removal tool (Kharwel) for efficient band removal in pawali farma operations. Forged and heat-treated for leverage and durability.",
+          features: ["Forged construction", "Comfort grip"],
+          benefits: ["Faster band removal", "Lower risk of damage to parts"],
+          applications:
+            "Used by operators for removing bands and trims on formed parts.",
+          reviews: [
+            {
+              name: "Mukesh Patel",
+              company: "Patel Tools",
+              rating: 5,
+              text: "Easy to use and very strong.",
+            },
+            {
+              name: "Shweta Rao",
+              company: "Rao Workshops",
+              rating: 4,
+              text: "Good grip and leverage.",
+            },
+            {
+              name: "Hemant Desai",
+              company: "Desai Works",
+              rating: 5,
+              text: "Reduced accidental damage to parts.",
+            },
+          ],
+        },
+
+        /* 23 */
+        {
+          id: 23,
+          title: "PLASTIC BUFFER",
+          price: 25000,
+          originalPrice: 30000,
+          badge: "New",
+          category: "Buffer",
+          material: "Plastic",
+          image: `${IMG_FOLDER}/product23.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product23.${IMG_EXT}`],
+          specs: [{ name: "Size", value: "6ft / 4ft, Thickness 1–7 inch" }],
+          fullDescription:
+            "High-density plastic buffer sheets available across a range of widths and thicknesses. Engineered for cushioning and forming support where metal-to-metal contact must be avoided.",
+          features: ["Multiple thickness options", "High-impact polymer"],
+          benefits: [
+            "Protects workpiece surface",
+            "Reduces marking and wear on tooling",
+          ],
+          applications:
+            "Used as buffer pads in spinning, forming and finishing processes.",
+          reviews: [
+            {
+              name: "Leela Menon",
+              company: "Menon Production",
+              rating: 5,
+              text: "Excellent cushioning and long lasting.",
+            },
+            {
+              name: "Arun Pillai",
+              company: "Pillai Works",
+              rating: 4,
+              text: "Good size options and quality.",
+            },
+            {
+              name: "Simran Kaur",
+              company: "Kaur Industries",
+              rating: 5,
+              text: "Reduced surface marks significantly.",
+            },
+          ],
+        },
+
+        /* 24 */
+        {
+          id: 24,
+          title: "SPINNING WHEEL",
+          price: 28000,
+          originalPrice: 33000,
+          badge: "Hot",
+          category: "Machine Parts",
+          material: "C.I Casting",
+          image: `${IMG_FOLDER}/product24.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product24.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Spinning slide or center" }],
+          fullDescription:
+            "C.I. cast spinning wheel precision-machined for rotational stability. Designed to integrate with spinning slides and centers, providing reliable rotational motion under load.",
+          features: ["CI casting strength", "Precision bore and balance"],
+          benefits: ["Stable spinning performance", "High load endurance"],
+          applications:
+            "Used in spinning slides and centers across utensil manufacturing lines.",
+          reviews: [
+            {
+              name: "Hitesh Mehra",
+              company: "Mehra Spinners",
+              rating: 5,
+              text: "Very stable and balanced wheel.",
+            },
+            {
+              name: "Zoya Khan",
+              company: "Khan Works",
+              rating: 4,
+              text: "Good machining and finish.",
+            },
+            {
+              name: "Deepak Rao",
+              company: "Rao Engineering",
+              rating: 5,
+              text: "Lasts long even under heavy cycles.",
+            },
+          ],
+        },
+
+        /* 25 */
+        {
+          id: 25,
+          title: "MACHINE GEAR",
+          price: 26000,
+          originalPrice: 30000,
+          badge: "New",
+          category: "Machine Parts",
+          material: "WPS",
+          image: `${IMG_FOLDER}/product25.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product25.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "General machine gearing" }],
+          fullDescription:
+            "High-precision machine gear produced from WPS-grade steel. Gear teeth finished to minimize backlash and ensure long life under cyclic loading.",
+          features: ["Precisely cut teeth", "Heat-treated core"],
+          benefits: ["Smooth power transfer", "Lower noise and vibration"],
+          applications: "Used in gearboxes and motion transfer assemblies.",
+          reviews: [
+            {
+              name: "Vijendra Singh",
+              company: "Singh Gears",
+              rating: 5,
+              text: "Low backlash and smooth operation.",
+            },
+            {
+              name: "Nina Kapoor",
+              company: "Kapoor Automation",
+              rating: 4,
+              text: "Good quality and heat treatment.",
+            },
+            {
+              name: "Rohan Mehta",
+              company: "Mehta Drives",
+              rating: 5,
+              text: "Durable under continuous cycles.",
+            },
+          ],
+        },
+
+        /* 26 */
+        {
+          id: 26,
+          title: "KANDORA MACHINE DIE",
+          price: 38000,
+          originalPrice: 42000,
+          badge: "Hot",
+          category: "Machines",
+          material: "WPS Temper",
+          image: `${IMG_FOLDER}/product26.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product26.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Utensil design and forming" }],
+          fullDescription:
+            "Kandora machine die specialized for forming traditional utensil shapes. Machined for high accuracy and finished to resist sticking and facilitate part release.",
+          features: ["Precision cavities", "Release-optimized finish"],
+          benefits: ["Consistent form quality", "Reduced rejection rates"],
+          applications:
+            "Used in kandora forming machines for cookware design replication.",
+          reviews: [
+            {
+              name: "Dipak Shah",
+              company: "Shah Dies",
+              rating: 5,
+              text: "Great release properties and accuracy.",
+            },
+            {
+              name: "Sonia Verma",
+              company: "Verma Tools",
+              rating: 4,
+              text: "Consistent forming and minimal sticking.",
+            },
+            {
+              name: "Irfan Khan",
+              company: "Khan Dies",
+              rating: 5,
+              text: "High dimensional accuracy.",
+            },
+          ],
+        },
+
+        /* 27 */
+        {
+          id: 27,
+          title: "BHAVRA AND BHINGRI SET",
+          price: 28000,
+          originalPrice: 32000,
+          badge: "Popular",
+          category: "Bidding",
+          material: "M.S",
+          image: `${IMG_FOLDER}/product27.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product27.${IMG_EXT}`],
+          specs: [
+            { name: "Usage", value: "Bidding set for utensil manufacturing" },
+          ],
+          fullDescription:
+            "Comprehensive set including matched bhavra and bhingri components. Items are matched in hardness and geometry to produce consistent bidding outcomes.",
+          features: ["Matched component set", "Quality-controlled pairing"],
+          benefits: [
+            "Simplifies tool selection",
+            "Improved production consistency",
+          ],
+          applications: "Supplied as a paired set for bidding assembly lines.",
+          reviews: [
+            {
+              name: "Naveen Kapoor",
+              company: "Kapoor Sets",
+              rating: 5,
+              text: "Excellent matched pairing, reduced setup time.",
+            },
+            {
+              name: "Radha Patel",
+              company: "Patel Assembly",
+              rating: 4,
+              text: "Consistent output across batches.",
+            },
+            {
+              name: "Shivam Agarwal",
+              company: "Agarwal Industries",
+              rating: 5,
+              text: "High quality and durable.",
+            },
+          ],
+        },
+
+        /* 28 */
+        {
+          id: 28,
+          title: "SILVER MACHINE BUFFER",
+          price: 33000,
+          originalPrice: 36000,
+          badge: "New",
+          category: "Buffer",
+          material: "Red Plastic",
+          image: `${IMG_FOLDER}/product28.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product28.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Silver machine buffer" }],
+          fullDescription:
+            "Red plastic buffer tailored for silver machine applications where contact softness is required. Molded from wear-resistant polymer to prevent surface marring.",
+          features: ["Soft contact polymer", "Wear-resistant compound"],
+          benefits: [
+            "Protects silver surface finish",
+            "Extends life of machine tooling",
+          ],
+          applications:
+            "Used in silver finishing machines and sensitive forming operations.",
+          reviews: [
+            {
+              name: "Meera Roy",
+              company: "Roy Silver",
+              rating: 5,
+              text: "No marks on silver after processing.",
+            },
+            {
+              name: "Alok Singh",
+              company: "Singh Finishers",
+              rating: 4,
+              text: "Good wear resistance.",
+            },
+            {
+              name: "Tara Iyer",
+              company: "Iyer Finishes",
+              rating: 5,
+              text: "Perfect for delicate surfaces.",
+            },
+          ],
+        },
+
+        /* 29 */
+        {
+          id: 29,
+          title: "M.S. TAPPER BUFFER",
+          price: 24000,
+          originalPrice: 28000,
+          badge: "Hot",
+          category: "Buffer",
+          material: "M.S",
+          image: `${IMG_FOLDER}/product29.${IMG_EXT}`,
+          images: [`${IMG_FOLDER}/product29.${IMG_EXT}`],
+          specs: [{ name: "Usage", value: "Balti bidding buffer" }],
+          fullDescription:
+            "Mild steel tapper buffer handcrafted for bidding tasks, designed to provide robust support in balti applications. Treated for corrosion resistance and dimensional stability.",
+          features: ["M.S. construction", "Corrosion treated surface"],
+          benefits: [
+            "Cost-effective buffer option",
+            "Good mechanical strength",
+          ],
+          applications:
+            "Commonly used for balti bidding and general buffer roles in utensil manufacturing.",
+          reviews: [
+            {
+              name: "Arun Kumar",
+              company: "Kumar Tools",
+              rating: 5,
+              text: "Very sturdy and value for money.",
+            },
+            {
+              name: "Seema Verma",
+              company: "Verma Works",
+              rating: 4,
+              text: "Good mechanical strength and finish.",
+            },
+            {
+              name: "Pankaj Jain",
+              company: "Jain Fabricators",
+              rating: 5,
+              text: "Works well in heavy bidding tasks.",
+            },
+          ],
+        },
+      ]; // end products array
+
+      /* ---------------- UTILITY: safe element fetch ---------------- */
+      function $(sel) {
+        return document.querySelector(sel);
+      }
+      function $all(sel) {
+        return Array.from(document.querySelectorAll(sel));
+      }
+
+      /* ---------------- LOAD PRODUCTS ---------------- */
+      function loadProducts() {
+        currentPage = 1;
+        applyFilters();
+      }
+
+      /* ---------------- FILTER STATE ---------------- */
+      let filterState = {
+        category: "all",
+        material: "all",
+        maxPrice: 100000,
+        sortBy: "default",
+      };
+
+      /* ---------------- SETUP FILTERS (safe) ---------------- */
+      function setupFilters() {
+        const catBtns = $all("#category-filters .filter-btn");
+        catBtns.forEach((btn) =>
+          btn.addEventListener("click", function () {
+            catBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            filterState.category = this.dataset.category || "all";
+            applyFilters();
+          })
+        );
+
+        const matBtns = $all("#material-filters .filter-btn");
+        matBtns.forEach((btn) =>
+          btn.addEventListener("click", function () {
+            matBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            filterState.material = this.dataset.material || "all";
+            applyFilters();
+          })
+        );
+
+        const priceRange = $("#price-range");
+        const priceMax = $("#price-max");
+        if (priceRange) {
+          priceRange.addEventListener("input", function () {
+            filterState.maxPrice = parseInt(this.value) || 100000;
+            if (priceMax)
+              priceMax.textContent =
+                "₹" + filterState.maxPrice.toLocaleString();
+            applyFilters();
+          });
+        }
+
+        const sortBtns = $all("#sort-options .filter-btn");
+        sortBtns.forEach((btn) =>
+          btn.addEventListener("click", function () {
+            sortBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            filterState.sortBy = this.dataset.sort || "default";
+            applyFilters();
+          })
+        );
+      }
+
+      /* ---------------- APPLY FILTERS ---------------- */
+      function applyFilters() {
+        let filtered = [...products];
+
+        if (
+          filterState.category &&
+          filterState.category.toLowerCase() !== "all"
+        ) {
+          filtered = filtered.filter(
+            (p) =>
+              (p.category || "").toLowerCase() ===
+              filterState.category.toLowerCase()
+          );
+        }
+        if (
+          filterState.material &&
+          filterState.material.toLowerCase() !== "all"
+        ) {
+          filtered = filtered.filter(
+            (p) =>
+              (p.material || "").toLowerCase() ===
+              filterState.material.toLowerCase()
+          );
+        }
+        filtered = filtered.filter(
+          (p) => (p.price || 0) <= (filterState.maxPrice || 100000)
+        );
+
+        if (filterState.sortBy === "price-low")
+          filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
+        if (filterState.sortBy === "price-high")
+          filtered.sort((a, b) => (b.price || 0) - (a.price || 0));
+
+        displayProducts(filtered);
+      }
+
+      /* ---------------- DISPLAY PRODUCTS ---------------- */
+      let currentPage = 1;
+      const itemsPerPage = 6;
+      let filteredProducts = [...products]; // will hold filtered list
+
+      function displayProducts(list) {
+        const container = $("#products-container");
+        const paginationContainer = $("#pagination-controls");
+        if (!container || !paginationContainer) return;
+
+        container.innerHTML = "";
+        paginationContainer.innerHTML = "";
+
+        if (list.length === 0) {
+          container.innerHTML = `<div class="col-12 text-center py-5">
+                                <h4 class="text-muted">No products match your filters</h4>
+                                <p class="text-muted">Try adjusting your selection</p>
+                              </div>`;
+          return;
+        }
+
+        // Calculate total pages
+        const totalPages = Math.ceil(list.length / itemsPerPage);
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        // Get products for current page
+        const startIdx = (currentPage - 1) * itemsPerPage;
+        const pageItems = list.slice(startIdx, startIdx + itemsPerPage);
+
+        // Render products
+        pageItems.forEach((p, i) => {
+          const discount =
+            p.originalPrice && p.originalPrice > p.price
+              ? Math.round(
+                  ((p.originalPrice - p.price) / p.originalPrice) * 100
+                )
+              : 0;
+          const col = document.createElement("div");
+          col.className = "col-lg-4 col-md-6";
+          col.setAttribute("data-aos", "fade-up");
+          col.setAttribute("data-aos-delay", (i % 3) * 100);
+          col.innerHTML = `
+                                <div class="card product-card h-100">
+                                  <div class="position-relative">
+                                    <img src="${
+                                      p.image
+                                    }" onerror="this.src='${PLACEHOLDER}'" class="card-img-top" alt="${
+            p.title
+          }">
+                                    <span class="product-badge">${
+                                      p.badge || ""
+                                    }</span>
+                                  </div>
+                                  <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">${p.title}</h5>
+                                    <p class="card-text small mb-2">${
+                                      p.fullDescription
+                                    }</p>
+                                    <div class="mt-auto">
+                                      <button class="btn btn-sm btn-outline-primary mt-3 product-btn" data-id="${
+                                        p.id
+                                      }">View Details</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              `;
+          container.appendChild(col);
+        });
+
+        // Attach event listeners for "View Details"
+        $all(".product-btn").forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            const id = +e.currentTarget.dataset.id;
+            showProductDetail(id);
+          })
+        );
+
+        // Generate pagination controls
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(totalPages) {
+        const container = $("#pagination-controls");
+        container.innerHTML = "";
+
+        if (totalPages <= 1) return; // no need for pagination if only 1 page
+
+        // Previous button
+        const prevLi = document.createElement("li");
+        prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+        prevLi.innerHTML = `<a class="page-link" href="#" data-page="${
+          currentPage - 1
+        }">Previous</a>`;
+        container.appendChild(prevLi);
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLi = document.createElement("li");
+          pageLi.className = `page-item ${i === currentPage ? "active" : ""}`;
+          pageLi.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+          container.appendChild(pageLi);
+        }
+
+        // Next button
+        const nextLi = document.createElement("li");
+        nextLi.className = `page-item ${
+          currentPage === totalPages ? "disabled" : ""
+        }`;
+        nextLi.innerHTML = `<a class="page-link" href="#" data-page="${
+          currentPage + 1
+        }">Next</a>`;
+        container.appendChild(nextLi);
+
+        // Add event listeners for page links
+        $all("#pagination-controls .page-link").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const page = parseInt(e.currentTarget.dataset.page);
+            if (!isNaN(page) && page >= 1 && page <= totalPages) {
+              currentPage = page;
+              displayProducts(filteredProducts);
+            }
+          });
+        });
+      }
+
+      /* ---------------- PRODUCT DETAIL OFFCANVAS ---------------- */
+      function showProductDetail(id) {
+        const p = products.find((x) => x.id === id);
+        if (!p) return;
+
+        const canvasTitle = $("#canvasTitle");
+        const canvasBody = $("#canvasBody");
+        if (canvasTitle) canvasTitle.textContent = p.title;
+        if (!canvasBody) return;
+
+        const discount =
+          p.originalPrice && p.originalPrice > p.price
+            ? Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100)
+            : 0;
+
+        // Build HTML with review swiper placeholder (uses unique classes for pagination / nav)
+        canvasBody.innerHTML = `
+                              <div class="swiper swiper-detail mb-3">
+                                <div class="swiper-wrapper">
+                                  ${p.images
+                                    .map(
+                                      (img) =>
+                                        `<div class="swiper-slide"><img src="${img}" onerror="this.src='${PLACEHOLDER}'" alt="${p.title}" style="max-width:100%;height:auto"></div>`
+                                    )
+                                    .join("")}
+                                </div>
+                                <div class="swiper-pagination detail-pagination"></div>
+                                <div class="swiper-button-next detail-next"></div>
+                                <div class="swiper-button-prev detail-prev"></div>
+                              </div>
+
+                              <h5 class="text-primary mb-2">₹${(
+                                p.price || 0
+                              ).toLocaleString("en-IN")}
+                                ${
+                                  discount
+                                    ? `<del class="text-muted"> ₹${p.originalPrice.toLocaleString(
+                                        "en-IN"
+                                      )}</del> <span class="badge bg-danger">Save ${discount}%</span>`
+                                    : ""
+                                }
+                              </h5>
+
+                              <p class="mb-3">${p.fullDescription}</p>
+
+                              <h6 class="fw-bold">Key Features</h6>
+                              <ul>
+                                ${(p.features || [])
+                                  .map((f) => `<li>${f}</li>`)
+                                  .join("")}
+                              </ul>
+
+                              <h6 class="fw-bold">Specifications</h6>
+                              <table class="table table-bordered spec-table mb-3"><tbody>
+                                ${(p.specs || [])
+                                  .map(
+                                    (s) =>
+                                      `<tr><th style="width:35%">${s.name}</th><td>${s.value}</td></tr>`
+                                  )
+                                  .join("")}
+                              </tbody></table>
+
+                              <h6 class="fw-bold">Applications</h6>
+                              <p>${
+                                p.applications ||
+                                "Suitable for industrial metal forming and utensil manufacturing."
+                              }</p>
+
+                              ${
+                                p.reviews && p.reviews.length
+                                  ? `
+                                <h6 class="fw-bold mt-3">Customer Reviews</h6>
+                                <div class="swiper review-swiper mt-3">
+                                  <div class="swiper-wrapper">
+                                    ${p.reviews
+                                      .map(
+                                        (r) => `
+                                      <div class="swiper-slide">
+                                        <div class="border rounded p-3 bg-light">
+                                          <div class="review-stars mb-2" style="font-size:18px;color:#ffc107;">
+                                            ${"★".repeat(
+                                              Math.round(r.rating || 5)
+                                            )}${"☆".repeat(
+                                          5 - Math.round(r.rating || 5)
+                                        )}
+                                          </div>
+                                          <p class="mb-2 fst-italic">"${
+                                            r.text
+                                          }"</p>
+                                          <small class="text-muted">- ${
+                                            r.name
+                                          }${
+                                          r.company ? ", " + r.company : ""
+                                        }</small>
+                                        </div>
+                                      </div>
+                                    `
+                                      )
+                                      .join("")}
+                                  </div>
+
+
+                                </div>
+                              `
+                                  : ``
+                              }
+
+                              <div class="d-grid gap-2 d-md-flex mt-4"><button class="btn btn-primary flex-fill" onclick="openQuoteModal(${
+                                p.id
+                              })">Get Quote</button></div>
+                            `;
+
+        // show offcanvas safely
+        const offEl = document.getElementById("productCanvas");
+        if (offEl && window.bootstrap && bootstrap.Offcanvas) {
+          try {
+            new bootstrap.Offcanvas(offEl).show();
+          } catch (e) {}
+        }
+
+        // init swipers safely (detail + reviews)
+        setTimeout(() => {
+          try {
+            // detail swiper
+            if (window.Swiper) {
+              new Swiper(".swiper-detail", {
+                loop: true,
+                pagination: { el: ".detail-pagination", clickable: true },
+                navigation: { nextEl: ".detail-next", prevEl: ".detail-prev" },
+              });
+            }
+
+            // review swiper (if reviews exist)
+            if (window.Swiper && p.reviews && p.reviews.length > 0) {
+              new Swiper(".review-swiper", {
+                loop: true,
+                autoplay: { delay: 2500, disableOnInteraction: false },
+                slidesPerView: 1,
+                spaceBetween: 12,
+                pagination: { el: ".review-pagination", clickable: true },
+                navigation: { nextEl: ".review-next", prevEl: ".review-prev" },
+              });
+            }
+          } catch (e) {
+            /* ignore init errors silently */
+          }
+        }, 150);
+      }
+
+      /* ---------------- QUOTE MODAL ---------------- */
+      function openQuoteModal(productId) {
+        const p = products.find((x) => x.id === productId);
+        if (!p) return;
+
+        const nameEl = $("#quoteProductName");
+        const priceEl = $("#quoteProductPrice");
+        const idEl = $("#quoteProductId");
+
+        if (nameEl) nameEl.textContent = p.title;
+        if (priceEl)
+          priceEl.textContent = `Price: ₹${(p.price || 0).toLocaleString(
+            "en-IN"
+          )}`;
+        if (idEl) idEl.value = p.id;
+
+        // Reset form validation
+        const form = document.getElementById("quoteForm");
+        if (form) {
+          form.reset();
+          // Remove validation classes
+          const inputs = ["quoteName", "quoteEmail", "quotePhone"];
+          inputs.forEach((id) => {
+            const input = document.getElementById(id);
+            if (input) input.classList.remove("is-invalid", "is-valid");
+          });
+        }
+
+        // hide offcanvas then show modal
+        try {
+          const off = bootstrap.Offcanvas.getInstance(
+            document.getElementById("productCanvas")
+          );
+          if (off) off.hide();
+        } catch (e) {}
+
+        try {
+          const m = new bootstrap.Modal(document.getElementById("quoteModal"));
+          m.show();
+        } catch (e) {}
+      }
+
+      /* ---------------- INIT ---------------- */
+      document.addEventListener("DOMContentLoaded", () => {
+        setupFilters();
+      });
+
+      /* ---------------- EXPORT for Console / Debugging (optional) ---------------- */
+      window.__DI_PRODUCTS = products;
+
+      /* ---------------- EMAILJS QUOTE FORM ---------------- */
+      emailjs.init("RyAqOEUn1RuSVk-cN");
+
+      const quoteForm = document.getElementById("quoteForm");
+
+      quoteForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+        let errorMessage = "";
+
+        // Email validation
+        const emailField = document.getElementById("quoteEmail");
+        if (!emailField.value.trim() || !isValidEmail(emailField.value)) {
+          isValid = false;
+          errorMessage += "Please enter a valid email address.\n";
+          emailField.classList.add("is-invalid");
+        } else {
+          emailField.classList.remove("is-invalid");
+        }
+
+        if (!isValid) {
+          alert("Please fix the following errors:\n\n" + errorMessage);
+          return;
+        }
+
+        // Get product data
+        const productId = document.getElementById("quoteProductId").value;
+        let currentProduct;
+        
+        // Check if it's a main product or extra product
+        if (productId.startsWith("EXT-")) {
+          currentProduct = extraProducts.find(p => p.id === productId);
+        } else {
+          currentProduct = products.find(p => p.id == productId);
+        }
+
+        // Prepare template parameters
+        const templateParams = {
+          subject: "New Product Quote Request - Dinesh Industries",
+          productName: currentProduct
+            ? currentProduct.title
+            : "Unknown Product",
+          productPrice: currentProduct
+            ? `₹${currentProduct.price.toLocaleString("en-IN")}`
+            : "Price not available",
+          fullName: document.getElementById("quoteName").value.trim(),
+          company: document.getElementById("company").value.trim(),
+          email: emailField.value.trim(),
+          phone: document.getElementById("quotePhone").value.trim(),
+          country: document.getElementById("quoteCountry").value,
+          state: document.getElementById("quoteState").value.trim(),
+          address: document.getElementById("quoteAddress").value.trim(),
+          quantity: document.getElementById("quoteQuantity").value,
+          delivery: document.getElementById("quoteDelivery").value,
+          message: document.getElementById("quoteMessage").value.trim(),
+          subscribe: document.getElementById("quoteNewsletter").checked
+            ? "Yes"
+            : "No",
+        };
+
+        console.log("Sending templateParams:", templateParams);
+
+        // Show loading state
+        const submitBtn = quoteForm.querySelector(".submit-btn");
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML =
+          '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+        submitBtn.disabled = true;
+
+        // Send email via EmailJS
+        emailjs
+          .send("service_reyptje", "template_m2cqggq", templateParams)
+          .then((response) => {
+            console.log("SUCCESS! Email sent:", response);
+
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            // Show success message
+            alert(
+              "✅ Quote request sent successfully! We will contact you shortly."
+            );
+
+            // Reset form
+            quoteForm.reset();
+
+            // Close modal safely
+            closeModalSafely();
+          })
+          .catch((error) => {
+            console.error("FAILED... EmailJS Error:", error);
+
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            alert(
+              "❌ Failed to send request. Please try again or contact us directly."
+            );
+          });
+
+        // Email validation function
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+
+        // Safe modal closing function
+        function closeModalSafely() {
+          const quoteModalEl = document.getElementById("quoteModal");
+          if (!quoteModalEl) return;
+
+          // Remove focus from submit button to fix aria-hidden warning
+          const activeElement = document.activeElement;
+          if (activeElement && activeElement.classList.contains("submit-btn")) {
+            activeElement.blur();
+          }
+
+          // Use Bootstrap to hide modal
+          const modal = bootstrap.Modal.getInstance(quoteModalEl);
+          if (modal) modal.hide();
+        }
+      });
+
+      /* ---------------- EXTRA PRODUCTS DATA ---------------- */
+        const extraProducts = [
+        {
+          id: "EXT-201",
+          title: "Bucket",
+          description: "Durable metal bucket for industrial and agricultural applications with reinforced rim",
+          price: 1800,
+          originalPrice: 2200,
+          diameter: "350mm",
+          usage: "Storage, Material Handling, Construction",
+          material: "Galvanized Steel",
+          badge: "Essential",
+          averageRating: 4.3,
+          totalReviews: 15
+        },
+        {
+          id: "EXT-202",
+          title: "Pavali's Die",
+          description: "Custom-designed die for Pavali production with precision tolerances",
+          price: 45000,
+          originalPrice: 52000,
+          diameter: "120mm",
+          usage: "Pavali Manufacturing, Metal Forming",
+          material: "Tool Steel",
+          badge: "Custom",
+          averageRating: 4.7,
+          totalReviews: 9
+        },
+        {
+          id: "EXT-203",
+          title: "Bidding Roll",
+          description: "High-quality roll for bidding machines with smooth surface finish",
+          price: 12500,
+          originalPrice: 15000,
+          diameter: "90mm",
+          usage: "Bidding Systems, Paper Processing",
+          material: "Hardened Alloy",
+          badge: "Professional",
+          averageRating: 4.5,
+          totalReviews: 11
+        },
+        {
+          id: "EXT-204",
+          title: "Bhavra",
+          description: "Traditional Bhavra tool for agricultural and industrial mixing applications",
+          price: 3200,
+          originalPrice: 3800,
+          diameter: "250mm",
+          usage: "Mixing, Agricultural Processing",
+          material: "Carbon Steel",
+          badge: "Traditional",
+          averageRating: 4.2,
+          totalReviews: 8
+        },
+        {
+          id: "EXT-205",
+          title: "S. S. Utensils Deep Draw Pressing Dies",
+          description: "Specialized deep draw dies for stainless steel utensil manufacturing",
+          price: 68000,
+          originalPrice: 75000,
+          diameter: "180mm",
+          usage: "Utensil Manufacturing, Deep Drawing",
+          material: "High-Speed Steel",
+          badge: "Specialized",
+          averageRating: 4.8,
+          totalReviews: 14
+        },
+        {
+          id: "EXT-206",
+          title: "S. S. Dies Maintenance & Job Work",
+          description: "Professional maintenance and job work services for stainless steel dies",
+          price: 8500,
+          originalPrice: 10000,
+          diameter: "N/A",
+          usage: "Die Maintenance, Repair Services",
+          material: "Service",
+          badge: "Service",
+          averageRating: 4.6,
+          totalReviews: 23
+        },
+        {
+          id: "EXT-207",
+          title: "S. S. Square Dies",
+          description: "Precision square dies for stainless steel component fabrication",
+          price: 38000,
+          originalPrice: 42000,
+          diameter: "N/A",
+          usage: "Square Component Fabrication, Metal Stamping",
+          material: "D2 Tool Steel",
+          badge: "Precision",
+          averageRating: 4.4,
+          totalReviews: 12
+        },
+        {
+          id: "EXT-208",
+          title: "S. S. Cutting Dies",
+          description: "High-performance cutting dies for stainless steel sheet processing",
+          price: 42000,
+          originalPrice: 48000,
+          diameter: "N/A",
+          usage: "Sheet Metal Cutting, Industrial Processing",
+          material: "M2 High-Speed Steel",
+          badge: "High-Performance",
+          averageRating: 4.9,
+          totalReviews: 18
+        }
+      ];
+      
+      /* ---------------- CUSTOMER REVIEWS DATA ---------------- */
+      const customerReviews = [
+        {
+          name: "Rajesh Kumar",
+          company: "MetalWorks India",
+          rating: 5,
+          text: "Dinesh Industries provided us with exceptional machinery that significantly improved our production efficiency. The quality is outstanding and their after-sales support is commendable.",
+          date: "March 15, 2024"
+        },
+        {
+          name: "Priya Sharma",
+          company: "Precision Tools Co.",
+          rating: 5,
+          text: "We've been using their industrial buffers for over 2 years with zero downtime. The durability and precision are unmatched in the industry.",
+          date: "February 28, 2024"
+        },
+        {
+          name: "Amit Patel",
+          company: "FabTech Solutions",
+          rating: 4,
+          text: "Excellent products with reliable performance. The technical support team is always available to help with any queries. Highly recommended!",
+          date: "April 5, 2024"
+        },
+        {
+          name: "Sneha Reddy",
+          company: "Automation Masters",
+          rating: 5,
+          text: "The gearbox assembly we purchased has been running continuously for 18 months without any issues. Superior quality and value for money.",
+          date: "January 20, 2024"
+        },
+        {
+          name: "Vikram Singh",
+          company: "Heavy Machinery Corp",
+          rating: 5,
+          text: "Best industrial machinery supplier in Gujarat. Their products are robust, reliable, and deliver exactly what they promise.",
+          date: "March 30, 2024"
+        },
+        {
+          name: "Anjali Mehta",
+          company: "Precision Engineering",
+          rating: 4,
+          text: "Great service and high-quality products. The delivery was on time and installation support was excellent.",
+          date: "February 10, 2024"
+        },
+        {
+          name: "Rohan Desai",
+          company: "Industrial Solutions Ltd",
+          rating: 5,
+          text: "We replaced all our old machinery with Dinesh Industries equipment and saw a 40% increase in productivity. Worth every rupee!",
+          date: "April 12, 2024"
+        },
+        {
+          name: "Neha Kapoor",
+          company: "Modern Manufacturing",
+          rating: 5,
+          text: "Exceptional customer service and top-notch products. They understand industrial needs and deliver solutions that work.",
+          date: "March 5, 2024"
+        },
+        {
+          name: "Manoj Verma",
+          company: "Verma Industries",
+          rating: 5,
+          text: "The spindle we purchased has increased our machining accuracy by 15%. Excellent precision engineering.",
+          date: "April 18, 2024"
+        },
+        {
+          name: "Kiran Deshmukh",
+          company: "Deshmukh Engineering",
+          rating: 4,
+          text: "Timely delivery and great after-sales service. Products perform exactly as advertised.",
+          date: "March 22, 2024"
+        }
+      ];
+
+      /* ---------------- INITIALIZE CUSTOMER REVIEWS ---------------- */
+      function initializeCustomerReviews() {
+        displayCustomerReviews();
+        initReviewsSwiper();
+      }
+
+      function displayCustomerReviews() {
+        const container = document.getElementById('reviews-container');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        customerReviews.forEach(review => {
+          const firstLetter = review.name.charAt(0);
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          slide.innerHTML = `
+            <div class="review-card">
+              <div class="review-header">
+                <div class="review-avatar">${firstLetter}</div>
+                <div class="review-info">
+                  <h5>${review.name}</h5>
+                  <p>${review.company}</p>
+                </div>
+              </div>
+              <div class="review-stars">
+                ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+              </div>
+              <div class="review-text">
+                ${review.text}
+              </div>
+              <div class="review-date">
+                ${review.date}
+              </div>
+            </div>
+          `;
+          container.appendChild(slide);
+        });
+      }
+
+      function initReviewsSwiper() {
+        setTimeout(() => {
+          try {
+            if (window.Swiper) {
+              new Swiper('.reviews-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                  delay: 3000,
+                  disableOnInteraction: false,
+                },
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable: true,
+                },
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  992: {
+                    slidesPerView: 3,
+                    spaceBetween: 25,
+                  },
+                },
+              });
+            }
+          } catch (e) {
+            console.error('Error initializing reviews swiper:', e);
+          }
+        }, 500);
+      }
+
+      /* ---------------- INITIALIZE EXTRA PRODUCTS ---------------- */
+      function initializeExtraProducts() {
+        displayExtraProducts();
+      }
+
+      /* ---------------- DISPLAY EXTRA PRODUCTS TABLE ---------------- */
+      function displayExtraProducts() {
+        const tbody = document.getElementById('extraProductsBody');
+        if (!tbody) return;
+        
+        tbody.innerHTML = '';
+        
+        extraProducts.forEach(product => {
+          const discount = product.originalPrice && product.originalPrice > product.price 
+            ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+            : 0;
+          
+          // Create star rating display only (no text testimonials)
+          const starRatingHTML = `
+            <div class="rating-stars-only">
+              <div class="rating-display">
+                <div class="review-stars" style="font-size: 16px;">
+                  ${'★'.repeat(Math.floor(product.averageRating))}${'☆'.repeat(5 - Math.floor(product.averageRating))}
+                </div>
+                <div class="average-rating">${product.averageRating.toFixed(1)}</div>
+              </div>
+              <div class="rating-count">${product.totalReviews} reviews</div>
+            </div>
+          `;
+          
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td data-label="Product Name">
+              <strong class="text-primary">${product.title}</strong>
+              ${product.badge ? `<span class="badge bg-warning ms-2">${product.badge}</span>` : ''}
+            </td>
+            <td data-label="Description">
+              <div class="small">${product.description}</div>
+            </td>
+            <td data-label="Price">
+              <div class="d-flex flex-column">
+                <strong class="text-primary">₹${product.price.toLocaleString()}</strong>
+                ${discount > 0 ? `
+                  <div>
+                    <del class="text-muted small">₹${product.originalPrice.toLocaleString()}</del>
+                    <span class="badge bg-danger small ms-1">${discount}% OFF</span>
+                  </div>
+                ` : ''}
+              </div>
+            </td>
+            <td data-label="Diameter">${product.diameter}</td>
+            <td data-label="Usage">${product.usage}</td>
+            <td data-label="Material">${product.material}</td>
+            <td data-label="Customer Reviews">
+              ${starRatingHTML}
+            </td>
+            <td data-label="Action">
+              <button class="inquiry-btn" 
+                      onclick="openExtraProductInquiry('${product.id}', '${product.title}', ${product.price})">
+                <i class="fas fa-quote-right me-1"></i> Inquiry
+              </button>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
+      /* ---------------- OPEN INQUIRY FOR EXTRA PRODUCT ---------------- */
+      function openExtraProductInquiry(productId, productName, productPrice) {
+        const nameEl = document.getElementById('quoteProductName');
+        const priceEl = document.getElementById('quoteProductPrice');
+        const idEl = document.getElementById('quoteProductId');
+        
+        if (nameEl) nameEl.textContent = productName;
+        if (priceEl) priceEl.textContent = `Price: ₹${parseInt(productPrice).toLocaleString('en-IN')}`;
+        if (idEl) idEl.value = productId;
+        
+        // Reset form validation
+        const form = document.getElementById('quoteForm');
+        if (form) {
+          form.reset();
+          // Remove validation classes
+          const inputs = ['quoteName', 'quoteEmail', 'quotePhone'];
+          inputs.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.classList.remove('is-invalid', 'is-valid');
+          });
+        }
+        
+        // Show modal
+        try {
+          const modal = new bootstrap.Modal(document.getElementById('quoteModal'));
+          modal.show();
+        } catch (e) {
+          console.error('Error opening modal:', e);
+        }
+      }
+
+      /* ---------------- MAKE FUNCTIONS GLOBAL ---------------- */
+      window.openQuoteModal = openQuoteModal;
+      window.openExtraProductInquiry = openExtraProductInquiry;
+    </script>
+  </body>
+</html>

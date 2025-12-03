@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Industries | Features – Industrial Machinery Solutions</title>
+
+    <!-- ==========  CSS  ========== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --primary:#0d6efd; --secondary:#003366; --accent:#ff6b00; --industrial-blue:#1e3a5f;
+            --metal-gray:#4a5568; --steel:#718096; --light:#f8f9fa; --dark:#1a1a1a; --gray:#6c757d;
+        }
+        *{margin:0; padding:0; box-sizing:border-box}
+        body{font-family:'Poppins',sans-serif; background:#fff; color:#333; overflow-x:hidden; position:relative}
+        .industrial-bg{position:fixed; inset:0; background-image:linear-gradient(rgba(30,58,95,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(30,58,95,.03) 1px,transparent 1px); background-size:50px 50px; z-index:-1; pointer-events:none}
+        ::-webkit-scrollbar{width:12px}
+        ::-webkit-scrollbar-track{background:#f1f1f1; border-radius:10px}
+        ::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary),var(--secondary)); border-radius:10px; border:2px solid #f1f1f1}
+
+        /* ----------  PRELOADER  ---------- */
+        #preloader{position:fixed; inset:0; background:#fff; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition:opacity .5s, visibility .5s}
+        .loader{width:70px; height:70px; border:5px solid #f3f3f3; border-top:5px solid var(--primary); border-radius:50%; animation:spin 1s linear infinite; margin-bottom:20px}
+        .loader-text{font-family:'Orbitron',sans-serif; font-weight:700; font-size:1.2rem; color:var(--industrial-blue); letter-spacing:2px}
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+        /* ----------  HEADER STRIP  ---------- */
+        .industrial-strip{background:linear-gradient(90deg,var(--industrial-blue),var(--secondary)); color:#fff; padding:8px 0; font-size:.9rem; border-bottom:2px solid var(--accent)}
+        .industrial-strip .container{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px}
+        .strip-item{display:flex; align-items:center; gap:8px}
+        .strip-item i{color:var(--accent)}
+
+        /* ----------  NAVBAR  ---------- */
+        .navbar{padding:15px 0; background:rgba(255,255,255,.97); backdrop-filter:blur(10px); box-shadow:0 2px 15px rgba(0,0,0,.1); transition:all .4s; border-bottom:1px solid #e9ecef}
+        .navbar-brand{font-weight:800; font-size:1.8rem; background:linear-gradient(45deg,var(--primary),var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:flex; align-items:center; gap:10px}
+        /* .navbar-brand::before{content:"⚙️"; font-size:1.5rem} */
+        .logo_image{
+        width: 50px;
+        height: 50px;
+        }
+        .nav-link{font-weight:500; margin:0 10px; position:relative; color:var(--dark)!important; transition:all .3s}
+        .nav-link::after{content:''; position:absolute; width:0; height:3px; bottom:0; left:0; background:var(--primary); transition:width .3s; border-radius:10px}
+        .nav-link:hover{color:var(--primary)!important}
+        .nav-link:hover::after{width:100%}
+        .nav-scrolled{padding:10px 0; background:rgba(255,255,255,.98); box-shadow:0 5px 20px rgba(0,0,0,.1)}
+        @media screen and (max-width:426px) {
+        .Nav_Industry_Name{
+          display: none;
+        }
+        .logo_image{
+        width: 80px;
+        height: 80px;
+        }
+        }
+
+        /* ----------  HERO  ---------- */
+        .features-hero{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2070&q=80) center/cover no-repeat; padding:150px 0 80px; color:#fff; position:relative; overflow:hidden}
+        .features-hero-overlay{position:absolute; inset:0; background:linear-gradient(45deg,rgba(13,110,253,.3),rgba(0,51,102,.3)); z-index:1}
+        .features-hero-content{position:relative; z-index:2; text-align:center}
+        .features-hero h1{font-weight:800; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,.3); font-size:3.5rem; font-family:'Orbitron',sans-serif; letter-spacing:1px}
+        .features-hero-subtitle{font-size:1.5rem; color:var(--accent); font-weight:600; margin-bottom:10px}
+        .features-hero p{font-size:1.3rem; margin-bottom:30px; max-width:700px; margin-inline:auto; opacity:.9}
+        .breadcrumb{background:rgba(255,255,255,.1); backdrop-filter:blur(10px); border-radius:50px; padding:10px 25px; display:inline-block; margin-bottom:30px}
+        .breadcrumb-item a{color:#fff; text-decoration:none}
+        .breadcrumb-item.active{color:var(--accent)}
+
+        /* ----------  SECTION HEADERS  ---------- */
+        .section-header{position:relative; margin-bottom:60px; text-align:center}
+        .section-header h2{font-weight:800; position:relative; display:inline-block; margin-bottom:15px; font-size:2.5rem; font-family:'Orbitron',sans-serif}
+        .section-header h2::after{content:''; position:absolute; width:80px; height:4px; background:linear-gradient(to right,var(--primary),var(--accent)); bottom:-15px; left:50%; transform:translateX(-50%); border-radius:10px}
+        .section-subtitle{font-size:1.2rem; color:var(--gray); max-width:700px; margin-inline:auto}
+
+        /* ----------  FEATURE CARDS  ---------- */
+        .features-overview{padding:100px 0; background:#f8f9fa}
+        .feature-overview-card{background:#fff; border-radius:20px; padding:40px 30px; transition:all .4s; text-align:center; height:100%; box-shadow:0 10px 20px rgba(0,0,0,.05); border-top:5px solid transparent; position:relative; overflow:hidden; z-index:1}
+        .feature-overview-card::before{content:''; position:absolute; top:0; left:0; width:100%; height:5px; background:linear-gradient(to right,var(--primary),var(--accent)); transform:scaleX(0); transition:transform .4s}
+        .feature-overview-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,.1)}
+        .feature-overview-card:hover::before{transform:scaleX(1)}
+        .feature-overview-icon{width:90px; height:90px; background:linear-gradient(45deg,var(--primary),var(--secondary)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 25px; color:#fff; font-size:35px; transition:all .3s; box-shadow:0 5px 15px rgba(13,110,253,.3)}
+        .feature-overview-card:hover .feature-overview-icon{transform:rotateY(180deg) scale(1.1)}
+        .feature-overview-card h5{font-weight:700; margin-bottom:15px; font-size:1.3rem; color:var(--industrial-blue)}
+        .feature-overview-card p{color:var(--gray); line-height:1.6}
+
+        /* ----------  DETAIL CARDS  ---------- */
+        .detailed-features{padding:100px 0; background:#fff}
+        .feature-detail-card{background:#fff; border-radius:20px; padding:40px; transition:all .4s; height:100%; box-shadow:0 10px 20px rgba(0,0,0,.05); border-left:5px solid var(--primary); position:relative; overflow:hidden}
+        .feature-detail-card:hover{transform:translateY(-10px); box-shadow:0 20px 40px rgba(0,0,0,.1)}
+        .feature-detail-icon{width:70px; height:70px; background:linear-gradient(45deg,var(--primary),var(--secondary)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:25px; color:#fff; font-size:28px; box-shadow:0 5px 15px rgba(13,110,253,.3)}
+        .feature-detail-card h5{font-weight:700; margin-bottom:15px; font-size:1.4rem; color:var(--industrial-blue)}
+        .feature-detail-card p{color:var(--gray); line-height:1.7; margin-bottom:20px}
+        .feature-benefits{list-style:none; padding:0; margin-bottom:25px}
+        .feature-benefits li{padding:8px 0; position:relative; padding-left:30px; color:var(--gray)}
+        .feature-benefits li::before{content:'✓'; position:absolute; left:0; color:var(--primary); font-weight:bold; font-size:1.2rem}
+        .feature-stats{display:flex; justify-content:space-between; margin-top:25px; padding-top:20px; border-top:1px solid #eee}
+        .stat-item{text-align:center}
+        .stat-value{font-weight:800; font-size:1.8rem; color:var(--primary); font-family:'Orbitron',sans-serif; display:block}
+        .stat-label{font-size:.9rem; color:var(--gray)}
+
+        /* ----------  TECH / COMPARISON / CTA  ---------- */
+        .technology-section{padding:100px 0; background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%); position:relative}
+        .technology-section::before{content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24-5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24-5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24-5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24-5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230d6efd' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"); opacity:.5; z-index:0}
+        .tech-feature{text-align:center; padding:30px}
+        .tech-icon{width:80px; height:80px; background:linear-gradient(45deg,var(--primary),var(--secondary)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; color:#fff; font-size:30px; box-shadow:0 5px 15px rgba(13,110,253,.3)}
+        .tech-feature h5{font-weight:700; margin-bottom:15px; font-size:1.2rem; color:var(--industrial-blue)}
+        .tech-feature p{color:var(--gray); line-height:1.6}
+
+        .comparison-section{padding:100px 0; background:#fff}
+        .comparison-table{width:100%; border-collapse:collapse; border-radius:15px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,.05)}
+        .comparison-table th{background:var(--industrial-blue); color:#fff; padding:20px; text-align:center; font-weight:600}
+        .comparison-table td{padding:20px; border-bottom:1px solid #eee; text-align:center}
+        .comparison-table tr:nth-child(even){background:#f8f9fa}
+        .comparison-table .feature-name{text-align:left; font-weight:600; color:var(--industrial-blue)}
+        .check-mark{color:var(--primary); font-size:1.2rem}
+        .cross-mark{color:var(--accent); font-size:1.2rem}
+
+        .cta-section{padding:100px 0; background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%); color:#fff; text-align:center; position:relative; overflow:hidden}
+        .cta-section::before{content:''; position:absolute; inset:0; background:url(https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2070&q=80) center/cover no-repeat; opacity:.1}
+        .cta-content{position:relative; z-index:2}
+        .cta-section h2{font-weight:800; font-size:2.8rem; margin-bottom:20px; font-family:'Orbitron',sans-serif}
+        .cta-section p{font-size:1.3rem; margin-bottom:30px; max-width:700px; margin-inline:auto; opacity:.9}
+        .btn-cta{background:#fff; color:var(--primary); border:none; padding:15px 40px; border-radius:50px; font-weight:700; font-size:1.1rem; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2); position:relative; overflow:hidden}
+        .btn-cta::before{content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(13,110,253,.2),transparent); transition:.5s}
+        .btn-cta:hover::before{left:100%}
+        .btn-cta:hover{transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,.3); background:var(--light)}
+
+        /* ----------  FOOTER  ---------- */
+        footer{background:#111; color:#fff; padding:70px 0 20px; position:relative}
+        footer::before{content:''; position:absolute; top:0; left:0; width:100%; height:5px; background:linear-gradient(to right,var(--primary),var(--accent))}
+        .footer-logo{font-weight:800; font-size:2rem; margin-bottom:20px; display:inline-block; background:linear-gradient(45deg,var(--primary),var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-family:'Orbitron',sans-serif}
+        .footer-heading{font-weight:700; margin-bottom:25px; position:relative; padding-bottom:10px; font-size:1.2rem}
+        .footer-heading::after{content:''; position:absolute; width:40px; height:3px; background:var(--primary); bottom:0; left:0; border-radius:10px}
+        .footer-links a{color:#aaa; text-decoration:none; display:block; margin-bottom:12px; transition:all .3s; font-size:1rem}
+        .footer-links a:hover{color:#fff; padding-left:8px}
+        .social-icons a{display:inline-flex; align-items:center; justify-content:center; width:45px; height:45px; background:rgba(255,255,255,.1); border-radius:50%; margin-right:12px; color:#fff; transition:all .3s; font-size:18px}
+        .social-icons a:hover{background:var(--primary); transform:translateY(-5px)}
+        .copyright{border-top:1px solid rgba(255,255,255,.1); padding-top:25px; margin-top:50px; text-align:center; color:#aaa; font-size:.95rem}
+
+        /* ----------  FLOATING BUTTONS  ---------- */
+        .floating-wp, .floating-call{position:fixed; right:25px; width:60px; height:60px; border-radius:50%; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; z-index:2000; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2); animation:pulse 2s infinite;text-decoration: none;}
+        .floating-wp{bottom:100px; background:#25d366}
+        .floating-call{bottom:25px; background:var(--primary)}
+        .floating-wp:hover, .floating-call:hover{transform:scale(1.1)}
+        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}70%{box-shadow:0 0 0 12px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+        /* ----------  BACK TO TOP  ---------- */
+        .back-to-top{position:fixed; bottom:30px; right:30px; width:50px; height:50px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; z-index:1000; cursor:pointer; opacity:0; visibility:hidden; transition:all .3s; box-shadow:0 5px 15px rgba(0,0,0,.2)}
+        .back-to-top.active{opacity:0; visibility:visible}
+        .back-to-top:hover{background:var(--secondary); transform:translateY(-3px)}
+
+        /* ----------  RESPONSIVE  ---------- */
+        @media(max-width:992px){
+            .features-hero h1{font-size:2.8rem}
+            .section-header h2{font-size:2.2rem}
+            .cta-section h2{font-size:2.3rem}
+        }
+        @media(max-width:768px){
+            .features-hero h1{font-size:2.3rem}
+            .features-hero p{font-size:1.1rem}
+            .section-header h2{font-size:2rem}
+            .feature-overview-card, .feature-detail-card{margin-bottom:30px}
+            .cta-section h2{font-size:2rem}
+            .cta-section p{font-size:1.1rem}
+            .floating-wp, .floating-call{width:50px; height:50px; font-size:20px; right:15px}
+            .floating-wp{bottom:80px}
+            .comparison-table{display:block; overflow-x:auto}
+        }
+        @media(max-width:576px){
+            .features-hero h1{font-size:2rem}
+            .section-header h2{font-size:1.8rem}
+            .cta-section h2{font-size:1.8rem}
+            .breadcrumb{padding:8px 15px; font-size:.9rem}
+            .feature-detail-card{padding:25px}
+        }
+    </style>
+</head>
+<body>
+    <!-- Industrial Background -->
+    <div class="industrial-bg"></div>
+
+    <!-- Preloader -->
+ <div id="preloader">
+    <div class="loader"></div>
+
+    <div class="loader-text">
+        <img src="img/DIlogo.png" class="loader-logo" alt="Logo">
+        Dinesh Industries
+    </div>
+</div>
+<style>
+.loader-logo {
+    width: 45px;      /* adjust size */
+    height: auto;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+
+    /* simple animation */
+    animation: logoZoom 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoZoom {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+</style>
+
+    <!-- Industrial Strip -->
+    <div class="industrial-strip">
+        <div class="container">
+            <div class="strip-item"><i class="fas fa-phone"></i><span>+91 98765 43210</span></div>
+            <div class="strip-item"><i class="fas fa-envelope"></i><span>info@dineshindustries.com</span></div>
+            <div class="strip-item"><i class="fas fa-map-marker-alt"></i><span>Industrial Area, Sector 25, Delhi, India</span></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img class="logo_image" src="./img/DIlogo.png" alt="">
+          <span class="Nav_Industry_Name">Dinesh Industries</span> </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="feturesh.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="features-hero">
+        <div class="features-hero-overlay"></div>
+        <div class="container features-hero-content">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Features</li>
+                </ol>
+            </nav>
+            <h1 class="display-4 fw-bold mb-3" data-aos="fade-down">ADVANCED MACHINERY FEATURES</h1>
+            <div class="features-hero-subtitle" data-aos="fade-up" data-aos-delay="200">ENGINEERED FOR EXCELLENCE</div>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="400">Discover the cutting-edge technologies and superior engineering that make our industrial machinery stand out in performance, reliability, and efficiency.</p>
+        </div>
+    </section>
+
+    <!-- Features Overview (based on real machines) -->
+    <section class="features-overview">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>KEY FEATURES OVERVIEW</h2>
+                <p class="section-subtitle">Our machinery incorporates the latest technologies and engineering innovations to deliver unmatched performance.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-hammer"></i></div>
+                        <h5>WPS Temper Build</h5>
+                        <p>Every Bhingri, Roll, and Cutter is hardened with WPS tempering for 3× longer life under heavy-duty 24/7 forming cycles.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                        <h5>Micro-Precision Sizes</h5>
+                        <p>CNC-final grinding guarantees ±0.01 mm tolerance on every 90 mm bearing, 100/35 mm roll, or 14″/17″ buffer.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h5>Operator-Safe Design</h5>
+                        <p>Rounded edges, balanced weights, and built-in safety clearances on Pawali Bhavra & Bhingri reduce workplace injuries.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                        <h5>Zero-Regrind Geometry</h5>
+                        <p>Optimized 15° & 30° cutting angles on Balti Farma Cutters give clean cuts for 5× more cycles before re-sharpening.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h5>Quick-Change System</h5>
+                        <p>Single-person, tool-free roll & bearing swap on Khumcha and Top Rolling lines—cuts downtime by 40 %.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-overview-card">
+                        <div class="feature-overview-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h5>Green Manufacturing</h5>
+                        <p>All CI and MS parts are 100 % recyclable; WPS temper baths are closed-loop—zero liquid discharge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features (machine-specific) -->
+    <section class="detailed-features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>DETAILED FEATURES</h2>
+                <p class="section-subtitle">Explore the comprehensive features that make our machinery the preferred choice for industrial applications.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon"><i class="fa-solid fa-fire"></i></div>
+                        <h5>WPS Temper Hardness</h5>
+                        <p>Every Balti Punching Bhingri, Khumcha Rolling Roll, and Farma Cutter undergoes controlled WPS tempering to achieve 58–62 HRC, giving 3× longer service life versus standard annealed parts.</p>
+                        <ul class="feature-benefits">
+                            <li>Uniform hardness depth ≥ 4 mm</li>
+                            <li>No distortion after secondary machining</li>
+                            <li>Resists micro-cracking under impact</li>
+                            <li>Compatible with high-speed 1 200 RPM spindles</li>
+                            <li>Re-grindable up to 3 cycles</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item"><span class="stat-value">62</span><span class="stat-label">HRC Max</span></div>
+                            <div class="stat-item"><span class="stat-value">3×</span><span class="stat-label">Life vs Annealed</span></div>
+                            <div class="stat-item"><span class="stat-value">1200</span><span class="stat-label">RPM Rated</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                        <h5>Micro-Precision Geometry</h5>
+                        <p>CNC finish-grinding guarantees ±0.01 mm on 90 mm bearings, 100/35 mm rolls, and 14″/17″ buffers—eliminating wobble and ensuring perfect concentricity for mirror-smooth finishes.</p>
+                        <ul class="feature-benefits">
+                            <li>Roundness within 5 µm</li>
+                            <li>Surface finish Ra ≤ 0.4 µm</li>
+                            <li>Interchangeable without re-shimming</li>
+                            <li>Balanced to G 2.5 grade</li>
+                            <li>No run-out at 1 800 RPM</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item"><span class="stat-value">±0.01</span><span class="stat-label">mm Tolerance</span></div>
+                            <div class="stat-item"><span class="stat-value">0.4</span><span class="stat-label">µm Ra</span></div>
+                            <div class="stat-item"><span class="stat-value">G 2.5</span><span class="stat-label">Balance</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h5>Operator-Safe Design</h5>
+                        <p>Rounded edges, balanced weights, and built-in safety clearances on Pawali Bhavra & Bhingri reduce workplace injuries; all rotating parts are fully guarded.</p>
+                        <ul class="feature-benefits">
+                            <li>No sharp edges – 2 mm chamfers minimum</li>
+                            <li>Light-curtain compatible geometry</li>
+                            <li>Anti-slip grip flats on manual models</li>
+                            <li>Color-coded size markers</li>
+                            <li>Complies with OSHA 1910.212</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Sharp Edges</span></div>
+                            <div class="stat-item"><span class="stat-value">100 %</span><span class="stat-label">OSHA Compliant</span></div>
+                            <div class="stat-item"><span class="stat-value">2 mm</span><span class="stat-label">Min Chamfer</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon"><i class="fa-solid fa-recycle"></i></div>
+                        <h5>Zero-Regrind Cutting Edge</h5>
+                        <p>Optimized 15° & 30° angles on Balti Farma Cutters give clean cuts for 5× more cycles before re-sharpening, saving downtime and grinding cost.</p>
+                        <ul class="feature-benefits">
+                            <li>Chip-breaker groove for swarf control</li>
+                            <li>Sub-micro carbide distribution</li>
+                            <li>Coated optional (TiN/TiAlN)</li>
+                            <li>Consistent burr-free edge</li>
+                            <li>Re-sharpening allowance ≥ 2 mm</li>
+                        </ul>
+                        <div class="feature-stats">
+                            <div class="stat-item"><span class="stat-value">5×</span><span class="stat-label">Cycles vs HSS</span></div>
+                            <div class="stat-item"><span class="stat-value">2 mm</span><span class="stat-label">Re-grind Allowance</span></div>
+                            <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Burr (New)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Icons -->
+    <section class="technology-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>ADVANCED TECHNOLOGIES</h2>
+                <p class="section-subtitle">Incorporating cutting-edge technologies for superior performance and reliability.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-feature">
+                        <div class="tech-icon"><i class="fa-solid fa-temperature-high"></i></div>
+                        <h5>WPS Temper Control</h5>
+                        <p>Closed-loop furnace with ±2 °C accuracy ensures uniform hardness across every batch of rolls & cutters.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-feature">
+                        <div class="tech-icon"><i class="fa-solid fa-computer"></i></div>
+                        <h5>CNC Finish Grinding</h5>
+                        <p>5-axis CNC grinders hold micron-level tolerances on bearing races and roll profiles for vibration-free runs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-feature">
+                        <div class="tech-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+                        <h5>Dynamic Balancing</h5>
+                        <p>Computer-controlled balancers correct unbalance to G 2.5 grade – eliminating spindle wear and noise.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tech-feature">
+                        <div class="tech-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h5>Green Temper Bath</h5>
+                        <p>Closed-loop quench system recycles 100 % of salt – zero liquid discharge, RoHS & REACH compliant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>FEATURE COMPARISON</h2>
+                <p class="section-subtitle">See how our machinery compares to conventional industrial equipment.</p>
+            </div>
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="table-responsive">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Dinesh Industries</th>
+                                    <th>Conventional Machinery</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="feature-name">Hardness (HRC)</td><td><i class="fas fa-check check-mark"></i> 58–62 (WPS Temper)</td><td><i class="fas fa-times cross-mark"></i> 45–50 (Standard)</td></tr>
+                                <tr><td class="feature-name">Tolerance on Ø90 Bearing</td><td><i class="fas fa-check check-mark"></i> ±0.01 mm</td><td><i class="fas fa-times cross-mark"></i> ±0.05 mm</td></tr>
+                                <tr><td class="feature-name">Re-grind Cycles (Bhingri)</td><td><i class="fas fa-check check-mark"></i> 5× more</td><td><i class="fas fa-times cross-mark"></i> 1× (base)</td></tr>
+                                <tr><td class="feature-name">Safety Edges</td><td><i class="fas fa-check check-mark"></i> 2 mm chamfer, OSHA</td><td><i class="fas fa-times cross-mark"></i> Sharp/un-chamfered</td></tr>
+                                <tr><td class="feature-name">Balance Grade</td><td><i class="fas fa-check check-mark"></i> G 2.5</td><td><i class="fas fa-times cross-mark"></i> G 6.3</td></tr>
+                                <tr><td class="feature-name">Warranty on Temper Parts</td><td><i class="fas fa-check check-mark"></i> 3 Years</td><td><i class="fas fa-times cross-mark"></i> 1 Year</td></tr>
+                                <tr><td class="feature-name">Environmental</td><td><i class="fas fa-check check-mark"></i> 100 % recyclable, zero discharge</td><td><i class="fas fa-times cross-mark"></i> Standard disposal</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>READY TO EXPERIENCE OUR ADVANCED FEATURES?</h2>
+                <p>Contact us today to learn how our machinery can transform your production capabilities and drive your business forward.</p>
+                <a href="index.html#contact" class="btn btn-cta btn-lg">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <h4 class="footer-logo">Dinesh Industries</h4>
+                    <p>Reliable · Innovative · Industrial Solutions</p>
+                    <p>High-quality industrial machinery with exceptional service and support to help businesses maximize productivity and efficiency.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <h6 class="footer-heading">Quick Links</h6>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a><a href="product.html">Products</a><a href="feturesh.html">Features</a><a href="industries.html">Industries</a><a href="services.html">Services</a><a href="aboutus.html">About Us</a><a href="index.html#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <h6 class="footer-heading">Support</h6>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a><a href="#">Warranty</a><a href="#">Service & Maintenance</a><a href="#">Technical Support</a><a href="#">Spare Parts</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4"  data-aos="fade-up" data-aos-delay="300" >
+            <h6 class="footer-heading">Contact</h6>
+            <div class="footer-links">
+              <!-- Phone -->
+              <p>
+                <a href="tel:+919879311650" style="text-decoration: none; color: inherit">
+                  <i class="fa-solid fa-phone me-2"></i>
+                  +91 98793 11650
+                </a>
+              </p>
+
+              <!-- Email -->
+              <p>
+                <a
+                href="mailto:shreedineshindustries@gmail.com"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-envelope me-2"></i>
+                  shreedineshindustries@gmail.com
+                </a>
+              </p>
+
+              <!-- Location -->
+              <p>
+                <a
+                href="https://www.google.com/maps/search/?api=1&query=1,+Gayatri+Estate,+Nr.+Aapa+Hotel,+Ambica+Nagar,+Odhav,+Ahmedabad-382415"
+                target="_blank"
+                style="text-decoration: none; color: inherit"
+                >
+                <i class="fa-solid fa-location-dot me-2"></i>
+                  1, Gayatri Estate, Nr. Aapa Hotel, Ambica Nagar, Odhav,
+                  Ahmedabad-382415.
+                </a>
+              </p>
+
+              <p><i class="fa-solid fa-clock me-2"></i> Mon-Sat: 9AM-6PM</p>
+            </div>
+          </div>
+            </div>
+            <div class="copyright">
+                <p class="mb-0">© 2025 Dinesh Industries. All Rights Reserved. | ISO 9001:2015 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating buttons -->
+    <a href="https://wa.me/919876543210" class="floating-wp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="tel:+919876543210" class="floating-call"><i class="fa-solid fa-phone"></i></a>
+
+    <!-- Back to top -->
+    <div class="back-to-top"><i class="fas fa-chevron-up"></i></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({duration:1000, once:true, offset:100});
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').style.opacity='0';
+                setTimeout(() => document.getElementById('preloader').style.visibility='hidden', 500);
+            }, 1500);
+        });
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('nav-scrolled', window.scrollY > 50);
+            document.querySelector('.back-to-top').classList.toggle('active', window.scrollY > 300);
+        });
+        document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) window.scrollTo({top: target.offsetTop - 80, behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>
