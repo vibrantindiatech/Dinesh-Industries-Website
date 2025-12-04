@@ -1748,7 +1748,7 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <script>
+   <script>
       /* ----------  AOS  ---------- */
       AOS.init({ duration: 1000, once: true, offset: 100 });
 
@@ -1814,10 +1814,8 @@
       });
 
       /* ----------  EMAILJS CONFIGURATION  ---------- */
-      // Initialize EmailJS with your public key
       (function () {
         emailjs.init("KghlO8K9Bz_nwqQ_G");
-        console.log("EmailJS initialized");
       })();
 
       /* ----------  PRODUCT DATA FROM DOC  ---------- */
@@ -1825,8 +1823,8 @@
         {
           id: 1,
           title: "C.I. TAPPER BUFFER",
-          price: 24500,
-          originalPrice: 28500,
+          price: 4000,
+          originalPrice: 5000,
           badge: "New",
           description:
             "High-strength cast iron buffer engineered for long life and smooth industrial operation.",
@@ -1866,8 +1864,8 @@
         {
           id: 2,
           title: "PAWALI BHAVRA",
-          price: 18750,
-          originalPrice: 22000,
+          price: 4000,
+          originalPrice: 5000,
           badge: "Popular",
           description:
             "Precision machined bhavra engineered for accurate pawali mouth bidding.",
@@ -1907,8 +1905,8 @@
         {
           id: 3,
           title: "BALTI PUNCHING BHINGRI",
-          price: 32000,
-          originalPrice: 35000,
+          price: 4000,
+          originalPrice: 5000,
           badge: "Best Seller",
           description:
             "Heavy-duty punching bhingri for sharp, accurate balti taliya punching.",
@@ -1948,8 +1946,8 @@
         {
           id: 4,
           title: "BALTI BIDDING BEARING",
-          price: 28000,
-          originalPrice: 31000,
+          price: 4000,
+          originalPrice: 5000,
           badge: "Hot",
           description:
             "High-precision bearing engineered for smooth balti mouth bidding.",
@@ -1989,8 +1987,8 @@
         {
           id: 5,
           title: "KHUMCHA ROLLING ROLL",
-          price: 35000,
-          originalPrice: 38000,
+          price: 4000,
+          originalPrice: 5000,
           badge: "New",
           description:
             "High-precision rolling roll for khumcha straightening and forming.",
@@ -2030,8 +2028,8 @@
         {
           id: 6,
           title: "BALTI FARMA CUTTER",
-          price: 42000,
-          originalPrice: 45000,
+          price: 4000,
+          originalPrice: 5000,
           badge: "Best Seller",
           description:
             "High-precision hardened temper cutter for angle-based balti farma cutting.",
@@ -2088,6 +2086,9 @@
                         <div class="card-body">
                             <h5 class="card-title">${p.title}</h5>
                             <p class="card-text">${p.description}</p>
+                            <p class="text-primary fw-bold">Up to ₹${p.price.toLocaleString(
+                              "en-IN"
+                            )}</p>
                             <button class="product-btn" data-id="${
                               p.id
                             }">View Details</button>
@@ -2107,7 +2108,7 @@
           );
       }
 
-      /* ---------- PRODUCT DETAIL PANEL + REVIEW CAROUSEL ---------- */
+      /* ---------- PRODUCT DETAIL PANEL ---------- */
       function showProductDetail(id) {
         const p = products.find((x) => x.id === id);
         const offcanvas = new bootstrap.Offcanvas(
@@ -2126,11 +2127,10 @@
                           )
                           .join("")}
                     </div>
-
                 </div>
 
                 <h5 class="text-primary mb-2">
-                    ₹${p.price.toLocaleString("en-IN")}
+                    Up to ₹${p.price.toLocaleString("en-IN")}
                     <del class="text-muted">₹${p.originalPrice.toLocaleString(
                       "en-IN"
                     )}</del>
@@ -2177,7 +2177,6 @@
                           )
                           .join("")}
                     </div>
-                  
                 </div>
 
                 <div class="d-grid gap-2 mt-4">
@@ -2192,10 +2191,6 @@
         new Swiper(".swiper-detail", {
           loop: true,
           pagination: { el: ".swiper-pagination", clickable: true },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
         });
 
         new Swiper(".review-swiper", {
@@ -2203,11 +2198,6 @@
           autoplay: { delay: 2500, disableOnInteraction: false },
           slidesPerView: 1,
           spaceBetween: 10,
-          pagination: { el: ".swiper-pagination", clickable: true },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
         });
       }
 
@@ -2216,20 +2206,17 @@
         const p = products.find((x) => x.id === productId);
         if (!p) return;
 
-        // Set product info in modal
         document.getElementById("quoteProductName").textContent = p.title;
         document.getElementById(
           "quoteProductPrice"
-        ).textContent = `Price: ₹${p.price.toLocaleString("en-IN")}`;
+        ).textContent = `Up to ₹${p.price.toLocaleString("en-IN")}`;
         document.getElementById("quoteProductId").value = p.id;
 
-        // Close product detail offcanvas
         const offcanvas = bootstrap.Offcanvas.getInstance(
           document.getElementById("productCanvas")
         );
         if (offcanvas) offcanvas.hide();
 
-        // Show quote modal
         const quoteModal = new bootstrap.Modal(
           document.getElementById("quoteModal")
         );
@@ -2237,18 +2224,15 @@
       }
 
       /* ----------  EMAIL FUNCTIONALITY  ---------- */
-      // Handle form submission
       document
         .getElementById("quoteForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
-          // Get form data
           const formData = new FormData(this);
           const productId = formData.get("productId");
           const product = products.find((p) => p.id == productId);
 
-          // Show loading state
           const submitBtn = document.getElementById("submitQuoteBtn");
           const submitText = document.getElementById("submitText");
           const submitSpinner = document.getElementById("submitSpinner");
@@ -2259,12 +2243,11 @@
           submitBtn.disabled = true;
           formAlert.classList.add("d-none");
 
-          // Prepare email parameters - MATCHING YOUR TEMPLATE VARIABLES
           const templateParams = {
             customer_name: formData.get("name"),
             product_id: productId,
             product_name: product.title,
-            product_price: `₹${product.price.toLocaleString("en-IN")}`,
+            product_price: `Up to ₹${product.price.toLocaleString("en-IN")}`,
             customer_company: formData.get("company"),
             customer_email: formData.get("email"),
             customer_phone: formData.get("phone"),
@@ -2285,62 +2268,33 @@
             }),
           };
 
-          console.log("Sending email with params:", templateParams);
-
-          // Send email using EmailJS
           emailjs
             .send("sservice_reyptje", "template_m2cqggq", templateParams)
             .then(
-              function (response) {
-                console.log("SUCCESS!", response.status, response.text);
-
-                // Show success message
+              function () {
                 formAlert.textContent =
-                  "Thank you for your quote request! We have received your information and will contact you shortly.";
+                  "Thank you! Your quote request has been received.";
                 formAlert.className = "alert alert-success mt-3";
                 formAlert.classList.remove("d-none");
 
-                // Reset form
                 document.getElementById("quoteForm").reset();
 
-                // Close modal after 3 seconds
                 setTimeout(() => {
                   const quoteModal = bootstrap.Modal.getInstance(
                     document.getElementById("quoteModal")
                   );
-                  if (quoteModal) {
-                    quoteModal.hide();
-                  }
+                  if (quoteModal) quoteModal.hide();
                   formAlert.classList.add("d-none");
                 }, 3000);
               },
-              function (error) {
-                console.log("FAILED...", error);
-
-                // Show detailed error message
-                let errorMessage =
-                  "Sorry, there was an error sending your request. ";
-
-                if (error.status === 400) {
-                  errorMessage +=
-                    "Please check if all required fields are filled correctly.";
-                } else if (error.status === 401) {
-                  errorMessage +=
-                    "Authentication failed. Please contact support.";
-                } else if (error.status === 404) {
-                  errorMessage +=
-                    "Service not found. Please check your EmailJS configuration.";
-                } else {
-                  errorMessage += "Please try again or contact us directly.";
-                }
-
-                formAlert.textContent = errorMessage;
+              function () {
+                formAlert.textContent =
+                  "Error sending request. Please try again.";
                 formAlert.className = "alert alert-danger mt-3";
                 formAlert.classList.remove("d-none");
               }
             )
             .finally(() => {
-              // Reset button state
               submitText.textContent = "Submit Quote Request";
               submitSpinner.classList.add("d-none");
               submitBtn.disabled = false;
@@ -2349,6 +2303,7 @@
 
       /* ----------  INIT  ---------- */
       loadProducts();
-    </script>
+</script>
+
   </body>
 </html>
